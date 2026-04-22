@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Apri sito in Simple Browser (localhost:3000/it)",
+      "type": "shell",
+      "command": "echo '${input:openSimpleBrowserNote}' > /dev/null",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never",
+        "echo": false,
+        "focus": false,
+        "panel": "shared",
+        "close": true,
+        "showReuseMessage": false
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "openSimpleBrowserNote",
+      "type": "command",
+      "command": "simpleBrowser.show",
+      "args": ["http://localhost:3000/it"]
+    }
+  ]
+}
