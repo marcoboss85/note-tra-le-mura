@@ -30,5 +30,9 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  // Includere esplicitamente `/` così il redirect locale copre anche la root in tutti i hosting.
+  matcher: [
+    "/",
+    "/((?!_next/static|_next/image|favicon.ico).*)",
+  ],
 };
