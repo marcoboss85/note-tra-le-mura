@@ -25,7 +25,8 @@ import { getPublicLegalDisplay } from "@/config/public-legal";
 import { PageTopBar } from "@/components/PageTopBar";
 import { ServiceAmenityIcon } from "@/components/ServiceAmenityIcon";
 import { PropertyMapMini } from "@/components/PropertyMapMini";
-import { buildOpenGraphAndTwitter } from "@/lib/social-metadata";
+import { buildLodgingJsonLd } from "@/lib/lodging-jsonld";
+import { buildOpenGraphAndTwitter, getMetadataBaseUrl } from "@/lib/social-metadata";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -103,8 +104,19 @@ export default async function Home({ params }: PageProps) {
     }
   }
 
+  const siteBase = getMetadataBaseUrl().origin;
+  const lodgingJsonLd = buildLodgingJsonLd({
+    name: dict.hero.brand,
+    description: dict.meta.description,
+    pageUrl: `${siteBase}/${locale}`,
+  });
+
   return (
     <div className="relative min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(lodgingJsonLd) }}
+      />
       <section
         id="benvenuto"
         className="relative grid min-h-screen grid-cols-1 grid-rows-[auto_1fr] overflow-hidden px-3 sm:px-6 md:px-12"

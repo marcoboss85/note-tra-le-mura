@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   metadataBase: getMetadataBaseUrl(),
   title: "Note tra le Mura | Family apartment in Lucca old town",
   description:
-    "Holiday apartment in historic Lucca inside the walls (Via Pelleria 14). Note tra le Mura.",
+    "Up to 6 guests in historic Lucca inside the walls, Via Pelleria 14. Note tra le Mura.",
 };
 
 export const viewport: Viewport = {

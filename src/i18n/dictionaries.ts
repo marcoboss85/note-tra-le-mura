@@ -193,9 +193,9 @@ const brand = "Note tra le Mura";
 export const dictionaries: Record<Locale, Messages> = {
   it: {
     meta: {
-      title: `${brand} | Appartamento famiglia (4–5 ospiti), centro Lucca`,
+      title: `${brand} | Appartamento famiglia (fino a 6 ospiti), centro Lucca`,
       description:
-        "Appartamento per famiglie e piccoli gruppi (4–5 ospiti) nel centro storico di Lucca, dentro le mura, Via Pelleria 14. Relax senza auto in città: tutto a piedi. Gallery, calendario indicativo, contatto WhatsApp o email.",
+        "Appartamento fino a 6 ospiti nel centro storico di Lucca, dentro le mura, Via Pelleria 14. Ideale senza auto: tutto a piedi. WhatsApp o email per disponibilità.",
     },
     hero: {
       imageAlt: "Lucca, torri e tetti del centro storico",
@@ -204,7 +204,7 @@ export const dictionaries: Record<Locale, Messages> = {
       location:
         "Nel centro storico di Lucca, dentro le mura rinascimentali.",
       subtitle:
-        "Un rifugio elegante tra le mura rinascimentali, per famiglie e piccoli gruppi (da 4 a 5 ospiti). Il centro storico si vive a piedi, senza stress in auto, tra natura e ambienti curati.",
+        "Un rifugio elegante tra le mura rinascimentali, per famiglie e gruppi fino a 6 ospiti. Il centro storico si vive a piedi, senza stress in auto, tra natura e ambienti curati.",
       whatsapp: "Contattaci",
       whatsappAria: "Vai alla sezione Contatti",
       gallery: "Scopri la gallery",
@@ -542,9 +542,9 @@ export const dictionaries: Record<Locale, Messages> = {
   },
   en: {
     meta: {
-      title: `${brand} | Family apartment (4–5 guests), Lucca old town`,
+      title: `${brand} | Family apartment (up to 6 guests), Lucca old town`,
       description:
-        "Holiday apartment in historic Lucca inside the Renaissance walls (Via Pelleria 14). Calm base for families of 4–5: explore car-free—cafés, shops and sights on foot. Gallery, indicative calendar; contact us on WhatsApp or email.",
+        "Holiday apartment for up to 6 guests in historic Lucca, inside the walls at Via Pelleria 14. Walk the old town car-free. WhatsApp or email for availability.",
     },
     hero: {
       imageAlt: "Lucca’s skyline with medieval towers",
@@ -553,7 +553,7 @@ export const dictionaries: Record<Locale, Messages> = {
       location:
         "In Lucca’s historic centre, within the Renaissance city walls.",
       subtitle:
-        "A calm retreat within the Renaissance walls for families and small groups of four or five guests. The historic centre is best on foot, without daily driving stress: nature, thoughtful spaces, and a slow pace.",
+        "A calm retreat within the Renaissance walls for families and groups of up to six guests. The historic centre is best on foot, without daily driving stress: nature, thoughtful spaces, and a slow pace.",
       whatsapp: "Contact us",
       whatsappAria: "Go to the Contact section",
       gallery: "Browse the gallery",
@@ -888,9 +888,9 @@ export const dictionaries: Record<Locale, Messages> = {
   },
   de: {
     meta: {
-      title: `${brand} | Ferienwohnung Familie (4–5 Pers.), Lucca Altstadt`,
+      title: `${brand} | Ferienwohnung Familie (bis 6 Pers.), Lucca Altstadt`,
       description:
-        "Ferienapartment in der Altstadt von Lucca innerhalb der Renaissance-Mauern (Via Pelleria 14). Ruhiger Rückzugsort für Familien mit 4–5 Personen: autofrei im Zentrum—Läden und Sehenswürdigkeiten zu Fuß. Galerie, unverbindlicher Kalender, Kontakt per WhatsApp oder E‑Mail.",
+        "Ferienapartment für bis zu 6 Gäste in der Altstadt von Lucca, innerhalb der Mauern (Via Pelleria 14). Zentrum zu Fuß. WhatsApp oder E-Mail für Verfügbarkeit.",
     },
     hero: {
       imageAlt: "Lucca, Türme und Dächer der Altstadt",
@@ -898,7 +898,7 @@ export const dictionaries: Record<Locale, Messages> = {
       brand,
       location: "In der Altstadt von Lucca, innerhalb der Renaissance-Stadtmauern.",
       subtitle:
-        "Ein ruhiges Refugium hinter der Stadtmauer für Familien und kleine Gruppen (vier bis fünf Personen). Die Altstadt erleben Sie zu Fuss, ohne täglichen Autostress: Natur, durchdachte Räume und ein langsamer Rhythmus.",
+        "Ein ruhiges Refugium hinter der Stadtmauer für Familien und Gruppen bis zu 6 Personen. Die Altstadt erleben Sie zu Fuss, ohne täglichen Autostress: Natur, durchdachte Räume und ein langsamer Rhythmus.",
       whatsapp: "Kontakt",
       whatsappAria: "Zum Bereich Kontakt",
       gallery: "Galerie ansehen",
@@ -1235,9 +1235,9 @@ export const dictionaries: Record<Locale, Messages> = {
   },
   sr: {
     meta: {
-      title: `${brand} | Apartman za porodicu (4–5 osoba), centar Luke`,
+      title: `${brand} | Apartman za porodicu i grupe (do 6 gostiju), centar Luke`,
       description:
-        "Apartman u istorijskom centru Luke, unutar zidina — Via Pelleria 14. Miran smeštaj za porodice (4–5 gostiju): grad bez auta, sve peške. Galerija, indikativni kalendar, kontakt WhatsApp ili e-pošta.",
+        "Apartman za do 6 gostiju u istorijskom centru Luke, unutar zidina — Via Pelleria 14. Miran boravak, centar peške bez auta. WhatsApp ili e-pošta za dostupnost.",
     },
     hero: {
       imageAlt: "Pogled na krovove i kule Luke",
@@ -1246,7 +1246,7 @@ export const dictionaries: Record<Locale, Messages> = {
       location:
         "U istorijskom centru Luke, iza renesansnih gradskih zidina.",
       subtitle:
-        "Miran apartman iza renesansnih zidina za porodice i manje grupe (četiri do pet gostiju). Centar živite peške, bez svakodnevnog stresa oko auta: priroda, pažljivo uređeni prostori i spor ritam starog grada.",
+        "Miran apartman iza renesansnih zidina za porodice i grupe do 6 gostiju. Centar živite peške, bez svakodnevnog stresa oko auta: priroda, pažljivo uređeni prostori i spor ritam starog grada.",
       whatsapp: "Kontakt",
       whatsappAria: "Idi na odeljak Kontakt",
       gallery: "Pogledajte galeriju",
