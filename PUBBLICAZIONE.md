@@ -22,3 +22,14 @@
 4. (Opzionale) `NEXT_PUBLIC_SITE_URL` = URL canonico pubblico (senza slash finale). Su Vercel senza questa variabile l’URL del deploy viene rilevato automaticamente; con dominio proprio impostala qui.
 
 Dettagli e spiegazione: vedi i commenti in cima a `.env.example`.
+
+### Dopo aver comprato il dominio (riprendi da qui)
+
+1. **Registratore di domini** → imposta i nameserver o i record DNS che ti indica **Vercel** (*Project* → *Settings* → *Domains* → aggiungi il dominio e segui la guida).
+2. Attendi che il dominio risulti **Valid** in Vercel (a volte da pochi minuti a qualche ora).
+3. **Environment variables** → imposta `NEXT_PUBLIC_SITE_URL` = `https://tuodominio.it` (o `https://www.…` se è quello che userai come principale; **senza** slash finale, **un solo** URL canonico).
+4. **Redeploy** in Production (le `NEXT_PUBLIC_*` valgono dal build in poi).
+5. Apri il sito sul **nuovo dominio**: home, `/it`, `/en`, … — controlla che non resti il vecchio URL ovunque (anteprime social: opzionale, tool “sharing debugger”).
+6. **Google Search Console**: nuova proprietà sull’URL definitivo → verifica → invia **sitemap** (`/sitemap.xml` sul tuo dominio).
+
+Se riapri il progetto tra molto tempo: clone/pull, leggi ancora questo file e `.env.example`, poi ripeti solo i punti che mancano (di solito 3–6 dopo il dominio).
