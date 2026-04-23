@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { defaultLocale, isLocale } from "@/i18n/config";
 
 function pathnameIsAsset(pathname: string) {
-  return /\.(ico|png|jpe?g|gif|svg|webp|woff2?|ttf|txt|xml|webmanifest)$/i.test(
+  return /\.(ico|png|jpe?g|gif|svg|webp|woff2?|ttf|txt|xml|html|webmanifest)$/i.test(
     pathname,
   );
 }
