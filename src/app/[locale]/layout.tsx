@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CookieConsent } from "@/components/CookieConsent";
 import { LegalCompliance } from "@/components/LegalCompliance";
-import { isLocale, localeToHrefLang, locales, type Locale } from "@/i18n/config";
+import {
+  isLocale,
+  localeAlternateLanguages,
+  locales,
+  type Locale,
+} from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 
 type Props = {
@@ -21,16 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   const locale = raw as Locale;
   const dict = getDictionary(locale);
-  const languages = Object.fromEntries(
-    locales.map((l) => [localeToHrefLang(l), `/${l}`]),
-  ) as Record<string, string>;
-
   return {
     title: dict.meta.title,
     description: dict.meta.description,
     alternates: {
       canonical: `/${locale}`,
-      languages,
+      languages: localeAlternateLanguages(""),
     },
   };
 }

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ambienti } from "@/app/gallery-data";
 import type { RoomSlug } from "@/i18n/dictionaries";
-import { type Locale, isLocale, localeToHrefLang, locales } from "@/i18n/config";
+import { type Locale, isLocale, localeAlternateLanguages } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { buildOpenGraphAndTwitter } from "@/lib/social-metadata";
 import type { Metadata } from "next";
@@ -40,9 +40,7 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical: `/${locale}/gallery/${slug}`,
-      languages: Object.fromEntries(
-        locales.map((l) => [localeToHrefLang(l), `/${l}/gallery/${slug}`]),
-      ),
+      languages: localeAlternateLanguages(`/gallery/${slug}`),
     },
     ...buildOpenGraphAndTwitter({
       path: `/${locale}/gallery/${slug}`,

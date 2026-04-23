@@ -23,6 +23,7 @@ import { getOsmEmbedUrl, getOsmViewUrl } from "@/config/property-map";
 import { getFacebookPageUrl, getInstagramUrl } from "@/config/social";
 import { getPublicLegalDisplay } from "@/config/public-legal";
 import { PageTopBar } from "@/components/PageTopBar";
+import { ServiceAmenityIcon } from "@/components/ServiceAmenityIcon";
 import { PropertyMapMini } from "@/components/PropertyMapMini";
 import { buildOpenGraphAndTwitter } from "@/lib/social-metadata";
 import type { Metadata } from "next";
@@ -137,6 +138,9 @@ export default async function Home({ params }: PageProps) {
           <p className="mt-6 max-w-xl text-base font-semibold leading-relaxed text-[#141008] md:max-w-2xl md:text-lg md:leading-8">
             {dict.hero.subtitle}
           </p>
+          <p className="mt-4 max-w-xl text-[14px] font-medium leading-relaxed text-[#1a1612] md:max-w-2xl md:text-[15px] md:leading-7">
+            {dict.hero.transportNote}
+          </p>
           <div className="mt-10 flex flex-wrap gap-3 md:gap-4">
             <a
               href="#contatti"
@@ -158,15 +162,15 @@ export default async function Home({ params }: PageProps) {
 
       {showComicsHomeBanner ? (
         <div
-          className="border-b border-[#e0d9cf] bg-[#f0ebe3]/90 px-6 py-4 text-center font-[var(--font-ui)] text-[14px] text-[#4a433c] md:py-5 md:text-[15px]"
+          className="border-b border-[#e0d9cf] bg-[#f0ebe3]/90 px-6 py-4 text-center font-[var(--font-ui)] text-[14px] md:py-5 md:text-[15px]"
           role="complementary"
           aria-label={dict.luccaComics.title}
         >
-          <p className="mx-auto max-w-3xl leading-relaxed">
+          <p className="mx-auto max-w-3xl leading-relaxed text-[#0f0c08] [text-shadow:0_0_1px_rgba(255,255,255,1),0_0_4px_rgba(255,255,255,0.95),0_0_10px_rgba(255,255,255,0.85),0_1px_0_rgba(255,255,255,0.95),0_2px_6px_rgba(255,255,255,0.9),0_3px_22px_rgba(255,255,255,0.75),0_4px_40px_rgba(255,255,255,0.55),0_6px_60px_rgba(255,255,255,0.35)]">
             <span>{dict.luccaComics.homeComicsTeaser}</span>{" "}
             <Link
               href={`${base}/lucca-comics`}
-              className="font-medium text-[#243828] underline decoration-[#b8b0a8] underline-offset-2 transition hover:decoration-[#5c544c]"
+              className="font-semibold text-[#243828] underline decoration-[#b8b0a8] underline-offset-2 [text-shadow:0_0_1px_rgba(255,255,255,1),0_0_4px_rgba(255,255,255,0.9),0_2px_8px_rgba(255,255,255,0.75)] transition hover:decoration-[#5c544c]"
             >
               {dict.luccaComics.homeComicsLinkText}
             </Link>
@@ -255,15 +259,23 @@ export default async function Home({ params }: PageProps) {
         id="servizi"
         className="border-t border-[#e0d9cf] px-6 pb-20 pt-20 md:px-12 md:pb-28 md:pt-24"
       >
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-4xl">
           <SectionHeading title={dict.services.heading} />
-          <ul className="mx-auto space-y-0 divide-y divide-[#e3dcd4] border-y border-[#e3dcd4] text-center">
+          <ul className="grid grid-cols-1 gap-4 text-left sm:gap-5 md:grid-cols-2 md:gap-x-8 md:gap-y-5">
             {dict.services.items.map((servizio) => (
               <li
-                key={servizio}
-                className="py-4 text-[15px] font-normal leading-relaxed text-[#4a433c] md:py-5 md:text-base"
+                key={`${servizio.icon}-${servizio.title}`}
+                className="flex gap-3 rounded-xl border border-[#e3dcd4] bg-[#fcfbf9]/90 p-4 shadow-sm md:gap-4 md:p-5"
               >
-                {servizio}
+                <ServiceAmenityIcon id={servizio.icon} />
+                <div className="min-w-0">
+                  <p className="text-[15px] font-semibold leading-snug text-[#243828] md:text-base">
+                    {servizio.title}
+                  </p>
+                  <p className="mt-1.5 text-[14px] font-normal leading-relaxed text-[#5c544c] md:text-[15px] md:leading-6">
+                    {servizio.description}
+                  </p>
+                </div>
               </li>
             ))}
           </ul>

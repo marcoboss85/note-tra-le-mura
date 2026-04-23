@@ -8,6 +8,30 @@ export type RoomSlug =
   | "bagni"
   | "esterno";
 
+/** Icona accanto a ogni voce nella sezione Servizi (home). */
+export type ServiceAmenityIconId =
+  | "checkIn"
+  | "wifi"
+  | "tv"
+  | "plates"
+  | "oven"
+  | "dishwasher"
+  | "washer"
+  | "dryer"
+  | "rooms"
+  | "stairs"
+  | "linens"
+  | "tips"
+  | "support";
+
+export type ServiceItem = {
+  icon: ServiceAmenityIconId;
+  /** Titolo breve in elenco servizi. */
+  title: string;
+  /** Una riga di contesto sotto il titolo. */
+  description: string;
+};
+
 export type Messages = {
   meta: {
     title: string;
@@ -25,6 +49,8 @@ export type Messages = {
     /** Etichetta accessibile sul pulsante hero. */
     whatsappAria: string;
     gallery: string;
+    /** Home: distanze indicative stazione treni / autobus (sotto il sottotitolo). */
+    transportNote: string;
   };
   gallery: {
     heading: string;
@@ -59,7 +85,7 @@ export type Messages = {
   };
   services: {
     heading: string;
-    items: string[];
+    items: ServiceItem[];
   };
   /** Sezione recensioni / link a scheda Airbnb in home. */
   testimonials: {
@@ -167,9 +193,9 @@ const brand = "Note tra le Mura";
 export const dictionaries: Record<Locale, Messages> = {
   it: {
     meta: {
-      title: `${brand} | Appartamento a Lucca`,
+      title: `${brand} | Appartamento famiglia (4–5 ospiti), centro Lucca`,
       description:
-        "Appartamento per vacanze nel centro di Lucca, dentro le mura (Via Pelleria 14). Ambiente curato, calendario disponibilità e contatti per prenotazione diretta.",
+        "Appartamento per famiglie e piccoli gruppi (4–5 ospiti) nel centro storico di Lucca, dentro le mura, Via Pelleria 14. Relax senza auto in città: tutto a piedi. Gallery, calendario indicativo, contatto WhatsApp o email.",
     },
     hero: {
       imageAlt: "Lucca, torri e tetti del centro storico",
@@ -178,10 +204,12 @@ export const dictionaries: Record<Locale, Messages> = {
       location:
         "Nel centro storico di Lucca, dentro le mura rinascimentali.",
       subtitle:
-        "Un rifugio elegante tra le mura rinascimentali: luce calda, materiali naturali e l’atmosfera autentica del centro.",
+        "Un rifugio elegante tra le mura rinascimentali, per famiglie e piccoli gruppi (da 4 a 5 ospiti). Il centro storico si vive a piedi, senza stress in auto, tra natura e ambienti curati.",
       whatsapp: "Contattaci",
       whatsappAria: "Vai alla sezione Contatti",
       gallery: "Scopri la gallery",
+      transportNote:
+        "Stazione ferroviaria di Lucca: 20 minuti a piedi. Stazione autobus in centro storico: 5 minuti a piedi.",
     },
     gallery: {
       heading: "Gallery",
@@ -218,23 +246,89 @@ export const dictionaries: Record<Locale, Messages> = {
     story: {
       heading: "La nostra storia a Lucca",
       body:
-        "Note tra le Mura nasce dal desiderio di offrire un soggiorno lento e curato, nel segno della tradizione toscana. Abbiamo restaurato ogni ambiente con materiali nobili e dettagli ispirati al territorio, unendo calore storico e comfort moderno. Qui ti senti accolto, come a casa, a due passi dalle piazze e dai vicoli più suggestivi.",
+        "Note tra le Mura nasce dal desiderio di offrire un soggiorno lento e curato, nel segno della tradizione toscana. Abbiamo restaurato ogni ambiente con materiali nobili e dettagli ispirati al territorio, unendo calore storico e comfort moderno. L’appartamento è al secondo piano di un palazzo del centro storico: non c’è ascensore, ma si raggiunge con due rampe brevi di scale interne. Troverete una zona giorno luminosa con cucina, due camere matrimoniali e due bagni con doccia: una camera ha il bagno privato in camera. Le mura antiche sono a un minuto a piedi, perfette per passeggiate o giri in bici. È la base ideale per famiglie che parcheggiano fuori cinta e vogliono il centro senza stress in auto. Qui ti senti accolto, come a casa, tra piazza San Michele in Foro, piazza San Martino con il duomo, piazza Napoleone e i negozi di via Fillungo, senza rinunciare ai vicoli più quieti.",
     },
     services: {
       heading: "Servizi",
       items: [
-        "Check-in flessibile in autonomia",
-        "Wi‑Fi veloce e smart TV",
-        "Cucina attrezzata con macchina da caffè",
-        "Biancheria premium e cortesia bagno",
-        "Suggerimenti su itinerari, enoteche e botteghe",
-        "Assistenza rapida via WhatsApp",
+        {
+          icon: "checkIn",
+          title: "Check-in flessibile",
+          description:
+            "Orari concordabili in anticipo, quando possibile, per arrivare senza fretta.",
+        },
+        {
+          icon: "wifi",
+          title: "Wi‑Fi fibra ultra veloce",
+          description:
+            "Connessione stabile per lavoro, videochiamate e streaming.",
+        },
+        {
+          icon: "tv",
+          title: "Smart TV",
+          description: "Per serate in relax nella zona giorno.",
+        },
+        {
+          icon: "plates",
+          title: "Cucina super attrezzata",
+          description:
+            "Stoviglie, pentole e utensili: tutto il necessario per cucinare.",
+        },
+        {
+          icon: "oven",
+          title: "Elettrodomestici",
+          description:
+            "Forno, piano cottura, bollitore e macchina da caffè in cucina.",
+        },
+        {
+          icon: "dishwasher",
+          title: "Lavastoviglie",
+          description: "Dopo i pasti in casa, senza accumulare piatti nel lavello.",
+        },
+        {
+          icon: "washer",
+          title: "Lavatrice",
+          description: "Bucato comodo durante il soggiorno.",
+        },
+        {
+          icon: "dryer",
+          title: "Asciugatrice",
+          description: "Biancheria asciutta in poche ore.",
+        },
+        {
+          icon: "rooms",
+          title: "Due camere e due bagni",
+          description:
+            "Due camere matrimoniali; una ha il bagno privato in camera.",
+        },
+        {
+          icon: "stairs",
+          title: "Secondo piano",
+          description:
+            "Due brevi rampe di scale interne; non c’è ascensore.",
+        },
+        {
+          icon: "linens",
+          title: "Biancheria premium",
+          description: "Lenzuola, asciugamani e cortesia bagno di qualità.",
+        },
+        {
+          icon: "tips",
+          title: "Suggerimenti locali",
+          description:
+            "Itinerari, enoteche e botteghe che consigliamo di persona.",
+        },
+        {
+          icon: "support",
+          title: "Assistenza WhatsApp",
+          description: "Risposta rapida per dubbi, orari e richieste.",
+        },
       ],
     },
     testimonials: {
       heading: "Dicono di noi",
       body:
-        "Dopo ogni soggiorno, gli ospiti possono lasciare una recensione su Airbnb. Se vuoi conoscere le loro esperienze, trovi le opinioni sulla scheda ufficiale dell’annuncio.",
+        "Ci fa sempre piacere leggere come si sono trovati. Su Airbnb trovi le loro parole, sincere, dopo il soggiorno.",
       cta: "Vedi le recensioni su Airbnb",
       ctaAria: "Apre in una nuova scheda l’annuncio su Airbnb, con le recensioni",
     },
@@ -348,13 +442,13 @@ export const dictionaries: Record<Locale, Messages> = {
       back: "Torna alla home",
       photoAltSuffix: "foto",
       metaDescription:
-        "{room} — Foto e dettagli. Note tra le Mura, appartamento nel centro storico di Lucca.",
+        "{room} — Foto e dettagli. Note tra le Mura, appartamento per famiglie nel centro storico di Lucca, dentro le mura.",
     },
     whatsappMessage:
       "Ciao, vorrei informazioni su Note tra le Mura (appartamento a Lucca).",
     luccaComics: {
       metaDescription:
-        "Alloggio a Lucca per Lucca Comics & Games: appartamento Note tra le Mura, Via Pelleria 14, centro storico tra le mura. FAQ, prenotazione diretta e contatti (WhatsApp ed email) sul sito.",
+        "Alloggio a Lucca per Lucca Comics & Games: appartamento Note tra le Mura, Via Pelleria 14, centro storico tra le mura. FAQ e contatto WhatsApp o email per disponibilità (senza prenotazione online sul sito).",
       title: "Alloggio a Lucca per Lucca Comics & Games",
       backToHome: "Torna alla home",
       heroSlideshowAria:
@@ -365,7 +459,7 @@ export const dictionaries: Record<Locale, Messages> = {
         "Lucca Comics, immagine 3",
       ],
       intro:
-        "Lucca Comics & Games attrae ogni autunno visitatori da tutta Europa: vivere dentro le mura è una posizione strategica — l’auto la lasci fuori cinta, poi niente stress quotidiano da parcheggi: ti godi l’atmosfera del festival in tranquillità, in compagnia fino a 6 ospiti (amici o parenti) nello stesso alloggio. Dormire nel centro storico rende i giorni del festival meno faticosi. Note tra le Mura è un appartamento curato, pensato per chi cerca quiete, eleganza e la libertà di muoversi a piedi. Le date ufficiali e i dettagli di ogni edizione vanno controllati sul sito di Lucca Comics & Games; per disponibilità e prenotazione diretta preferiamo un contatto in WhatsApp o email.",
+        "Lucca Comics & Games attrae ogni autunno visitatori da tutta Europa: vivere dentro le mura è una posizione strategica — l’auto la lasci fuori cinta, poi niente stress quotidiano da parcheggi: ti godi l’atmosfera del festival in tranquillità, in compagnia fino a 6 ospiti (amici o parenti) nello stesso alloggio. Dormire nel centro storico rende i giorni del festival meno faticosi. Note tra le Mura è un appartamento curato, pensato per chi cerca quiete, eleganza e la libertà di muoversi a piedi. Le date ufficiali e i dettagli di ogni edizione vanno controllati sul sito di Lucca Comics & Games; per disponibilità e passi successivi scrivici su WhatsApp o email.",
       galleryTitle: "L’appartamento, tra le mura",
       galleryImageAlts: [
         "Soggiorno, Note tra le Mura, Lucca",
@@ -377,7 +471,7 @@ export const dictionaries: Record<Locale, Messages> = {
         {
           heading: "Dove siamo",
           body:
-            "L’appartamento Note tra le Mura si trova in Via Pelleria 14, 55100 Lucca, all’interno della cinta muraria, in una zona a forte vocazione pedonale. A titolo indicativo: circa 10 minuti a piedi dal Padiglione Carducci, circa 6 minuti da piazza San Michele in Foro e circa 8 minuti da piazza Napoleone (i tempi dipendono dal percorso e dal passo). Completano il quadro, sempre nelle immediate vicinanze, riferimenti come Via Fillungo, piazza dell’Anfiteatro e il duomo — comodità che ritrovi anche su Google Maps e sulle schede dove la struttura è elencata (ad es. Airbnb, Booking). CIN e indirizzo operativo in piè di pagina su ogni pagina del sito.",
+            "L’appartamento Note tra le Mura si trova in Via Pelleria 14, 55100 Lucca, all’interno della cinta muraria, in una zona a forte vocazione pedonale. A titolo indicativo: circa 10 minuti a piedi dal Padiglione Carducci, circa 6 minuti da piazza San Michele in Foro e circa 8 minuti da piazza Napoleone (i tempi dipendono dal percorso e dal passo). La stazione ferroviaria di Lucca dista 20 minuti a piedi; la stazione autobus nel centro storico è a 5 minuti a piedi (verifica linee e orari aggiornati). Completano il quadro, sempre nelle immediate vicinanze, riferimenti come Via Fillungo, piazza dell’Anfiteatro e il duomo — comodità che ritrovi anche su Google Maps. Airbnb è il nostro riferimento principale (su questo sito colleghiamo solo quella scheda, con le recensioni); la struttura può comparire anche su Booking.com e altri portali. CIN e indirizzo operativo in piè di pagina su ogni pagina del sito.",
         },
         {
           heading: "Perché il centro storico durante il festival",
@@ -385,9 +479,9 @@ export const dictionaries: Record<Locale, Messages> = {
             "Nei giorni del festival ristoranti, eventi e incontro sono in centro. Essere in appartamento dentro le mura significa vivere in una posizione strategica per l’esperienza del Comics: non devi ogni mattina ripensare a dove lasciare l’auto, ti muovi a piedi tra Padiglione, piazze e vicoli, e rientri in tranquillità per condividere l’atmosfera in casa fino a 6 persone. Meno spostamenti, orari flessibili, rientro comodo con pioggia o serate lunghe, e l’atmosfera autentica dei vicoli in un’abitazione indipendente, lontana dal transito pesante.",
         },
         {
-          heading: "Prenotazione diretta",
+          heading: "Contatto e disponibilità",
           body:
-            "Sul sito trovi foto, servizi, calendario e contatti per verificare le date. Per il periodo del festival, quando la domanda è alta, gestiamo con piacere le richieste direttamente con voi, così da chiarire tempi, esigenze e dettagli pratici senza intermediari. I listini e le regole (es. soggiorno minimo) ve li comunichiamo in fase di richiesta, in linea con la disponibilità reale.",
+            "Sul sito trovi foto, servizi, calendario indicativo e contatti per verificare le date. Per il periodo del festival, quando la domanda è alta, rispondiamo volentieri in messaggio così da chiarire tempi, esigenze e dettagli pratici. I listini e le regole (es. soggiorno minimo) ve li comunichiamo in fase di richiesta, in linea con la disponibilità reale.",
         },
         {
           heading: "Cosa valutare prima di prenotare",
@@ -403,14 +497,19 @@ export const dictionaries: Record<Locale, Messages> = {
             "Sì: ospitiamo fino a 6 persone, ideale per vivere il festival in compagnia con amici o parenti, nel centro, con comodità a piedi e un ambiente curato. Per esigenze molto specifiche basta scriverci prima di prenotare.",
         },
         {
-          question: "Come posso prenotare in modo diretto?",
+          question: "Come verifico le date e la disponibilità?",
           answer:
-            "Scrivici su WhatsApp o email (link in fondo a questa pagina e in home: sezione Contatti). Ti rispondiamo con disponibilità reale e prossimi passi.",
+            "Scrivici su WhatsApp o email (link in fondo a questa pagina e in home: sezione Contatti). Ti rispondiamo con disponibilità reale e prossimi passi: sul sito non c’è cassa o prenotazione online.",
         },
         {
           question: "Quanto è lontana la zona fiera o i percorsi principali?",
           answer:
             "Come ordine di grandezza, a piedi: circa 10 minuti al Padiglione Carducci, circa 6 minuti a piazza San Michele in Foro e circa 8 minuti a piazza Napoleone (dipende dal percorso e dal passo; ingressi e programma possono variare). Il vantaggio di essere già in appartamento dentro le mura è il minor stress legato al parcheggio nel quotidiano del festival: per visitare fiera e centro spesso l’auto non serve più fino a rientro.",
+        },
+        {
+          question: "Quanto distano stazione treni e autobus?",
+          answer:
+            "La stazione ferroviaria di Lucca è a 20 minuti a piedi da Via Pelleria 14. La stazione autobus nel centro storico è a 5 minuti a piedi. Ti consigliamo di controllare sempre orari e percorsi aggiornati sul sito del trasporto pubblico.",
         },
         {
           question: "Dove posso parcheggiare? Qual è il parcheggio più vicino?",
@@ -434,18 +533,18 @@ export const dictionaries: Record<Locale, Messages> = {
         },
       ],
       cta:
-        "Per date, disponibilità e prenotazione diretta apri la sezione contatti in home.",
+        "Per date e disponibilità apri la sezione Contatti in home (WhatsApp o email).",
       ctaToContacts: "Contattaci",
       homeComicsTeaser:
-        "Lucca Comics & Games: alloggio in centro (Via Pelleria 14) —",
+        "Lucca Comics & Games, alloggio in centro (Via Pelleria 14).",
       homeComicsLinkText: "pagina dedicata e FAQ",
     },
   },
   en: {
     meta: {
-      title: `${brand} | Boutique stay in Lucca`,
+      title: `${brand} | Family apartment (4–5 guests), Lucca old town`,
       description:
-        "Holiday apartment in central Lucca, inside the Renaissance walls (14 Via Pelleria). Curated stay, availability calendar, gallery, and direct booking via the site.",
+        "Holiday apartment in historic Lucca inside the Renaissance walls (Via Pelleria 14). Calm base for families of 4–5: explore car-free—cafés, shops and sights on foot. Gallery, indicative calendar; contact us on WhatsApp or email.",
     },
     hero: {
       imageAlt: "Lucca’s skyline with medieval towers",
@@ -454,10 +553,12 @@ export const dictionaries: Record<Locale, Messages> = {
       location:
         "In Lucca’s historic centre, within the Renaissance city walls.",
       subtitle:
-        "A serene hideaway within the Renaissance walls—sun‑washed rooms, natural textures, and the authentic pulse of the old town.",
+        "A calm retreat within the Renaissance walls for families and small groups of four or five guests. The historic centre is best on foot, without daily driving stress: nature, thoughtful spaces, and a slow pace.",
       whatsapp: "Contact us",
       whatsappAria: "Go to the Contact section",
       gallery: "Browse the gallery",
+      transportNote:
+        "Lucca railway station: 20-minute walk. Central bus station: 5 minutes on foot.",
     },
     gallery: {
       heading: "Gallery",
@@ -494,23 +595,86 @@ export const dictionaries: Record<Locale, Messages> = {
     story: {
       heading: "Our story in Lucca",
       body:
-        "Note tra le Mura was created to share the unhurried elegance of Lucca. We restored each room with local craftsmanship, noble materials, and thoughtful touches that echo Tuscan tradition while embracing contemporary comfort. It is a place to settle in, stroll the lanes, and feel genuinely at home within the walls.",
+        "Note tra le Mura was created to share the unhurried elegance of Lucca. We restored each room with local craftsmanship, noble materials, and thoughtful touches that echo Tuscan tradition while embracing contemporary comfort. The apartment sits on the second floor of a typical historic building: there is no lift, but only two short flights of internal stairs. You will find a bright living area with a kitchen, two double bedrooms and two shower bathrooms, one of which is en suite. The city walls are about a minute away on foot, ideal for walks or cycling. It is an ideal base for families who park outside the walls and want the centre without daily driving. You are within easy reach of Piazza San Michele in Foro, Piazza San Martino and the cathedral, Piazza Napoleone, and Via Fillungo for shopping, yet still among Lucca’s quieter lanes.",
     },
     services: {
       heading: "Amenities",
       items: [
-        "Flexible self check‑in",
-        "High‑speed Wi‑Fi and smart TV",
-        "Fully equipped kitchen with coffee machine",
-        "Premium linens and bathroom essentials",
-        "Personal tips for wine bars, shops, and day trips",
-        "Responsive support on WhatsApp",
+        {
+          icon: "checkIn",
+          title: "Flexible check‑in",
+          description:
+            "Arrival times we can align in advance whenever possible.",
+        },
+        {
+          icon: "wifi",
+          title: "Ultra-fast fibre Wi‑Fi",
+          description:
+            "A steady connection for work, video calls, and streaming.",
+        },
+        {
+          icon: "tv",
+          title: "Smart TV",
+          description: "Quiet evenings in the living area, sorted.",
+        },
+        {
+          icon: "plates",
+          title: "Super-equipped kitchen",
+          description:
+            "Crockery, cookware, and utensils—everything you need to cook.",
+        },
+        {
+          icon: "oven",
+          title: "Appliances",
+          description:
+            "Electric oven, hob, kettle, and coffee machine in the kitchen.",
+        },
+        {
+          icon: "dishwasher",
+          title: "Dishwasher",
+          description: "After dinner at home without a pile of dishes.",
+        },
+        {
+          icon: "washer",
+          title: "Washing machine",
+          description: "Laundry taken care of during your stay.",
+        },
+        {
+          icon: "dryer",
+          title: "Tumble dryer",
+          description: "Towels and clothes dry again in a few hours.",
+        },
+        {
+          icon: "rooms",
+          title: "Two bedrooms & two bathrooms",
+          description: "Two doubles; one bedroom has an en suite shower room.",
+        },
+        {
+          icon: "stairs",
+          title: "Second floor",
+          description: "Two short flights of internal stairs; there is no lift.",
+        },
+        {
+          icon: "linens",
+          title: "Premium linens",
+          description: "Quality sheets, towels, and bathroom essentials.",
+        },
+        {
+          icon: "tips",
+          title: "Local tips",
+          description: "Wine bars, shops, and day trips we love to share.",
+        },
+        {
+          icon: "support",
+          title: "WhatsApp support",
+          description: "Quick answers for questions, timings, and requests.",
+        },
       ],
     },
     testimonials: {
       heading: "What our guests say",
       body:
-        "After each stay, guests can leave a review on Airbnb. To read their experiences, open the official listing page where all reviews are shown.",
+        "We genuinely love reading how people felt at home here. On Airbnb you’ll find their words—honest reviews after each stay.",
       cta: "See reviews on Airbnb",
       ctaAria: "Opens your Airbnb listing in a new tab, with guest reviews",
     },
@@ -624,13 +788,13 @@ export const dictionaries: Record<Locale, Messages> = {
       back: "Back to home",
       photoAltSuffix: "photo",
       metaDescription:
-        "{room} — photos and details. Note tra le Mura, apartment in the heart of Lucca.",
+        "{room} — photos and details. Note tra le Mura, family-friendly apartment in Lucca’s historic centre, inside the walls.",
     },
     whatsappMessage:
       "Hello, I would like more information about Note tra le Mura (apartment in Lucca).",
     luccaComics: {
       metaDescription:
-        "Where to stay for Lucca Comics & Games: Note tra le Mura at 14 Via Pelleria, inside the Renaissance walls, central Lucca. FAQs, direct booking, and contact via this site (WhatsApp and email).",
+        "Where to stay for Lucca Comics & Games: Note tra le Mura at Via Pelleria 14, inside the Renaissance walls, central Lucca. FAQs and WhatsApp or email for availability (no online checkout on this site).",
       title: "Where to stay in Lucca for Lucca Comics & Games",
       backToHome: "Back to home",
       heroSlideshowAria:
@@ -641,7 +805,7 @@ export const dictionaries: Record<Locale, Messages> = {
         "Lucca Comics, photo 3",
       ],
       intro:
-        "Lucca Comics & Games brings thousands of guests to Tuscany every autumn. Living inside the city walls is a strategic choice: you park outside the ring of walls, then you are not caught in daily parking stress, and you can enjoy the full festival atmosphere in peace—up to 6 guests in one apartment, with friends or family. Staying in the historic heart makes festival days less tiring. Note tra le Mura is a curated apartment for calm, design-led comfort and on-foot days. For official event dates, check the Lucca Comics & Games website; for availability and direct booking, we prefer WhatsApp or email.",
+        "Lucca Comics & Games brings thousands of guests to Tuscany every autumn. Living inside the city walls is a strategic choice: you park outside the ring of walls, then you are not caught in daily parking stress, and you can enjoy the full festival atmosphere in peace—up to 6 guests in one apartment, with friends or family. Staying in the historic heart makes festival days less tiring. Note tra le Mura is a curated apartment for calm, design-led comfort and on-foot days. For official event dates, check the Lucca Comics & Games website; for availability and next steps, message us on WhatsApp or email.",
       galleryTitle: "The apartment, inside the walls",
       galleryImageAlts: [
         "Living room, Note tra le Mura, Lucca",
@@ -653,7 +817,7 @@ export const dictionaries: Record<Locale, Messages> = {
         {
           heading: "Our address",
           body:
-            "Note tra le Mura is at 14 Via Pelleria, 55100 Lucca, within the city walls, in a highly walkable part of the historic centre. As a rough guide: about 10 minutes on foot to the Carducci exhibition hall (Padiglione Carducci), about 6 minutes to Piazza San Michele in Foro, and about 8 minutes to Piazza Napoleone (times depend on the route and walking pace). Nearby you also have Via Fillungo, the Piazza dell’Anfiteatro, the cathedral, and the same in‑walled, central feel you can check on Google Maps and major booking sites. The same address and CIN code appear in the site footer on every page.",
+            "Note tra le Mura is at 14 Via Pelleria, 55100 Lucca, within the city walls, in a highly walkable part of the historic centre. As a rough guide: about 10 minutes on foot to the Carducci exhibition hall (Padiglione Carducci), about 6 minutes to Piazza San Michele in Foro, and about 8 minutes to Piazza Napoleone (times depend on the route and walking pace). Lucca railway station is a 20-minute walk away; the bus station in the historic centre is 5 minutes on foot (check current timetables). Nearby you also have Via Fillungo, the Piazza dell’Anfiteatro, the cathedral, and the same in‑walled, central feel you can check on Google Maps. Airbnb is our primary listing—and the only channel we link to for guest reviews on this site; the property may also appear on Booking.com and similar platforms. The same address and CIN code appear in the site footer on every page.",
         },
         {
           heading: "Why the old town during the festival",
@@ -661,9 +825,9 @@ export const dictionaries: Record<Locale, Messages> = {
             "During the event, dining, pop-up events, and meeting points are concentrated in the centre. A flat within the walls is a strategic base for Lucca Comics: you are not rethinking where to park every morning, you walk between the Carducci halls, the squares, and the lanes, and you come back to a calm home to share the experience with up to 6 people. It means easier day-to-day logistics, more flexible timing, a comfortable return after long days, and a quiet, self-contained home off the heaviest through-routes—while still in the heart of the festival atmosphere.",
         },
         {
-          heading: "Direct booking",
+          heading: "Contact & availability",
           body:
-            "On this site you will find photos, services, a calendar, and our contacts. In peak periods such as the festival, we welcome direct enquiries so we can agree on timing, group size, and practical details with no intermediaries. Rates and any minimum stay are confirmed when you get in touch, based on real availability.",
+            "On this site you will find photos, services, an indicative calendar, and our contacts. In peak periods such as the festival, we reply by message so we can agree on timing, group size, and practical details. Rates and any minimum stay are confirmed when you get in touch, based on real availability.",
         },
         {
           heading: "What to check before you book",
@@ -679,14 +843,19 @@ export const dictionaries: Record<Locale, Messages> = {
             "Yes. We can host up to 6 people—ideal to share the festival with friends or family. It is designed for a central Lucca stay, with on-foot comfort and a restful, well-kept home base. If you have unusual requirements, message us before booking.",
         },
         {
-          question: "How can I book directly?",
+          question: "How do I check dates and availability?",
           answer:
-            "Use WhatsApp or email via the home page (Contacts section) or the links on this page. We reply with real availability and the next steps.",
+            "Use WhatsApp or email via the home page (Contacts section) or the links on this page. We reply with real availability and the next steps—there is no online checkout on this site.",
         },
         {
           question: "How far is the main venue or typical routes?",
           answer:
             "Roughly on foot from the flat: about 10 minutes to the Carducci hall (Padiglione Carducci), about 6 minutes to Piazza San Michele in Foro, and about 8 minutes to Piazza Napoleone—depending on the route, pace, and year’s layout. The upside of already being inside the walls is less day-to-day parking stress during the event: for many festival moves you simply walk from “home” without using the car again until you leave.",
+        },
+        {
+          question: "How far are the train station and the bus station?",
+          answer:
+            "Lucca railway station is a 20-minute walk from 14 Via Pelleria. The bus station in the old town is a 5-minute walk. Please check current timetables and routes with the local public transport provider.",
         },
         {
           question: "Where can I park? What is the nearest car park?",
@@ -710,18 +879,18 @@ export const dictionaries: Record<Locale, Messages> = {
         },
       ],
       cta:
-        "For dates, availability, and direct booking, open the Contacts section on the home page.",
+        "For dates and availability, open the Contacts section on the home page (WhatsApp or email).",
       ctaToContacts: "Contact us",
       homeComicsTeaser:
-        "Lucca Comics & Games: stay in the centre (Via Pelleria 14) —",
+        "Lucca Comics & Games, stay in the centre (14 Via Pelleria).",
       homeComicsLinkText: "dedicated page & FAQs",
     },
   },
   de: {
     meta: {
-      title: `${brand} | Ferienwohnung in Lucca`,
+      title: `${brand} | Ferienwohnung Familie (4–5 Pers.), Lucca Altstadt`,
       description:
-        "Ferienapartment in der Altstadt von Lucca, innerhalb der Mauern (Via Pelleria 14). Ruhiger Aufenthalt, Verfügbarkeitskalender, Fotos und direkter Kontakt zur Buchung.",
+        "Ferienapartment in der Altstadt von Lucca innerhalb der Renaissance-Mauern (Via Pelleria 14). Ruhiger Rückzugsort für Familien mit 4–5 Personen: autofrei im Zentrum—Läden und Sehenswürdigkeiten zu Fuß. Galerie, unverbindlicher Kalender, Kontakt per WhatsApp oder E‑Mail.",
     },
     hero: {
       imageAlt: "Lucca, Türme und Dächer der Altstadt",
@@ -729,10 +898,12 @@ export const dictionaries: Record<Locale, Messages> = {
       brand,
       location: "In der Altstadt von Lucca, innerhalb der Renaissance-Stadtmauern.",
       subtitle:
-        "Ein ruhiges Refugium hinter der Stadtmauer – warmes Licht, natürliche Materialien und der echte Rhythmus des historischen Zentrums.",
+        "Ein ruhiges Refugium hinter der Stadtmauer für Familien und kleine Gruppen (vier bis fünf Personen). Die Altstadt erleben Sie zu Fuss, ohne täglichen Autostress: Natur, durchdachte Räume und ein langsamer Rhythmus.",
       whatsapp: "Kontakt",
       whatsappAria: "Zum Bereich Kontakt",
       gallery: "Galerie ansehen",
+      transportNote:
+        "Bahnhof Lucca: 20 Gehminuten. Busbahnhof in der Altstadt: 5 Gehminuten.",
     },
     gallery: {
       heading: "Galerie",
@@ -769,23 +940,88 @@ export const dictionaries: Record<Locale, Messages> = {
     story: {
       heading: "Unsere Geschichte in Lucca",
       body:
-        "Note tra le Mura entstand aus dem Wunsch, den beschaulichen, liebevollen Lucca‑Alltag zu teilen. Wir haben jeden Raum mit regionalem Handwerk, edlen Materialien und liebevollen Details restauriert – in der Tradition der Toskana und mit heutigem Komfort. Ein Ort, an dem man ankommt, Gassen spaziert und sich innerhalb der Mauern wirklich zuhause fühlt.",
+        "Note tra le Mura entstand aus dem Wunsch, den beschaulichen, liebevollen Lucca‑Alltag zu teilen. Wir haben jeden Raum mit regionalem Handwerk, edlen Materialien und liebevollen Details restauriert – in der Tradition der Toskana und mit heutigem Komfort. Die Wohnung liegt im zweiten Stock eines typischen Altstadthauses: kein Aufzug, aber nur zwei kurze Treppenabsätze im Haus. Es erwarten Sie ein heller Wohnbereich mit Küche, zwei Doppelschlafzimmer und zwei Bäder mit Dusche, eines davon als Suite. Bis zu den alten Stadtmauern sind es etwa eine Minute zu Fuss, ideal für Spaziergänge oder Fahrradtouren. Ideal für Familien, die ausserhalb parken und die Altstadt ohne tägliches Autofahren geniessen möchten. Piazza San Michele in Foro, Piazza San Martino mit dem Dom, Piazza Napoleone und das Einkaufen in der Via Fillungo liegen ganz in der Nähe, und trotzdem wohnen Sie ruhig zwischen den Gassen.",
     },
     services: {
       heading: "Ausstattung & Service",
       items: [
-        "Flexibler Check‑in in Eigenregie",
-        "Schnelles WLAN und Smart TV",
-        "Voll ausgestattete Küche mit Kaffeemaschine",
-        "Hochwertige Bettwäsche und Badeutensilien",
-        "Tipps zu Ausflügen, Weinstuben und lokalen Besonderheiten",
-        "Kurze Reaktionszeiten per WhatsApp",
+        {
+          icon: "checkIn",
+          title: "Flexibler Check‑in",
+          description:
+            "Ankunftszeiten nach Absprache, wenn es der Ablauf erlaubt.",
+        },
+        {
+          icon: "wifi",
+          title: "Ultraschnelles Glasfaser-WLAN",
+          description:
+            "Stabile Verbindung für Arbeit, Videocalls und Streaming.",
+        },
+        {
+          icon: "tv",
+          title: "Smart‑TV",
+          description: "Für entspannte Abende im Wohnbereich.",
+        },
+        {
+          icon: "plates",
+          title: "Hochwertig ausgestattete Küche",
+          description:
+            "Geschirr, Töpfe und Utensilien—alles zum Kochen dabei.",
+        },
+        {
+          icon: "oven",
+          title: "Elektrogeräte",
+          description:
+            "Elektrobackofen, Kochfeld, Wasserkocher und Kaffeemaschine in der Küche.",
+        },
+        {
+          icon: "dishwasher",
+          title: "Geschirrspüler",
+          description: "Nach dem Essen zu Hause ohne grossen Spülberg.",
+        },
+        {
+          icon: "washer",
+          title: "Waschmaschine",
+          description: "Wäsche bequem während des Aufenthalts.",
+        },
+        {
+          icon: "dryer",
+          title: "Wäschetrockner",
+          description: "Handtücher und Kleidung schnell wieder trocken.",
+        },
+        {
+          icon: "rooms",
+          title: "Zwei Schlafzimmer & zwei Bäder",
+          description: "Zwei Doppelzimmer; eines mit eigenem Bad en suite.",
+        },
+        {
+          icon: "stairs",
+          title: "2. Stock",
+          description:
+            "Zwei kurze Treppenabsätze im Haus; es gibt keinen Aufzug.",
+        },
+        {
+          icon: "linens",
+          title: "Hochwertige Bettwäsche",
+          description: "Laken, Handtücher und gepflegte Badutensilien.",
+        },
+        {
+          icon: "tips",
+          title: "Tipps von uns",
+          description:
+            "Weinstuben, Läden und Ausflüge, die wir gern weitergeben.",
+        },
+        {
+          icon: "support",
+          title: "WhatsApp‑Support",
+          description: "Schnelle Antworten zu Fragen, Zeiten und Wünschen.",
+        },
       ],
     },
     testimonials: {
       heading: "Das sagen unsere Gäste",
       body:
-        "Nach dem Aufenthalt können Gäste auf Airbnb eine Bewertung abgeben. Alle Eindrücke finden Sie auf der offiziellen Anzeigenseite.",
+        "Es tut uns jedes Mal gut zu lesen, wie sich Gäste bei uns wohlgefühlt haben. Auf Airbnb finden Sie ihre ehrlichen Worte nach dem Aufenthalt.",
       cta: "Bewertungen auf Airbnb ansehen",
       ctaAria: "Öffnet die Airbnb‑Anzeige in einem neuen Tab mit Gästebewertungen",
     },
@@ -899,13 +1135,13 @@ export const dictionaries: Record<Locale, Messages> = {
       back: "Zur Startseite",
       photoAltSuffix: "Foto",
       metaDescription:
-        "{room} — Fotos und Details. Note tra le Mura, Apartment in der Altstadt von Lucca.",
+        "{room} — Fotos und Details. Note tra le Mura, familienfreundliches Apartment in der Altstadt von Lucca, innerhalb der Mauern.",
     },
     whatsappMessage:
       "Guten Tag, ich hätte gern Informationen zu Note tra le Mura (Ferienwohnung in Lucca).",
     luccaComics: {
       metaDescription:
-        "Unterkunft in Lucca für Lucca Comics & Games: Ferienapartment Note tra le Mura, Via Pelleria 14, in der Altstadt innerhalb der Mauern. FAQ, Direktkontakt und Buchung (WhatsApp, E‑Mail) über diese Seite.",
+        "Unterkunft in Lucca für Lucca Comics & Games: Ferienapartment Note tra le Mura, Via Pelleria 14, in der Altstadt innerhalb der Mauern. FAQ und Kontakt per WhatsApp oder E‑Mail zur Verfügbarkeit (keine Online‑Zahlung auf dieser Seite).",
       title: "Unterkunft in Lucca zu Lucca Comics & Games",
       backToHome: "Zur Startseite",
       heroSlideshowAria:
@@ -916,7 +1152,7 @@ export const dictionaries: Record<Locale, Messages> = {
         "Lucca Comics, Bild 3",
       ],
       intro:
-        "Lucca Comics & Games zieht jeden Herbst Gäste aus ganz Europa an. Wohnen innerhalb des Walls ist strategisch: das Auto steht draussen, vorm Ring der Mauern, und der Alltag während des Festivals leidet weniger unter Parkplatz-Stress. So geniessen Sie die Stimmung des Comics-Events in Ruhe, zu viert, zu sechst, mit Freunden oder Verwandten (bis 6 Gäste). Eine Nacht in der historischen Innenstadt erspart Fahrten und schenkt Ruhe. Note tra le Mura ist ein liebevoll eingerichtetes Apartment. Offizielle Daten auf der Website von Lucca Comics & Games; Verfügbarkeit gern per WhatsApp oder E‑Mail.",
+        "Lucca Comics & Games zieht jeden Herbst Gäste aus ganz Europa an. Wohnen innerhalb des Walls ist strategisch: das Auto steht draussen, vorm Ring der Mauern, und der Alltag während des Festivals leidet weniger unter Parkplatz-Stress. So geniessen Sie die Stimmung des Comics-Events in Ruhe, zu viert, zu sechst, mit Freunden oder Verwandten (bis 6 Gäste). Eine Nacht in der historischen Innenstadt erspart Fahrten und schenkt Ruhe. Note tra le Mura ist ein liebevoll eingerichtetes Apartment. Offizielle Daten auf der Website von Lucca Comics & Games; für Verfügbarkeit und nächste Schritte schreiben Sie uns per WhatsApp oder E‑Mail.",
       galleryTitle: "Die Wohnung innerhalb der Mauern",
       galleryImageAlts: [
         "Wohnzimmer, Note tra le Mura, Lucca",
@@ -928,7 +1164,7 @@ export const dictionaries: Record<Locale, Messages> = {
         {
           heading: "Lage & Adresse",
           body:
-            "Note tra le Mura liegt in der Via Pelleria 14, 55100 Lucca, innerhalb des historischen Walls, fußgängerfreundlich. Richtwerte zu Fuss: grob 10 Minuten zum Padiglione Carducci, grob 6 Minuten zur Piazza San Michele in Foro, grob 8 Minuten zur Piazza Napoleone (abhängig von Weg und Tempo). Dazu Fillungo, Anfiteatro, Dom, wie in Karten-Apps und auf gängigen Buchungsportalen. Adresse und CIN im Fuss jeder Seite.",
+            "Note tra le Mura liegt in der Via Pelleria 14, 55100 Lucca, innerhalb des historischen Walls, fußgängerfreundlich. Richtwerte zu Fuss: grob 10 Minuten zum Padiglione Carducci, grob 6 Minuten zur Piazza San Michele in Foro, grob 8 Minuten zur Piazza Napoleone (abhängig von Weg und Tempo). Der Bahnhof Lucca ist 20 Gehminuten entfernt; der Busbahnhof in der Altstadt liegt 5 Gehminuten entfernt (Fahrpläne prüfen). Dazu Fillungo, Anfiteatro, Dom, wie in Karten-Apps. Airbnb ist unser Hauptkanal (auf dieser Website verlinken wir nur diese Anzeige samt Bewertungen); die Unterkunft kann zudem auf Booking.com und anderen Portalen erscheinen. Adresse und CIN im Fuss jeder Seite.",
         },
         {
           heading: "Warum die Altstadt während des Festivals",
@@ -936,9 +1172,9 @@ export const dictionaries: Record<Locale, Messages> = {
             "Gastronomie und Festivalgeschehen sitzen in jenen Tagen im Zentrum. Eine Wohnung innerhalb der Mauern ist strategisch: morgens nicht neu ums Parken sorgen, tagsüber zu Fuss zwischen Padiglione, Plätzen und Gassen, abends in Ruhe zu sechst die Atmosphäre teilen. Das bedeutet leichtere Logistik, flexiblere Zeiten, behaglichen Rückweg bei Regen, und trotzdem ruhig gelegene Räume abseits des schwersten Durchgangsverkehrs.",
         },
         {
-          heading: "Direktbuchtung",
+          heading: "Kontakt & Verfügbarkeit",
           body:
-            "Auf der Website sehen Sie Fotos, Leistungen, Kalender und Kontakte. Wenn in Festivalzeiten die Nachfrage hoch ist, führen wir Ihre Anfrage gern persönlich, damit Abläufe, Zahl der Gäste und praktische Details klar bleiben. Preise und Regeln (z. B. Mindestaufenthalt) nennen wir bei echter Verfügbarkeit.",
+            "Auf der Website sehen Sie Fotos, Leistungen, einen unverbindlichen Kalender und Kontakte. Wenn in Festivalzeiten die Nachfrage hoch ist, antworten wir gern per Nachricht, damit Abläufe, Zahl der Gäste und praktische Details klar bleiben. Preise und Regeln (z. B. Mindestaufenthalt) nennen wir bei echter Verfügbarkeit.",
         },
         {
           heading: "Vorab klären",
@@ -954,14 +1190,19 @@ export const dictionaries: Record<Locale, Messages> = {
             "Ja, für bis zu 6 Personen geeignet—ideal, um den Festival-Tag mit Freunden oder Verwandten zu teilen, zentral, viel zu Fuss, abends in gepflegter Ruhe. Sonderwünsche klären wir vorab schriftlich.",
         },
         {
-          question: "Wie buche ich direkt?",
+          question: "Wie erfahre ich freie Termine?",
           answer:
-            "Per WhatsApp oder E-Mail, über die Home (Abschnitt Kontakt) und die Verweise auf dieser Seite. Wir nennen Ihnen die reale Verfügbarkeit und die nächsten Schritte.",
+            "Per WhatsApp oder E-Mail, über die Home (Abschnitt Kontakt) und die Verweise auf dieser Seite. Wir nennen Ihnen die reale Verfügbarkeit und die nächsten Schritte—es gibt auf dieser Website keinen Online‑Checkout.",
         },
         {
           question: "Wie weit ist es zur Fiera oder wichtigsten Laufwegen?",
           answer:
             "Richtwerte ab der Wohnung: grob 10 Gehminuten zum Padiglione Carducci, grob 6 Minuten zur Piazza San Michele in Foro, grob 8 Minuten zur Piazza Napoleone—je nach Weg, Tempo, Programm. Vorteil der Lage in den Mauern: im Festivalalltag meist weniger dauernden Parkplatz-Stress, viele Wege laufen Sie direkt ab der Haustür ohne neues Umparken.",
+        },
+        {
+          question: "Wie weit sind Bahnhof und Busbahnhof?",
+          answer:
+            "Der Bahnhof Lucca ist 20 Gehminuten von der Via Pelleria 14 entfernt. Der Busbahnhof in der Altstadt ist 5 Gehminuten zu Fuss entfernt. Bitte prüfen Sie Fahrpläne und Linien beim jeweiligen Verkehrsunternehmen.",
         },
         {
           question: "Wo parke ich? Welcher Parkplatz ist am nächsten?",
@@ -985,18 +1226,18 @@ export const dictionaries: Record<Locale, Messages> = {
         },
       ],
       cta:
-        "Für Termine, freie Nächte und Direktkontakt öffnen Sie in der Home den Abschnitt Kontakt.",
+        "Für Termine und Verfügbarkeit öffnen Sie in der Home den Abschnitt Kontakt (WhatsApp oder E‑Mail).",
       ctaToContacts: "Kontaktieren Sie uns",
       homeComicsTeaser:
-        "Lucca Comics & Games: Wohnen im Zentrum (Via Pelleria 14) —",
+        "Lucca Comics & Games, Unterkunft im Zentrum (Via Pelleria 14).",
       homeComicsLinkText: "eigene Seite & FAQ",
     },
   },
   sr: {
     meta: {
-      title: `${brand} | Apartman u Luci`,
+      title: `${brand} | Apartman za porodicu (4–5 osoba), centar Luke`,
       description:
-        "Apartman u centru Luke, unutar gradskih zidina (Via Pelleria 14). Note tra le Mura: galerija, kalendar dostupnosti i direktan kontakt za rezervaciju.",
+        "Apartman u istorijskom centru Luke, unutar zidina — Via Pelleria 14. Miran smeštaj za porodice (4–5 gostiju): grad bez auta, sve peške. Galerija, indikativni kalendar, kontakt WhatsApp ili e-pošta.",
     },
     hero: {
       imageAlt: "Pogled na krovove i kule Luke",
@@ -1005,10 +1246,12 @@ export const dictionaries: Record<Locale, Messages> = {
       location:
         "U istorijskom centru Luke, iza renesansnih gradskih zidina.",
       subtitle:
-        "Miran apartman iza renesansnih zidina: prirodno svetlo, prirodni materijali i autentičan ritam starog grada.",
+        "Miran apartman iza renesansnih zidina za porodice i manje grupe (četiri do pet gostiju). Centar živite peške, bez svakodnevnog stresa oko auta: priroda, pažljivo uređeni prostori i spor ritam starog grada.",
       whatsapp: "Kontakt",
       whatsappAria: "Idi na odeljak Kontakt",
       gallery: "Pogledajte galeriju",
+      transportNote:
+        "Železnička stanica u Luci: 20 min hoda. Autobuska stanica u centru: 5 min hoda.",
     },
     gallery: {
       heading: "Galerija",
@@ -1045,23 +1288,88 @@ export const dictionaries: Record<Locale, Messages> = {
     story: {
       heading: "Naša priča u Luci",
       body:
-        "Note tra le Mura je nastao iz želje da podelimo spor, pažljiv ritam života u Luci. Prostorije smo obnovili uz poštovanje lokalnog zanata i materijala koji šapuću Toskani, uz savremenu udobnost koja vam omogućava da se opustite kao kod kuće—na korak od trgova, kafića i najlepših uličica.",
+        "Note tra le Mura je nastao iz želje da podelimo spor, pažljiv ritam života u Luci. Prostorije smo obnovili uz poštovanje lokalnog zanata i materijala koji šapuću Toskani, uz savremenu udobnost koja vam omogućava da se opustite kao kod kuće. Apartman je na drugom spratu zgrade u centru: nema lifta, ali samo dve kratke unutrašnje stepenice. Svetla dnevna zona sa kuhinjom, dve bračne sobe i dva kupatila sa tušem, jedno kao privatno uz jednu sobu. Do starog zida je oko minut hoda, pogodno za šetnju ili bicikl. Pogodno za porodice koje parkiraju izvan zidina i žele centar bez svakodnevnog auta. Blizu su trg San Mikelje in Foro, trg San Martino sa katedralom, trg Napoleone i kupovina u via Fillungo, uz tiše uličice starog grada.",
     },
     services: {
       heading: "Usluge",
       items: [
-        "Fleksibilan samostalan prijavljivanje",
-        "Brz Wi‑Fi i pametni televizor",
-        "Opremljena kuhinja sa aparatom za kafu",
-        "Posteljina i komplet za kupatilo",
-        "Preporuke za izlete, vinske barove i zanatske radnje",
-        "Brza podrška preko WhatsApp-a",
+        {
+          icon: "checkIn",
+          title: "Fleksibilni check-in",
+          description:
+            "Vreme dolaska po dogovoru unapred, kad god je to moguće.",
+        },
+        {
+          icon: "wifi",
+          title: "Ultra brz Wi‑Fi na optičkoj fibri",
+          description:
+            "Stabilna veza za rad, video pozive i strimovanje.",
+        },
+        {
+          icon: "tv",
+          title: "Pametni televizor",
+          description: "Za opuštene večeri u dnevnoj zoni.",
+        },
+        {
+          icon: "plates",
+          title: "Vrhunski opremljena kuhinja",
+          description:
+            "Sudovi, posuđe i pribor—sve što vam treba za kuvanje.",
+        },
+        {
+          icon: "oven",
+          title: "Kućni aparati",
+          description:
+            "Električna rerna, ploča, kuvalo za vodu i aparat za kafu u kuhinji.",
+        },
+        {
+          icon: "dishwasher",
+          title: "Mašina za pranje sudova",
+          description: "Posle obroka kod kuće bez gomile prljavog sudja.",
+        },
+        {
+          icon: "washer",
+          title: "Mašina za veš",
+          description: "Veš tokom boravka bez dodatne brige.",
+        },
+        {
+          icon: "dryer",
+          title: "Sušilica za veš",
+          description: "Peškir i odeća brzo suvi za ponovo korišćenje.",
+        },
+        {
+          icon: "rooms",
+          title: "Dve sobe i dva kupatila",
+          description: "Dve bračne sobe; jedna ima privatno kupatilo uz sobu.",
+        },
+        {
+          icon: "stairs",
+          title: "Drugi sprat",
+          description:
+            "Dve kratke unutrašnje stepenice; lift nije dostupan.",
+        },
+        {
+          icon: "linens",
+          title: "Posteljina i komplet",
+          description: "Kvalitetni čaršafi, peškir i komplet za kupatilo.",
+        },
+        {
+          icon: "tips",
+          title: "Lokalne preporuke",
+          description:
+            "Vinski barovi, radnje i izleti koje rado preporučujemo.",
+        },
+        {
+          icon: "support",
+          title: "WhatsApp podrška",
+          description: "Brzi odgovori na pitanja, termine i molbe.",
+        },
       ],
     },
     testimonials: {
       heading: "Šta kažu gosti",
       body:
-        "Posle boravka, gosti mogu ostaviti recenziju na Airbnb-u. Iskustva možete pročitati na zvaničnoj stranici oglasa.",
+        "Uvek nam prija da pročitamo kako su se osećali kod nas. Na Airbnb-u su njihove reči, iskrene, posle boravka.",
       cta: "Pogledajte recenzije na Airbnb-u",
       ctaAria: "Otvara Airbnb oglas u novoj kartici sa recenzijama gostiju",
     },
@@ -1175,13 +1483,13 @@ export const dictionaries: Record<Locale, Messages> = {
       back: "Povratak na početnu",
       photoAltSuffix: "fotografija",
       metaDescription:
-        "{room} — fotografije. Note tra le Mura, apartman u centru Luke.",
+        "{room} — fotografije. Note tra le Mura, apartman za porodice u centru Luke, unutar zidina.",
     },
     whatsappMessage:
       "Zdravo, želim informacije o apartmanu Note tra le Mura u Luci.",
     luccaComics: {
       metaDescription:
-        "Smeštaj u Luci za Lucca Comics: apartman Note tra le Mura, Via Pelleria 14, istorijski centar unutar zidina. Odgovori na uobičajena pitanja, direktan kontakt i rezervacija (WhatsApp, e-pošta) preko ovog sajta.",
+        "Smeštaj u Luci za Lucca Comics: apartman Note tra le Mura, Via Pelleria 14, istorijski centar unutar zidina. ČPP i kontakt WhatsApp ili e-pošta za slobodne termine (nema online plaćanja na sajtu).",
       title: "Smeštaj u Luci za Lucca Comics & Games",
       backToHome: "Povratak na početnu",
       heroSlideshowAria:
@@ -1192,7 +1500,7 @@ export const dictionaries: Record<Locale, Messages> = {
         "Lucca Comics, fotografija 3",
       ],
       intro:
-        "Lucca Comics & Games svake jeseni okuplja posetioce iz cele Evrope. Život u stanu iza zidina je strateški: auto ostaje van zidina, pa u svakodnevnici festivala imate manje stresa oko parkinga i možete u miru da uživate u atmosferi Comicsa, u društvu do 6 gostiju — sa prijateljima ili rodbinom. Noćenje u centru olakšava dan; Note tra le Mura je pažljivo uređen apartman. Zvanične datume proverite na sajtu Lucca Comics & Games; za termine i rezervaciju pišite na WhatsApp ili e-poštu.",
+        "Lucca Comics & Games svake jeseni okuplja posetioce iz cele Evrope. Život u stanu iza zidina je strateški: auto ostaje van zidina, pa u svakodnevnici festivala imate manje stresa oko parkinga i možete u miru da uživate u atmosferi Comicsa, u društvu do 6 gostiju — sa prijateljima ili rodbinom. Noćenje u centru olakšava dan; Note tra le Mura je pažljivo uređen apartman. Zvanične datume proverite na sajtu Lucca Comics & Games; za dostupnost i sledeće korake pišite na WhatsApp ili e-poštu.",
       galleryTitle: "Apartman iza zidina",
       galleryImageAlts: [
         "Dnevna soba, Note tra le Mura, Luka",
@@ -1204,7 +1512,7 @@ export const dictionaries: Record<Locale, Messages> = {
         {
           heading: "Gde se nalazimo",
           body:
-            "Apartman Note tra le Mura je na adresi Via Pelleria 14, 55100 Luka, unutar gradskih zidina, pešačka zona. Orijentaciono: otprilike 10 minuta hoda do Padiglione Carducci, otprilike 6 minuta do trga San Michele in Foro, otprilike 8 minuta do trga Napoleone (zavisi od staze i tempa). U blizini su Filungo, anfiteatar, katedrala — proverite na mapi i na portalima za rezervacije. Adresa i CIN u podnožju svake stranice.",
+            "Apartman Note tra le Mura je na adresi Via Pelleria 14, 55100 Luka, unutar gradskih zidina, pešačka zona. Orijentaciono: otprilike 10 minuta hoda do Padiglione Carducci, otprilike 6 minuta do trga San Michele in Foro, otprilike 8 minuta do trga Napoleone (zavisi od staze i tempa). Železnička stanica u Luci je 20 minuta hoda; autobuska stanica u centru 5 minuta hoda (proverite red vožnje). U blizini su Filungo, anfiteatar, katedrala — proverite na mapi. Airbnb je glavni kanal (ovde povezujemo samo taj oglas sa recenzijama); smeštaj se može pojaviti i na Booking.com i drugim portalima. Adresa i CIN u podnožju svake stranice.",
         },
         {
           heading: "Zašto centar tokom festivala",
@@ -1212,9 +1520,9 @@ export const dictionaries: Record<Locale, Messages> = {
             "U tim danima su restorani i dešavanja u centru. Apartman unutar zidina je strateška baza za Comics: ne ulazite iznova u stres oko parkinga svakog jutra, peške idete između Padiglionea, trgova i uličica, a u stan se vraćate u miru da podelite utisak do šestoro. Manje skitnje, fleksibilniji raspored, lakše vraćanje posle kiše, mirniji kontekst od glavnih tranzitnih saobraćajnica — uz punu festivalsku atmosferu.",
         },
         {
-          heading: "Direktna rezervacija",
+          heading: "Kontakt i dostupnost",
           body:
-            "Na sajtu su fotografije, usluge, kalendar i kontakti. Kad je potražnja visoka, radimo direktno sa vama oko termina, broja osoba i praktičnih detalja, bez posrednika. Cene i pravila (npr. minimum noći) dogovaramo po stvarnoj raspoloživosti.",
+            "Na sajtu su fotografije, usluge, indikativni kalendar i kontakti. Kad je potražnja visoka, odgovaramo u poruci oko termina, broja osoba i praktičnih detalja. Cene i pravila (npr. minimum noći) dogovaramo po stvarnoj raspoloživosti.",
         },
         {
           heading: "Šta proveriti pre rezervacije",
@@ -1230,14 +1538,19 @@ export const dictionaries: Record<Locale, Messages> = {
             "Da, smeštaj je do 6 gostiju — dobro da festival podelite sa prijateljima ili rodbinom, boravak u centru, šetnja, miran smeštaj. Za neobične zahteve napišite pre odluke o rezervaciji.",
         },
         {
-          question: "Kako mogu da rezervišem direktno?",
+          question: "Kako proverim slobodne termine?",
           answer:
-            "Preko WhatsApp-a ili e-pošte, putem sekcije Kontakt na početnoj stranici ili veze na ovoj stranici. Javljamo stvarne slobodne termine i sledeće korake.",
+            "Preko WhatsApp-a ili e-pošte, putem sekcije Kontakt na početnoj stranici ili veze na ovoj stranici. Javljamo stvarne slobodne termine i sledeće korake—na ovom sajtu nema online plaćanja.",
         },
         {
           question: "Koliko je daleko do zone sajma ili glavnih pravaca?",
           answer:
             "Orijentaciono hoda: otprilike 10 minuta do Padiglione Carducci, otprilike 6 do piazza San Michele in Foro, otprilike 8 do piazza Napoleone — zavisi od staze i tempa, programa i ulaza. Prednost stana u zidinama je manje dnevne brige oko parkiranja: često festival obilazite peške od „kuće” bez novog traganja za mestom do odlaska.",
+        },
+        {
+          question: "Koliko su daleko železnica i autobuska stanica?",
+          answer:
+            "Železnička stanica u Luci je 20 minuta hoda od Via Pelleria 14. Autobuska stanica u starom gradu je 5 minuta hoda. Uvek proverite aktuelne redove vožnje kod prevoznika.",
         },
         {
           question: "Gde mogu da parkiram? Koje je parkiralište najbliže?",
@@ -1261,10 +1574,10 @@ export const dictionaries: Record<Locale, Messages> = {
         },
       ],
       cta:
-        "Za termine, raspoloživost i direktnu rezervaciju otvorite Kontakt na početnoj stranici.",
+        "Za termine i raspoloživost otvorite Kontakt na početnoj stranici (WhatsApp ili e-pošta).",
       ctaToContacts: "Kontaktirajte nas",
       homeComicsTeaser:
-        "Lucca Comics & Games: smeštaj u centru (Via Pelleria 14) —",
+        "Lucca Comics & Games, smeštaj u centru (Via Pelleria 14).",
       homeComicsLinkText: "posebna stranica i pitanja",
     },
   },

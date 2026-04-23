@@ -4,12 +4,7 @@ import { notFound } from "next/navigation";
 import { ComicsHeroSlideshow } from "@/components/ComicsHeroSlideshow";
 import { LUCCA_COMICS_HERO_SLIDES } from "@/config/lucca-comics-hero";
 import { LUCCA_COMICS_GALLERY } from "@/config/lucca-comics-gallery";
-import {
-  type Locale,
-  isLocale,
-  localeToHrefLang,
-  locales,
-} from "@/i18n/config";
+import { type Locale, isLocale, localeAlternateLanguages } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { getOsmEmbedUrl, getOsmViewUrl } from "@/config/property-map";
 import { getPublicLegalDisplay } from "@/config/public-legal";
@@ -49,9 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     robots: { index: true, follow: true },
     alternates: {
       canonical: `/${raw}/lucca-comics`,
-      languages: Object.fromEntries(
-        locales.map((l) => [localeToHrefLang(l), `/${l}/lucca-comics`]),
-      ),
+      languages: localeAlternateLanguages("/lucca-comics"),
     },
     ...buildOpenGraphAndTwitter({
       path: `/${raw}/lucca-comics`,
@@ -96,11 +89,11 @@ export default async function LuccaComicsPage({ params }: Props) {
         <div className="relative z-10 mx-auto w-full max-w-3xl pb-20 md:pb-24">
           <Link
             href={base}
-            className="text-sm font-medium text-[#2e261c] underline decoration-[#c5bdb4] underline-offset-4 [text-shadow:0_1px_10px_rgba(255,255,255,0.75)] transition hover:decoration-[#5c544c] hover:[text-shadow:0_1px_12px_rgba(255,255,255,0.9)]"
+            className="text-[15px] font-extrabold leading-snug tracking-wide text-[#0f0c08] underline decoration-2 decoration-[#7a7268] underline-offset-[5px] [text-shadow:0_0_1px_rgba(255,255,255,0.95),0_1px_10px_rgba(255,255,255,0.88),0_2px_20px_rgba(255,255,255,0.65)] transition hover:text-[#141008] hover:decoration-[#5c544c] hover:[text-shadow:0_0_1px_rgba(255,255,255,1),0_1px_12px_rgba(255,255,255,0.95)] md:text-base"
           >
             ← {c.backToHome}
           </Link>
-          <h1 className="mt-6 max-w-3xl font-[var(--font-serif)] text-3xl font-normal tracking-tight text-[#141008] [text-shadow:0_2px_16px_rgba(255,255,255,0.55),0_1px_8px_rgba(255,255,255,0.45)] md:text-4xl md:leading-tight">
+          <h1 className="mt-6 max-w-3xl font-[var(--font-serif)] text-3xl font-normal tracking-tight text-[#0f0c08] [text-shadow:0_0_1px_rgba(255,255,255,1),0_0_4px_rgba(255,255,255,0.95),0_0_10px_rgba(255,255,255,0.85),0_1px_0_rgba(255,255,255,0.95),0_2px_6px_rgba(255,255,255,0.9),0_3px_22px_rgba(255,255,255,0.75),0_4px_40px_rgba(255,255,255,0.55),0_6px_60px_rgba(255,255,255,0.35)] md:text-4xl md:leading-tight">
             {c.title}
           </h1>
         </div>
@@ -111,7 +104,7 @@ export default async function LuccaComicsPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJson) }}
       />
       <article className="mx-auto max-w-3xl px-6 py-8 pb-12 md:px-12 md:py-10 md:pb-16">
-        <p className="text-[15px] font-normal leading-relaxed text-[#4a433c] md:text-base">
+        <p className="text-[15px] font-normal leading-relaxed text-[#1c1814] md:text-base md:leading-7">
           {c.intro}
         </p>
 
@@ -121,7 +114,7 @@ export default async function LuccaComicsPage({ params }: Props) {
         >
           <h2
             id="comics-gallery-title"
-            className="font-[var(--font-serif)] text-xl font-normal tracking-tight text-[#2c241c] md:text-2xl"
+            className="font-[var(--font-serif)] text-xl font-normal tracking-tight text-[#141008] md:text-2xl"
           >
             {c.galleryTitle}
           </h2>
@@ -151,14 +144,14 @@ export default async function LuccaComicsPage({ params }: Props) {
           </div>
         </section>
 
-        <div className="mt-12 space-y-10 text-[15px] font-normal leading-relaxed text-[#534a42] md:text-base">
+        <div className="mt-12 space-y-10 text-[15px] font-normal leading-relaxed text-[#1c1814] md:text-base md:leading-7">
           {c.sections.map((s, i) => (
             <section key={i} aria-labelledby={`comics-section-${i}`}>
               {i === contactCtaSectionIndex ? (
                 <>
                   <h2
                     id={`comics-section-${i}`}
-                    className="font-[var(--font-serif)] text-lg font-normal tracking-tight text-[#2c241c] md:text-xl"
+                    className="font-[var(--font-serif)] text-lg font-normal tracking-tight text-[#141008] md:text-xl"
                   >
                     {s.heading}
                   </h2>
@@ -176,7 +169,7 @@ export default async function LuccaComicsPage({ params }: Props) {
                 <>
                   <h2
                     id={`comics-section-${i}`}
-                    className="font-[var(--font-serif)] text-lg font-normal tracking-tight text-[#2c241c] md:text-xl"
+                    className="font-[var(--font-serif)] text-lg font-normal tracking-tight text-[#141008] md:text-xl"
                   >
                     {s.heading}
                   </h2>
@@ -193,7 +186,7 @@ export default async function LuccaComicsPage({ params }: Props) {
         >
           <h2
             id="comics-faq"
-            className="font-[var(--font-serif)] text-2xl font-normal tracking-tight text-[#2c241c]"
+            className="font-[var(--font-serif)] text-2xl font-normal tracking-tight text-[#141008]"
           >
             {c.faqTitle}
           </h2>
@@ -201,12 +194,12 @@ export default async function LuccaComicsPage({ params }: Props) {
             {c.faq.map((item, i) => (
               <li key={i} className="border-b border-[#e8e2da]/80 pb-3 last:border-0">
                 <details className="group">
-                  <summary className="cursor-pointer list-none font-medium text-[#2c241c] marker:content-none [&::-webkit-details-marker]:hidden">
-                    <span className="underline decoration-[#c5bdb4] decoration-1 underline-offset-2 group-open:decoration-[#2c241c]">
+                  <summary className="cursor-pointer list-none font-semibold text-[#141008] marker:content-none [&::-webkit-details-marker]:hidden">
+                    <span className="underline decoration-[#a09890] decoration-1 underline-offset-2 group-open:decoration-[#141008]">
                       {item.question}
                     </span>
                   </summary>
-                  <p className="mt-3 pl-0 text-[15px] font-normal leading-relaxed text-[#534a42]">
+                  <p className="mt-3 pl-0 text-[15px] font-normal leading-relaxed text-[#2e2820] md:leading-7">
                     {item.answer}
                   </p>
                 </details>
@@ -215,7 +208,7 @@ export default async function LuccaComicsPage({ params }: Props) {
           </ul>
         </section>
 
-        <p className="mt-10 text-center text-sm leading-relaxed text-[#5c544c]">
+        <p className="mt-10 text-center text-sm font-medium leading-relaxed text-[#1c1814]">
           {c.cta}
         </p>
         <p className="mt-4 text-center">

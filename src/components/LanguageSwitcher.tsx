@@ -2,7 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { type Locale, localeToHrefLang, locales } from "@/i18n/config";
+import {
+  type Locale,
+  defaultLocale,
+  localeToHrefLang,
+  locales,
+} from "@/i18n/config";
 
 const labels: Record<Locale, { flag: string; name: string }> = {
   it: { flag: "🇮🇹", name: "Italiano" },
@@ -27,7 +32,7 @@ export function LanguageSwitcher({
   const parts = pathname.split("/").filter(Boolean);
   const current = (parts[0] && locales.includes(parts[0] as Locale)
     ? parts[0]
-    : "it") as Locale;
+    : defaultLocale) as Locale;
   const rest = parts.slice(1).join("/");
 
   const onPhoto = variant === "onPhoto";

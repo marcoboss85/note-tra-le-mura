@@ -9,6 +9,7 @@ import {
   Yanone_Kaffeesatz,
 } from "next/font/google";
 import { HtmlLang } from "@/components/HtmlLang";
+import { defaultLocale, localeToHrefLang } from "@/i18n/config";
 import "./globals.css";
 
 /** Corpo: come palazzodipinto.com (`body` in stile.css). */
@@ -52,7 +53,7 @@ const heroBrandScore = Pinyon_Script({
 const roboto = Roboto({
   variable: "--font-ui",
   subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "700", "800"],
   display: "swap",
   adjustFontFallback: true,
 });
@@ -67,9 +68,9 @@ const manjari = Manjari({
 
 export const metadata: Metadata = {
   metadataBase: getMetadataBaseUrl(),
-  title: "Note tra le Mura | Lucca",
+  title: "Note tra le Mura | Family apartment in Lucca old town",
   description:
-    "Boutique apartment in the heart of Lucca — Note tra le Mura.",
+    "Holiday apartment in historic Lucca inside the walls (Via Pelleria 14). Note tra le Mura.",
 };
 
 export const viewport: Viewport = {
@@ -85,7 +86,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="it"
+      lang={localeToHrefLang(defaultLocale)}
       suppressHydrationWarning
       className={`${raleway.variable} ${ovo.variable} ${yanoneSection.variable} ${heroBrandScore.variable} ${roboto.variable} ${manjari.variable} h-full antialiased`}
     >
