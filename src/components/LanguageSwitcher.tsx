@@ -7,6 +7,7 @@ import { type Locale, localeToHrefLang, locales } from "@/i18n/config";
 const labels: Record<Locale, { flag: string; name: string }> = {
   it: { flag: "🇮🇹", name: "Italiano" },
   en: { flag: "🇬🇧", name: "English" },
+  de: { flag: "🇩🇪", name: "Deutsch" },
   sr: { flag: "🇷🇸", name: "Srpski (latinica)" },
 };
 
@@ -20,7 +21,7 @@ export function LanguageSwitcher() {
 
   return (
     <nav
-      className="pointer-events-auto fixed right-4 top-4 z-[60] flex items-center gap-0.5 rounded-full border border-[#d4cdc4]/90 bg-[#fcfbf9]/92 p-0.5 shadow-sm backdrop-blur-md md:right-6 md:top-5"
+      className="pointer-events-auto fixed right-4 top-4 z-[60] flex items-center gap-0.5 rounded-full bg-transparent p-0.5 [filter:drop-shadow(0_1px_2px_rgba(255,255,255,0.65))] md:right-6 md:top-5"
       aria-label="Choose language"
     >
       {locales.map((locale) => {
@@ -35,7 +36,7 @@ export function LanguageSwitcher() {
             className={`flex h-10 w-10 items-center justify-center rounded-full text-xl leading-none transition md:h-11 md:w-11 md:text-2xl ${
               active
                 ? "bg-[#2c241c] text-[#faf8f5]"
-                : "text-[#3d342c] hover:bg-[#ebe6df]"
+                : "text-[#2c221c] hover:bg-[#1e1612]/8"
             }`}
             hrefLang={localeToHrefLang(locale)}
             aria-current={active ? "true" : undefined}

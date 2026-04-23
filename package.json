@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3000",
+    "dev": "next dev -p 3000 --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "optimize:hero": "node scripts/optimize-hero-images.cjs"
+    "optimize:hero": "node scripts/optimize-hero-images.cjs",
+    "vercel:login": "vercel login",
+    "vercel:link": "vercel link",
+    "vercel:sync-env": "node scripts/vercel-sync-env.cjs",
+    "vercel:deploy": "vercel --prod"
   },
   "dependencies": {
     "next": "16.2.4",
@@ -15,6 +19,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "vercel": "^48.0.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

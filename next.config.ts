@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  /**
+   * Accesso al dev server da altri dispositivi sulla LAN (es. telefono su 192.168.x).
+   * Evita il blocco di HMR e risorse /_next da origine diversa.
+   */
+  allowedDevOrigins: ["192.168.1.16"],
   /** Meno byte in risposta, niente header inutile. */
   poweredByHeader: false,
   compress: true,

@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  useSyncExternalStore,
-} from "react";
+import { useMemo, useRef, useState, useSyncExternalStore } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Messages } from "@/i18n/dictionaries";
 
@@ -32,6 +26,14 @@ function useCalendarWindowColumns(): 1 | 2 {
   return wide ? 2 : 1;
 }
 
+function useIsClient(): boolean {
+  return useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+}
+
 type Props = {
   locale: Locale;
   copy: Messages["availability"];
@@ -42,6 +44,7 @@ type Props = {
 function localeTag(l: Locale): string {
   if (l === "it") return "it-IT";
   if (l === "en") return "en-GB";
+  if (l === "de") return "de-DE";
   return "sr-Latn-RS";
 }
 
@@ -198,14 +201,10 @@ function MonthGrid({
 }
 
 export function AvailabilityCalendar({ locale, copy, blocked, status }: Props) {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useIsClient();
   const [startIndex, setStartIndex] = useState(0);
   const cols = useCalendarWindowColumns();
   const touchStartX = useRef<number | null>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const tag = localeTag(locale);
   const blockedSet = useMemo(() => new Set(blocked), [blocked]);
@@ -216,9 +215,7 @@ export function AvailabilityCalendar({ locale, copy, blocked, status }: Props) {
     [calendarToday],
   );
   const maxStart = Math.max(0, months.length - cols);
-  useEffect(() => {
-    setStartIndex((i) => Math.min(i, maxStart));
-  }, [maxStart]);
+  const pageStart = Math.min(startIndex, maxStart);
 
   if (status === "missing_url") {
     return (
@@ -251,15 +248,21 @@ export function AvailabilityCalendar({ locale, copy, blocked, status }: Props) {
   const todayYmd = localYmd(calendarToday);
   const weekLabels = weekDayLabels(tag);
 
-  const canPrev = startIndex > 0;
-  const canNext = startIndex < maxStart;
-  const visible = months.slice(startIndex, startIndex + cols);
+  const canPrev = pageStart > 0;
+  const canNext = pageStart < maxStart;
+  const visible = months.slice(pageStart, pageStart + cols);
 
   const goPrev = () => {
-    setStartIndex((i) => Math.max(0, i - cols));
+    setStartIndex((i) => {
+      const p = Math.min(i, maxStart);
+      return Math.max(0, p - cols);
+    });
   };
   const goNext = () => {
-    setStartIndex((i) => Math.min(maxStart, i + cols));
+    setStartIndex((i) => {
+      const p = Math.min(i, maxStart);
+      return Math.min(maxStart, p + cols);
+    });
   };
 
   const navBtnClass =

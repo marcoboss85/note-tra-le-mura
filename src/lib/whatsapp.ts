@@ -1,6 +1,8 @@
-import { CONTACT_PHONE_E164 } from "@/config/contact";
+import type { Locale } from "@/i18n/config";
+import { getContactPhoneForLocale } from "@/config/contact";
 
-export function buildWhatsappLink(message: string) {
+export function buildWhatsappLink(message: string, locale: Locale) {
+  const e164 = getContactPhoneForLocale(locale).e164;
   const text = encodeURIComponent(message);
-  return `https://wa.me/${CONTACT_PHONE_E164}?text=${text}`;
+  return `https://wa.me/${e164}?text=${text}`;
 }

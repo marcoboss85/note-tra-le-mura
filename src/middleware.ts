@@ -1,6 +1,6 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { defaultLocale, isLocale, locales } from "@/i18n/config";
+import { defaultLocale, isLocale } from "@/i18n/config";
 
 function pathnameIsAsset(pathname: string) {
   return /\.(ico|png|jpe?g|gif|svg|webp|woff2?|ttf|txt|xml|webmanifest)$/i.test(

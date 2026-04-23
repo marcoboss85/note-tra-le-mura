@@ -20,13 +20,16 @@ export function CookieConsent({ locale, copy }: Props) {
   const base = `/${locale}`;
 
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) setShowBar(true);
-    } catch {
-      setShowBar(true);
-    }
-    setHydrated(true);
+    const id = requestAnimationFrame(() => {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) setShowBar(true);
+      } catch {
+        setShowBar(true);
+      }
+      setHydrated(true);
+    });
+    return () => cancelAnimationFrame(id);
   }, []);
 
   /** Segnala al CSS che il banner è visibile (es. FAB WhatsApp sulla home). */

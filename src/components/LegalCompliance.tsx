@@ -72,6 +72,15 @@ export function LegalCompliance({ locale, copy }: Props) {
             >
               {copy.linkCookies}
             </Link>
+            <span className="text-[#c4bcb3]" aria-hidden>
+              ·
+            </span>
+            <Link
+              href={`${base}/lucca-comics`}
+              className="text-[#4a433c] underline decoration-[#b8b0a8] underline-offset-[3px] transition hover:decoration-[#5c544c]"
+            >
+              {copy.linkLuccaComics}
+            </Link>
           </span>
         </p>
       </div>

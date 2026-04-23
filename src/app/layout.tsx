@@ -1,5 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Manjari, Ovo, Raleway, Roboto, Yanone_Kaffeesatz } from "next/font/google";
+import { getMetadataBaseUrl } from "@/lib/social-metadata";
+import {
+  Manjari,
+  Ovo,
+  Pinyon_Script,
+  Raleway,
+  Roboto,
+  Yanone_Kaffeesatz,
+} from "next/font/google";
 import { HtmlLang } from "@/components/HtmlLang";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import "./globals.css";
@@ -32,6 +40,15 @@ const yanoneSection = Yanone_Kaffeesatz({
   adjustFontFallback: true,
 });
 
+/** Nome in home: manoscritto da partitura (inchiostro / incisione, hairline). */
+const heroBrandScore = Pinyon_Script({
+  variable: "--font-hero-brand",
+  weight: "400",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  adjustFontFallback: true,
+});
+
 /** UI secondaria / didascalie: come su palazzodipinto.com (Roboto + Manjari). */
 const roboto = Roboto({
   variable: "--font-ui",
@@ -50,6 +67,7 @@ const manjari = Manjari({
 });
 
 export const metadata: Metadata = {
+  metadataBase: getMetadataBaseUrl(),
   title: "Note tra le Mura | Lucca",
   description:
     "Boutique apartment in the heart of Lucca — Note tra le Mura.",
@@ -70,7 +88,7 @@ export default function RootLayout({
     <html
       lang="it"
       suppressHydrationWarning
-      className={`${raleway.variable} ${ovo.variable} ${yanoneSection.variable} ${roboto.variable} ${manjari.variable} h-full antialiased`}
+      className={`${raleway.variable} ${ovo.variable} ${yanoneSection.variable} ${heroBrandScore.variable} ${roboto.variable} ${manjari.variable} h-full antialiased`}
     >
       <body className="relative min-h-full flex flex-col">
         <HtmlLang />

@@ -6,6 +6,10 @@ node_modules/
 # next
 .next/
 out/
+tsconfig.tsbuildinfo
+
+# Vercel (dopo `vercel link` — contiene org/project)
+.vercel/
 
 # env (segreti)
 .env*.local

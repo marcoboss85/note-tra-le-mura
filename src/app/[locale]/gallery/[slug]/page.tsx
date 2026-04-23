@@ -5,6 +5,7 @@ import { ambienti } from "@/app/gallery-data";
 import type { RoomSlug } from "@/i18n/dictionaries";
 import { type Locale, isLocale, localeToHrefLang, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { buildOpenGraphAndTwitter } from "@/lib/social-metadata";
 import type { Metadata } from "next";
 
 type PageProps = {
@@ -29,15 +30,27 @@ export async function generateMetadata({
     return {};
   }
   const roomTitle = dict.rooms[ambiente.slug as RoomSlug];
+  const fullTitle = `${roomTitle} | ${dict.hero.brand}`;
+  const description = dict.galleryPage.metaDescription.replace(
+    "{room}",
+    roomTitle,
+  );
   return {
-    title: `${roomTitle} | ${dict.hero.brand}`,
-    description: dict.meta.description,
+    title: fullTitle,
+    description,
     alternates: {
       canonical: `/${locale}/gallery/${slug}`,
       languages: Object.fromEntries(
         locales.map((l) => [localeToHrefLang(l), `/${l}/gallery/${slug}`]),
       ),
     },
+    ...buildOpenGraphAndTwitter({
+      path: `/${locale}/gallery/${slug}`,
+      title: fullTitle,
+      description,
+      siteName: dict.hero.brand,
+      locale,
+    }),
   };
 }
 

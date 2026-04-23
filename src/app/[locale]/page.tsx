@@ -1,6 +1,6 @@
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { AvailabilityCalendar } from "@/components/AvailabilityCalendar";
 import { IconMail } from "@/components/ContactIcons";
 import { SectionHeading } from "@/components/SectionHeading";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
@@ -11,19 +11,62 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import type { RoomSlug } from "@/i18n/dictionaries";
 import {
   CONTACT_EMAIL,
-  CONTACT_PHONE_DISPLAY,
   contactMailtoHref,
+  getContactPhoneForLocale,
 } from "@/config/contact";
 import { buildWhatsappLink } from "@/lib/whatsapp";
 import { fetchAirbnbBlockedDates } from "@/lib/ical-blocked-dates";
 import { getAirbnbIcalUrl } from "@/config/calendar";
+import { isHomeComicsBannerVisible } from "@/config/home-comics-banner";
+import { getAirbnbListingUrl } from "@/config/airbnb-listing";
+import { getOsmEmbedUrl, getOsmViewUrl } from "@/config/property-map";
+import { getFacebookPageUrl, getInstagramUrl } from "@/config/social";
+import { getPublicLegalDisplay } from "@/config/public-legal";
+import { PropertyMapMini } from "@/components/PropertyMapMini";
+import { buildOpenGraphAndTwitter } from "@/lib/social-metadata";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+
+const AvailabilityCalendar = dynamic(
+  () =>
+    import("@/components/AvailabilityCalendar").then(
+      (m) => m.AvailabilityCalendar,
+    ),
+  {
+    loading: () => (
+      <div
+        className="mx-auto min-h-[min(24rem,70vh)] max-w-4xl rounded-lg border border-[#e3dcd4] bg-[#f0ebe3]/50"
+        aria-hidden
+      />
+    ),
+  },
+);
 
 export const revalidate = 1800;
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) {
+    return {};
+  }
+  const locale = raw as Locale;
+  const dict = getDictionary(locale);
+  return {
+    ...buildOpenGraphAndTwitter({
+      path: `/${locale}`,
+      title: dict.meta.title,
+      description: dict.meta.description,
+      siteName: dict.hero.brand,
+      locale,
+    }),
+  };
+}
 
 function formatCount(template: string, n: number) {
   return template.replace(/\{n\}/g, String(n));
@@ -36,10 +79,16 @@ export default async function Home({ params }: PageProps) {
   }
   const locale = raw as Locale;
   const dict = getDictionary(locale);
-  const whatsappLink = buildWhatsappLink(dict.whatsappMessage);
+  const { propertyAddress } = getPublicLegalDisplay();
+  const facebookUrl = getFacebookPageUrl();
+  const instagramUrl = getInstagramUrl();
+  const contactPhone = getContactPhoneForLocale(locale);
+  const whatsappLink = buildWhatsappLink(dict.whatsappMessage, locale);
   const base = `/${locale}`;
 
+  const showComicsHomeBanner = isHomeComicsBannerVisible();
   const icalUrl = getAirbnbIcalUrl();
+  const airbnbListingUrl = getAirbnbListingUrl();
   let availabilityStatus: "ok" | "missing_url" | "error" = "missing_url";
   let blockedYmd: string[] = [];
   if (icalUrl) {
@@ -61,16 +110,16 @@ export default async function Home({ params }: PageProps) {
       >
         <HeroSlideshow imageAlt={dict.hero.imageAlt} />
         <div className="relative z-10 mx-auto w-full max-w-5xl">
-          <p className="mb-5 font-[var(--font-caption)] text-[11px] font-bold uppercase tracking-[0.28em] text-[#2a2018]/85 [text-shadow:0_1px_8px_rgba(255,255,255,0.45)] md:text-xs">
+          <p className="mb-5 font-[var(--font-caption)] text-xs font-bold uppercase tracking-[0.26em] text-[#141008] md:text-[13px]">
             {dict.hero.kicker}
           </p>
-          <h1 className="max-w-3xl font-[var(--font-serif)] text-5xl font-normal tracking-tight text-[#141008] [text-shadow:0_2px_14px_rgba(255,255,255,0.5)] md:text-[4.25rem] md:leading-[1.05]">
+          <h1 className="max-w-3xl font-[var(--font-hero-brand)] text-[2.75rem] font-normal leading-[1.12] tracking-[0.04em] text-[#0f0c08] [text-shadow:0_0_1px_rgba(255,255,255,1),0_0_4px_rgba(255,255,255,0.95),0_0_10px_rgba(255,255,255,0.85),0_1px_0_rgba(255,255,255,0.95),0_2px_6px_rgba(255,255,255,0.9),0_3px_22px_rgba(255,255,255,0.75),0_4px_40px_rgba(255,255,255,0.55),0_6px_60px_rgba(255,255,255,0.35)] md:text-[4.15rem] md:leading-[1.1]">
             {dict.hero.brand}
           </h1>
-          <p className="mt-5 max-w-2xl font-[var(--font-body)] text-base font-normal italic leading-relaxed text-[#3a322c]/90 [text-shadow:0_1px_8px_rgba(255,255,255,0.4)] md:text-lg">
+          <p className="mt-5 max-w-2xl font-[var(--font-body)] text-base font-bold italic leading-relaxed text-[#15120e] md:text-lg">
             {dict.hero.location}
           </p>
-          <p className="mt-6 max-w-xl text-base font-normal leading-relaxed text-[#2c221c]/92 [text-shadow:0_1px_10px_rgba(255,255,255,0.45)] md:max-w-2xl md:text-lg md:leading-8">
+          <p className="mt-6 max-w-xl text-base font-semibold leading-relaxed text-[#141008] md:max-w-2xl md:text-lg md:leading-8">
             {dict.hero.subtitle}
           </p>
           <div className="mt-10 flex flex-wrap gap-3 md:gap-4">
@@ -90,6 +139,24 @@ export default async function Home({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {showComicsHomeBanner ? (
+        <div
+          className="border-b border-[#e0d9cf] bg-[#f0ebe3]/90 px-6 py-4 text-center font-[var(--font-ui)] text-[14px] text-[#4a433c] md:py-5 md:text-[15px]"
+          role="complementary"
+          aria-label={dict.luccaComics.title}
+        >
+          <p className="mx-auto max-w-3xl leading-relaxed">
+            <span>{dict.luccaComics.homeComicsTeaser}</span>{" "}
+            <Link
+              href={`${base}/lucca-comics`}
+              className="font-medium text-[#243828] underline decoration-[#b8b0a8] underline-offset-2 transition hover:decoration-[#5c544c]"
+            >
+              {dict.luccaComics.homeComicsLinkText}
+            </Link>
+          </p>
+        </div>
+      ) : null}
 
       <section
         id="disponibilita"
@@ -143,9 +210,9 @@ export default async function Home({ params }: PageProps) {
                         fill
                         sizes="(max-width: 768px) 100vw, 48rem"
                         className="object-cover transition duration-[640ms] ease-out group-hover:scale-[1.02]"
-                        priority={ambienteIndex < 2}
+                        priority={ambienteIndex === 0}
                         quality={72}
-                        loading={ambienteIndex < 2 ? "eager" : "lazy"}
+                        loading={ambienteIndex === 0 ? "eager" : "lazy"}
                       />
                     </div>
                   </Link>
@@ -188,6 +255,30 @@ export default async function Home({ params }: PageProps) {
       </section>
 
       <section
+        id="dicono-di-noi"
+        className="border-t border-[#e0d9cf] px-6 pb-20 pt-20 md:px-12 md:pb-28 md:pt-24"
+        aria-label={dict.testimonials.heading}
+      >
+        <div className="mx-auto max-w-2xl text-center">
+          <SectionHeading title={dict.testimonials.heading} />
+          <p className="text-[17px] font-normal leading-relaxed text-[#534a42] md:text-lg md:leading-8">
+            {dict.testimonials.body}
+          </p>
+          {airbnbListingUrl ? (
+            <a
+              href={airbnbListingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-[#2a4a38] px-7 py-3.5 text-[15px] font-medium tracking-wide text-[#faf8f5] ring-1 ring-[#1a3024]/12 transition-colors duration-300 hover:bg-[#22382c]"
+              aria-label={dict.testimonials.ctaAria}
+            >
+              {dict.testimonials.cta}
+            </a>
+          ) : null}
+        </div>
+      </section>
+
+      <section
         id="contatti"
         className="border-t border-[#e8e2da] px-6 pb-36 pt-20 md:px-12 md:pb-40 md:pt-24"
       >
@@ -203,10 +294,10 @@ export default async function Home({ params }: PageProps) {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${dict.contacts.whatsappAria}: ${CONTACT_PHONE_DISPLAY}`}
+                aria-label={`${dict.contacts.whatsappAria}: ${contactPhone.display}`}
                 className="font-medium text-[#243828] underline decoration-[#9ab09a] underline-offset-4 transition hover:decoration-[#243828]"
               >
-                {CONTACT_PHONE_DISPLAY}
+                {contactPhone.display}
               </a>
             </p>
             <p className="flex items-center justify-center gap-3 text-[17px] font-normal text-[#3d4a40] md:text-lg">
@@ -233,6 +324,17 @@ export default async function Home({ params }: PageProps) {
               <span>{dict.contacts.whatsapp}</span>
             </a>
           </div>
+          <PropertyMapMini
+            embedUrl={getOsmEmbedUrl()}
+            viewUrl={getOsmViewUrl()}
+            frameTitle={dict.contacts.mapFrameTitle}
+            linkAria={dict.contacts.mapLinkAria}
+            addressLine={propertyAddress}
+            facebookUrl={facebookUrl}
+            instagramUrl={instagramUrl}
+            facebookAria={dict.contacts.facebookAria}
+            instagramAria={dict.contacts.instagramAria}
+          />
         </div>
       </section>
 

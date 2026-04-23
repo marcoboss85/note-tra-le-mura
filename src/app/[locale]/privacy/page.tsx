@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { type Locale, isLocale, localeToHrefLang, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { buildOpenGraphAndTwitter } from "@/lib/social-metadata";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -12,8 +13,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
   const dict = getDictionary(raw);
+  const locale = raw as Locale;
+  const fullTitle = `${dict.privacy.title} | ${dict.hero.brand}`;
+  const description = dict.privacy.metaDescription;
   return {
-    title: `${dict.privacy.title} | ${dict.hero.brand}`,
+    title: fullTitle,
+    description,
     robots: { index: true, follow: true },
     alternates: {
       canonical: `/${raw}/privacy`,
@@ -21,6 +26,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         locales.map((l) => [localeToHrefLang(l), `/${l}/privacy`]),
       ),
     },
+    ...buildOpenGraphAndTwitter({
+      path: `/${raw}/privacy`,
+      title: fullTitle,
+      description,
+      siteName: dict.hero.brand,
+      locale,
+    }),
   };
 }
 

@@ -38,8 +38,8 @@ export function HeroSlideshow({ imageAlt }: Props) {
     <>
       <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
         <div
-          className="flex h-full w-full transition-transform duration-[900ms] ease-[cubic-bezier(0.33,1,0.68,1)] motion-reduce:duration-0"
-          style={{ transform: `translateX(-${index * 100}%)` }}
+          className="will-change-transform flex h-full w-full transform-gpu transition-transform duration-[900ms] ease-[cubic-bezier(0.33,1,0.68,1)] motion-reduce:duration-0"
+          style={{ transform: `translate3d(-${index * 100}%,0,0)` }}
         >
           {SLIDE_PATHS.map((src, i) => {
             const warmLate = i >= 3;
@@ -50,7 +50,10 @@ export function HeroSlideshow({ imageAlt }: Props) {
                 alt=""
                 fill
                 priority={i === 0}
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : "low"}
                 sizes="100vw"
+                decoding="async"
                 className={
                   i === 0
                     ? "object-cover object-[center_23%] [filter:saturate(0.9)_contrast(1.03)_brightness(1.02)]"
