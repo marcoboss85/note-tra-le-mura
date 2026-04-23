@@ -106,7 +106,7 @@ export default async function Home({ params }: PageProps) {
     <div className="relative min-h-screen">
       <section
         id="benvenuto"
-        className="relative grid min-h-screen grid-cols-1 grid-rows-[auto_1fr] overflow-hidden px-6 md:px-12"
+        className="relative grid min-h-screen grid-cols-1 grid-rows-[auto_1fr] overflow-hidden px-3 sm:px-6 md:px-12"
         aria-label={dict.hero.imageAlt}
       >
         {/*
