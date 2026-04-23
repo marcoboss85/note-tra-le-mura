@@ -82,7 +82,7 @@ export default async function LuccaComicsPage({ params }: Props) {
   const faqJson = faqJsonLd(c.faq);
 
   return (
-    <main className="min-h-screen bg-[#f6f2ea] font-[var(--font-ui)] text-[#1e1612]">
+    <div className="min-h-screen font-[var(--font-ui)]">
       <section
         className="relative flex min-h-[min(72vh,720px)] flex-col justify-end overflow-hidden px-6 pb-4 pt-8 md:min-h-[min(78vh,820px)] md:px-12 md:pb-6 md:pt-10"
         role="region"
@@ -238,6 +238,6 @@ export default async function LuccaComicsPage({ params }: Props) {
           instagramAria={dict.contacts.instagramAria}
         />
       </article>
-    </main>
+    </div>
   );
 }

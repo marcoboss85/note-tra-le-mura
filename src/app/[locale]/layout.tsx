@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ContactSocialIcons } from "@/components/ContactSocialIcons";
 import { CookieConsent } from "@/components/CookieConsent";
 import { LegalCompliance } from "@/components/LegalCompliance";
-import { getFacebookPageUrl, getInstagramUrl } from "@/config/social";
 import { isLocale, localeToHrefLang, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 
@@ -45,15 +43,16 @@ export default async function LocaleLayout({ children, params }: Props) {
   const dict = getDictionary(locale as Locale);
   return (
     <>
-      <ContactSocialIcons
-        variant="header"
-        headerNavAriaLabel={dict.contacts.headerSocialNavAria}
-        facebookUrl={getFacebookPageUrl()}
-        instagramUrl={getInstagramUrl()}
-        facebookAria={dict.contacts.facebookAria}
-        instagramAria={dict.contacts.instagramAria}
-      />
-      {children}
+      {/*
+        Un solo <main>. Barra a striscia: solo layout (pagine) su cookie, privacy, gallery, lucca-comics.
+        Home: barra sull’hero in page.tsx.
+      */}
+      <main
+        id="main-content"
+        className="min-h-full w-full bg-[#f6f2ea] text-[#1e1612]"
+      >
+        {children}
+      </main>
       <CookieConsent locale={locale as Locale} copy={dict.cookieBanner} />
       <LegalCompliance locale={locale as Locale} copy={dict.legal} />
     </>

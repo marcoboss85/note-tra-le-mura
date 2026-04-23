@@ -71,7 +71,7 @@ export default async function AmbienteGalleryPage({ params }: PageProps) {
   const base = `/${locale}`;
 
   return (
-    <main className="min-h-screen bg-[#f6f2ea] text-[#1e1612]">
+    <div className="min-h-screen">
       <section className="mx-auto max-w-6xl px-6 pb-10 pt-16 md:px-12 md:pt-24">
         <Link
           href={`${base}#gallery`}
@@ -113,6 +113,6 @@ export default async function AmbienteGalleryPage({ params }: PageProps) {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   );
 }

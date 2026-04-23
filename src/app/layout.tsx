@@ -9,7 +9,6 @@ import {
   Yanone_Kaffeesatz,
 } from "next/font/google";
 import { HtmlLang } from "@/components/HtmlLang";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import "./globals.css";
 
 /** Corpo: come palazzodipinto.com (`body` in stile.css). */
@@ -92,7 +91,6 @@ export default function RootLayout({
     >
       <body className="relative min-h-full flex flex-col">
         <HtmlLang />
-        <LanguageSwitcher />
         {children}
       </body>
     </html>

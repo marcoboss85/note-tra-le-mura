@@ -1,3 +1,5 @@
+"use client";
+
 import type { SVGProps } from "react";
 
 function FacebookGlyph({
@@ -40,73 +42,44 @@ function InstagramGlyph({
   );
 }
 
-const headerPill =
-  "pointer-events-auto fixed left-4 top-4 z-[60] flex items-center gap-0.5 rounded-full bg-transparent p-0.5 [filter:drop-shadow(0_1px_2px_rgba(255,255,255,0.65))] md:left-6 md:top-5";
-const headerLink =
-  "flex h-10 w-10 items-center justify-center rounded-full text-xl leading-none transition md:h-11 md:w-11";
-
 type Props = {
   facebookUrl: string | null;
   instagramUrl: string | null;
   facebookAria: string;
   instagramAria: string;
-  /** Sotto mappa: centrato. `header`: fissa in alto a sinistra, stessa altezza delle bandierine. */
-  variant?: "default" | "header";
-  /** Con `header`: etichetta accessibile per il `nav` (obbligatoria se c’è almeno un link). */
-  headerNavAriaLabel?: string;
+  /**
+   * `map`: sotto la mappa, centrato con margine.
+   * `pageTop`: barra in cima, allineate a sinistra.
+   * `hero`: come pageTop, con ombra per leggibilità su foto.
+   */
+  placement?: "map" | "pageTop" | "hero";
 };
 
 /**
- * Link Facebook e Instagram (sotto mappa o in barra fissa a sinistra) se gli URL in env sono impostati.
+ * Link Facebook e Instagram (barra in cima o sotto mappa) se gli URL in env sono impostati.
  */
 export function ContactSocialIcons({
   facebookUrl,
   instagramUrl,
   facebookAria,
   instagramAria,
-  variant = "default",
-  headerNavAriaLabel = "",
+  placement = "map",
 }: Props) {
   if (!facebookUrl && !instagramUrl) {
     return null;
   }
-  const isHeader = variant === "header";
-  const iconSize = isHeader ? "h-6 w-6 md:h-7 md:w-7" : "h-7 w-7";
-
-  if (isHeader) {
-    return (
-      <nav
-        className={headerPill}
-        aria-label={headerNavAriaLabel || "Social"}
-      >
-        {facebookUrl ? (
-          <a
-            href={facebookUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`text-[#1877F2] ${headerLink} hover:bg-[#1e1612]/8`}
-            aria-label={facebookAria}
-          >
-            <FacebookGlyph className={iconSize} />
-          </a>
-        ) : null}
-        {instagramUrl ? (
-          <a
-            href={instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`text-[#E1306C] ${headerLink} hover:bg-[#1e1612]/8`}
-            aria-label={instagramAria}
-          >
-            <InstagramGlyph className={iconSize} />
-          </a>
-        ) : null}
-      </nav>
-    );
-  }
+  const iconSize = "h-7 w-7";
+  const topRow = placement === "pageTop" || placement === "hero";
+  const rowClass = topRow
+    ? `flex min-h-[2.5rem] min-w-0 items-center justify-start gap-4${
+        placement === "hero"
+          ? " [filter:drop-shadow(0_1px_2px_rgba(0,0,0,0.55))]"
+          : ""
+      }`
+    : "mt-4 flex items-center justify-center gap-4";
 
   return (
-    <div className="mt-4 flex items-center justify-center gap-4">
+    <div className={rowClass}>
       {facebookUrl ? (
         <a
           href={facebookUrl}

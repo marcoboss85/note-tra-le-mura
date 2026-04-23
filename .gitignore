@@ -28,3 +28,4 @@ yarn-error.log*
 * 2.ts
 * 2.mjs
 * 2.svg
+.vercel

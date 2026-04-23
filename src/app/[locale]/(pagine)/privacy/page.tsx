@@ -46,7 +46,7 @@ export default async function PrivacyPage({ params }: Props) {
   const base = `/${locale}`;
 
   return (
-    <main className="min-h-screen bg-[#f6f2ea] px-6 py-16 pb-12 font-[var(--font-ui)] text-[#1e1612] md:px-12 md:py-24 md:pb-16">
+    <div className="min-h-screen px-6 py-16 pb-12 font-[var(--font-ui)] md:px-12 md:py-24 md:pb-16">
       <article className="mx-auto max-w-2xl">
         <Link
           href={base}
@@ -68,6 +68,6 @@ export default async function PrivacyPage({ params }: Props) {
           ))}
         </div>
       </article>
-    </main>
+    </div>
   );
 }

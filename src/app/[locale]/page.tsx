@@ -22,6 +22,7 @@ import { getAirbnbListingUrl } from "@/config/airbnb-listing";
 import { getOsmEmbedUrl, getOsmViewUrl } from "@/config/property-map";
 import { getFacebookPageUrl, getInstagramUrl } from "@/config/social";
 import { getPublicLegalDisplay } from "@/config/public-legal";
+import { PageTopBar } from "@/components/PageTopBar";
 import { PropertyMapMini } from "@/components/PropertyMapMini";
 import { buildOpenGraphAndTwitter } from "@/lib/social-metadata";
 import type { Metadata } from "next";
@@ -102,14 +103,28 @@ export default async function Home({ params }: PageProps) {
   }
 
   return (
-    <main className="relative min-h-screen bg-[#f6f2ea] text-[#1e1612]">
+    <div className="relative min-h-screen">
       <section
         id="benvenuto"
-        className="relative flex min-h-screen items-center overflow-hidden px-6 py-16 md:px-12 md:py-24"
+        className="relative grid min-h-screen grid-cols-1 grid-rows-[auto_1fr] overflow-hidden px-6 md:px-12"
         aria-label={dict.hero.imageAlt}
       >
-        <HeroSlideshow imageAlt={dict.hero.imageAlt} />
-        <div className="relative z-10 mx-auto w-full max-w-5xl">
+        {/*
+          Slideshow in layer assoluto pieno schermo; social/bandiere in *flusso* (riga 1) così
+          non dipendono da absolute sullo stesso contenitore del transform hero (Vercel/compositing).
+        */}
+        <div className="absolute inset-0 z-0" aria-hidden>
+          <HeroSlideshow imageAlt={dict.hero.imageAlt} />
+        </div>
+        <PageTopBar
+          variant="overHero"
+          facebookUrl={facebookUrl}
+          instagramUrl={instagramUrl}
+          facebookAria={dict.contacts.facebookAria}
+          instagramAria={dict.contacts.instagramAria}
+        />
+        <div className="relative z-10 flex w-full min-h-0 items-center py-12 md:py-20">
+          <div className="mx-auto w-full max-w-5xl">
           <p className="mb-5 font-[var(--font-caption)] text-xs font-bold uppercase tracking-[0.26em] text-[#141008] md:text-[13px]">
             {dict.hero.kicker}
           </p>
@@ -136,6 +151,7 @@ export default async function Home({ params }: PageProps) {
             >
               {dict.hero.gallery}
             </a>
+          </div>
           </div>
         </div>
       </section>
@@ -348,6 +364,6 @@ export default async function Home({ params }: PageProps) {
       >
         <WhatsAppLogo className="h-7 w-7 md:h-8 md:w-8" />
       </a>
-    </main>
+    </div>
   );
 }
