@@ -5,7 +5,7 @@
 ### Intanto (solo `*.vercel.app`, dominio dopo)
 
 - Collega il repo su Vercel **oppure** da terminale: `npm run vercel:login` → `npm run vercel:link` → copia le variabili (o `vercel:sync-env` se usi `.env.local`) → `npm run vercel:deploy`.
-- `NEXT_PUBLIC_SITE_URL`: finché non hai il dominio, puoi impostare `https://<progetto>.vercel.app` (senza slash finale) così Open Graph e link assoluti sono coerenti; quando compri il dominio aggiorni e rifai il deploy.
+- `NEXT_PUBLIC_SITE_URL`: **su Vercel non è obbligatorio** finché usi `*.vercel.app`: il codice usa già `VERCEL_URL` (Open Graph, `metadataBase`, sitemap, JSON-LD). Puoi comunque impostarla a mano se preferisci; con **dominio custom** conviene impostarla a `https://tuodominio.it` e rifare il deploy.
 - **Google Search Console**: da fare quando l’URL pubblico è definitivo (dominio o scelta finale).
 
 1. **Vercel** (o altro hosting) → *Project* → *Settings* → *Environment variables*  
@@ -19,6 +19,6 @@
 
 3. **Rilancia il deploy** (o “Redeploy”): le variabili `NEXT_PUBLIC_*` entrano solo al *build*.
 
-4. (Opzionale) `NEXT_PUBLIC_SITE_URL` = `https://tuodominio.it` (senza slash finale) per Open Graph / link assoluti.
+4. (Opzionale) `NEXT_PUBLIC_SITE_URL` = URL canonico pubblico (senza slash finale). Su Vercel senza questa variabile l’URL del deploy viene rilevato automaticamente; con dominio proprio impostala qui.
 
 Dettagli e spiegazione: vedi i commenti in cima a `.env.example`.
