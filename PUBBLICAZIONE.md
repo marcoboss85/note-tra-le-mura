@@ -2,6 +2,12 @@
 
 **Apri questo file ogni volta che fai un deploy o pubblichi un nuovo sito.**
 
+### Intanto (solo `*.vercel.app`, dominio dopo)
+
+- Collega il repo su Vercel **oppure** da terminale: `npm run vercel:login` → `npm run vercel:link` → copia le variabili (o `vercel:sync-env` se usi `.env.local`) → `npm run vercel:deploy`.
+- `NEXT_PUBLIC_SITE_URL`: finché non hai il dominio, puoi impostare `https://<progetto>.vercel.app` (senza slash finale) così Open Graph e link assoluti sono coerenti; quando compri il dominio aggiorni e rifai il deploy.
+- **Google Search Console**: da fare quando l’URL pubblico è definitivo (dominio o scelta finale).
+
 1. **Vercel** (o altro hosting) → *Project* → *Settings* → *Environment variables*  
    Copia da `.env.local` **le stesse** (stessi nomi, stessi valori):
    - `NEXT_PUBLIC_AIRBNB_LISTING_URL` — pulsante *Dicono di noi* / recensioni Airbnb
