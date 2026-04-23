@@ -2,6 +2,15 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /**
+   * Vercel / edge: `redirects` qui è gestito a livello di hosting (in più al middleware),
+   * così `https://…vercel.app/` non finisce in 404 se la root non passa da middleware.
+   */
+  async redirects() {
+    return [
+      { source: "/", destination: "/it", permanent: false },
+    ];
+  },
+  /**
    * Accesso al dev server da altri dispositivi sulla LAN (es. telefono su 192.168.x).
    * Evita il blocco di HMR e risorse /_next da origine diversa.
    */
