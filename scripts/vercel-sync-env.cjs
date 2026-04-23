@@ -47,7 +47,9 @@ const VARS = [
   { name: "NEXT_PUBLIC_INSTAGRAM_URL", sensitive: false },
 ];
 
-const targets = ["production", "preview", "development"];
+const targetsAll = ["production", "preview", "development"];
+/** Per sensitive, Vercel non ammette l’ambiente `development` (regola piattaforma). */
+const targetsSensitive = ["production", "preview"];
 
 const vercelEntry = path.join(
   root,
@@ -57,14 +59,15 @@ const vercelEntry = path.join(
   "vc.js",
 );
 
-function vercel(args) {
+function vercel(args, stdin) {
   if (!fs.existsSync(vercelEntry)) {
     console.error("Esegui: npm install (manca la CLI Vercel in devDependencies).");
     return false;
   }
   const r = spawnSync(process.execPath, [vercelEntry, ...args], {
     cwd: root,
-    stdio: "inherit",
+    input: stdin,
+    stdio: stdin != null ? ["pipe", "inherit", "inherit"] : "inherit",
     env: process.env,
   });
   if (r.error) {
@@ -95,21 +98,13 @@ let n = 0;
 for (const { name, sensitive } of VARS) {
   const value = env[name];
   if (!value) continue;
+  const targets = sensitive ? targetsSensitive : targetsAll;
   for (const t of targets) {
-    const base = [
-      "env",
-      "add",
-      name,
-      t,
-      "--value",
-      value,
-      "--yes",
-      "--force",
-    ];
+    /** CLI 48+ non usa più `--value`; il valore va passato su stdin. */
+    const base = ["env", "add", name, t, "--force"];
     if (sensitive) base.push("--sensitive");
-    else base.push("--no-sensitive");
     console.log(`\n→`, name, t);
-    if (!vercel(base)) {
+    if (!vercel(base, value)) {
       process.exit(1);
     }
     n += 1;
