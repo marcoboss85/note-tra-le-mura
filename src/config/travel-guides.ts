@@ -26,6 +26,10 @@ const foodGuideLinks = {
     label: "Conad City / Sapori & Dintorni Conad",
     href: googleMapsSearch("Conad City Sapori e Dintorni Conad Via Vittorio Emanuele II 48 Lucca"),
   },
+  turandot: {
+    label: "Caffè Turandot",
+    href: googleMapsSearch("Caffè Turandot Piazza San Michele Lucca"),
+  },
   giulio: {
     label: "Trattoria da Giulio in Pelleria",
     href: googleMapsSearch("Trattoria da Giulio in Pelleria Via delle Conce 45 Lucca"),
@@ -61,6 +65,10 @@ const parkingLinks = {
     label: "Parcheggio Palatucci",
     href: googleMapsSearch("Parcheggio Palatucci Via delle Tagliate di Sant'Anna Lucca"),
   },
+  maestri: {
+    label: "Piazzale Maestri del Lavoro",
+    href: googleMapsSearch("Piazzale Maestri del Lavoro Lucca"),
+  },
 };
 
 export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
@@ -86,8 +94,8 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Parking and arrival",
           body:
-            "Lucca’s centre has limited-traffic areas, so most guests park outside or near the walls and continue on foot with luggage. A convenient option is Parcheggio Palatucci, west of the walls on Via delle Tagliate di Sant’Anna; from the pedestrian access towards Porta San Donato or the Santa Croce bastion it is typically about 8 minutes on foot to the old town, then a few more minutes to Via Pelleria. From Note tra le Mura, the central bus station is about 5 minutes on foot and Lucca railway station is about 20 minutes on foot.",
-          links: [parkingLinks.palatucci],
+            "Lucca’s centre has limited-traffic areas, so most guests park outside or near the walls and continue on foot with luggage. A convenient option is Parcheggio Palatucci, west of the walls on Via delle Tagliate di Sant’Anna; from the pedestrian access towards Porta San Donato or the Santa Croce bastion it is typically about 8 minutes on foot to the old town, then a few more minutes to Via Pelleria. For a free parking option, check Piazzale Maestri del Lavoro: it is outside the walls and usually around 15-20 minutes on foot from Via Pelleria 14, depending on the exact spot and pace. Parking rules can change, so always check the signs on arrival. From Note tra le Mura, the central bus station is about 5 minutes on foot and Lucca railway station is about 20 minutes on foot.",
+          links: [parkingLinks.palatucci, parkingLinks.maestri],
         },
         {
           heading: "Who this area suits",
@@ -119,8 +127,8 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Parcheggio e arrivo",
           body:
-            "Il centro di Lucca include zone a traffico limitato: spesso conviene parcheggiare fuori o vicino alle mura e proseguire a piedi. Un’opzione comoda è il Parcheggio Palatucci, a ovest delle mura in Via delle Tagliate di Sant’Anna; dall’accesso pedonale verso Porta San Donato o il baluardo Santa Croce sono in genere circa 8 minuti a piedi fino al centro storico, poi pochi minuti in più fino a Via Pelleria. Da Note tra le Mura la stazione bus è a circa 5 minuti a piedi; la stazione ferroviaria di Lucca a circa 20 minuti.",
-          links: [parkingLinks.palatucci],
+            "Il centro di Lucca include zone a traffico limitato: spesso conviene parcheggiare fuori o vicino alle mura e proseguire a piedi. Un’opzione comoda è il Parcheggio Palatucci, a ovest delle mura in Via delle Tagliate di Sant’Anna; dall’accesso pedonale verso Porta San Donato o il baluardo Santa Croce sono in genere circa 8 minuti a piedi fino al centro storico, poi pochi minuti in più fino a Via Pelleria. Per un parcheggio gratuito, si può controllare Piazzale Maestri del Lavoro: è fuori dalle mura e in genere dista circa 15-20 minuti a piedi da Via Pelleria 14, secondo il punto esatto e il passo. Le regole di sosta possono cambiare, quindi è sempre meglio verificare i cartelli all’arrivo. Da Note tra le Mura la stazione bus è a circa 5 minuti a piedi; la stazione ferroviaria di Lucca a circa 20 minuti.",
+          links: [parkingLinks.palatucci, parkingLinks.maestri],
         },
         {
           heading: "Per chi è adatta questa zona",
@@ -153,8 +161,8 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Parken und Anreise",
           body:
-            "Das Zentrum hat verkehrsbeschränkte Zonen. Viele Gäste parken ausserhalb oder nahe der Mauern und gehen zu Fuss weiter. Eine praktische Option ist Parcheggio Palatucci westlich der Mauern an der Via delle Tagliate di Sant’Anna; vom Fussweg Richtung Porta San Donato oder Santa-Croce-Bastion sind es meist etwa 8 Minuten zu Fuss bis in die Altstadt, dann noch wenige Minuten bis Via Pelleria. Von Note tra le Mura ist der Busbahnhof etwa 5 Minuten entfernt, der Bahnhof Lucca etwa 20 Minuten.",
-          links: [parkingLinks.palatucci],
+            "Das Zentrum hat verkehrsbeschränkte Zonen. Viele Gäste parken ausserhalb oder nahe der Mauern und gehen zu Fuss weiter. Eine praktische Option ist Parcheggio Palatucci westlich der Mauern an der Via delle Tagliate di Sant’Anna; vom Fussweg Richtung Porta San Donato oder Santa-Croce-Bastion sind es meist etwa 8 Minuten zu Fuss bis in die Altstadt, dann noch wenige Minuten bis Via Pelleria. Als kostenlose Parkmöglichkeit können Sie Piazzale Maestri del Lavoro prüfen: Der Platz liegt ausserhalb der Mauern und ist je nach genauem Standort und Tempo meist etwa 15-20 Minuten zu Fuss von Via Pelleria 14 entfernt. Parkregeln können sich ändern, prüfen Sie deshalb immer die Schilder vor Ort. Von Note tra le Mura ist der Busbahnhof etwa 5 Minuten entfernt, der Bahnhof Lucca etwa 20 Minuten.",
+          links: [parkingLinks.palatucci, parkingLinks.maestri],
         },
         {
           heading: "Für wen diese Lage passt",
@@ -186,8 +194,8 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Parking i dolazak",
           body:
-            "Centar ima zone ograničenog saobraćaja. Gosti obično parkiraju izvan ili blizu zidina i nastavljaju peške. Praktična opcija je Parcheggio Palatucci, zapadno od zidina u Via delle Tagliate di Sant’Anna; od pešačkog ulaza prema Porta San Donato ili bastionu Santa Croce obično ima oko 8 minuta peške do starog grada, a zatim još nekoliko minuta do Via Pelleria. Od Note tra le Mura autobuska stanica je oko 5 minuta peške, a železnička stanica u Luci oko 20 minuta.",
-          links: [parkingLinks.palatucci],
+            "Centar ima zone ograničenog saobraćaja. Gosti obično parkiraju izvan ili blizu zidina i nastavljaju peške. Praktična opcija je Parcheggio Palatucci, zapadno od zidina u Via delle Tagliate di Sant’Anna; od pešačkog ulaza prema Porta San Donato ili bastionu Santa Croce obično ima oko 8 minuta peške do starog grada, a zatim još nekoliko minuta do Via Pelleria. Za besplatno parkiranje možete proveriti Piazzale Maestri del Lavoro: nalazi se izvan zidina i obično je oko 15-20 minuta peške od Via Pelleria 14, u zavisnosti od tačnog mesta i tempa. Pravila parkiranja mogu da se menjaju, zato uvek proverite znakove po dolasku. Od Note tra le Mura autobuska stanica je oko 5 minuta peške, a železnička stanica u Luci oko 20 minuta.",
+          links: [parkingLinks.palatucci, parkingLinks.maestri],
         },
         {
           heading: "Za koga je ova lokacija",
@@ -205,15 +213,21 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
       metaTitle:
         "Typical restaurants and local food in Lucca | Note tra le Mura",
       metaDescription:
-        "A practical food guide for guests staying in Lucca old town: nearest supermarket, typical restaurants, local dishes, booking tips and what to try near the city walls.",
+        "A practical food guide for guests staying in Lucca old town: breakfast, nearest supermarket, typical restaurants, local dishes, booking tips and what to try near the city walls.",
       intro:
-        "A practical guide for when you are already in the apartment: the nearest supermarket, typical Lucca dishes, and central restaurants to consider for a relaxed dinner inside the walls.",
+        "A practical guide for when you are already in the apartment: breakfast in a beautiful square, the nearest supermarket, typical Lucca dishes, and central restaurants to consider for a relaxed dinner inside the walls.",
       sections: [
         {
           heading: "Nearest supermarket from the apartment",
           body:
             "For groceries, water, breakfast or a simple dinner at home, the closest useful option is Conad City / Sapori & Dintorni Conad at Via Vittorio Emanuele II, 48. It is about 650 metres from Via Pelleria 14, roughly 8-10 minutes on foot through the old town. Opening hours can change, especially on Sundays and holidays, so check the current times before going.",
           links: [foodGuideLinks.conad],
+        },
+        {
+          heading: "Breakfast in Piazza San Michele",
+          body:
+            "For a slow breakfast, Piazza San Michele is one of the most beautiful places to start the day. Around the square, places such as Caffè Turandot let you sit with a cappuccino or pastry while looking at the church facade, the morning light and the life of Lucca beginning around you. It is a good choice when you want breakfast to feel like part of the visit, not just a quick stop.",
+          links: [foodGuideLinks.turandot],
         },
         {
           heading: "What to taste in Lucca",
@@ -244,15 +258,21 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
       title: "Ristoranti tipici e cucina lucchese",
       metaTitle: "Ristoranti tipici e cucina lucchese | Note tra le Mura",
       metaDescription:
-        "Guida pratica per mangiare a Lucca: supermercato più vicino, ristoranti tipici, piatti locali, prenotazioni e consigli per chi soggiorna dentro le mura.",
+        "Guida pratica per mangiare a Lucca: colazione, supermercato più vicino, ristoranti tipici, piatti locali, prenotazioni e consigli per chi soggiorna dentro le mura.",
       intro:
-        "Una guida pratica per quando siete già in appartamento: supermercato più vicino, piatti tipici lucchesi e ristoranti centrali da valutare per una cena dentro le mura.",
+        "Una guida pratica per quando siete già in appartamento: colazione in una bella piazza, supermercato più vicino, piatti tipici lucchesi e ristoranti centrali da valutare per una cena dentro le mura.",
       sections: [
         {
           heading: "Supermercato più vicino all’appartamento",
           body:
             "Per spesa, acqua, colazione o una cena semplice in casa, l’opzione più comoda è Conad City / Sapori & Dintorni Conad in Via Vittorio Emanuele II, 48. Si trova a circa 650 metri da Via Pelleria 14, indicativamente 8-10 minuti a piedi nel centro storico. Gli orari possono cambiare, soprattutto domenica e festivi: meglio controllarli prima di andare.",
           links: [foodGuideLinks.conad],
+        },
+        {
+          heading: "Colazione in Piazza San Michele",
+          body:
+            "Per una colazione lenta, Piazza San Michele è uno dei posti più belli dove iniziare la giornata. Intorno alla piazza, locali come Caffè Turandot permettono di sedersi con cappuccino e cornetto guardando la facciata della chiesa, la luce del mattino e la vita di Lucca che comincia. È una scelta ideale quando la colazione diventa già parte della visita, non solo una pausa veloce.",
+          links: [foodGuideLinks.turandot],
         },
         {
           heading: "Cosa assaggiare",
@@ -284,15 +304,21 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
       metaTitle:
         "Typische Restaurants und lokale Küche in Lucca | Note tra le Mura",
       metaDescription:
-        "Food-Guide für Lucca: nächster Supermarkt, typische Restaurants, lokale Gerichte, Reservierungstipps und Empfehlungen für Gäste in der Altstadt.",
+        "Food-Guide für Lucca: Frühstück, nächster Supermarkt, typische Restaurants, lokale Gerichte, Reservierungstipps und Empfehlungen für Gäste in der Altstadt.",
       intro:
-        "Ein praktischer Guide für die Zeit in der Wohnung: nächster Supermarkt, typische Gerichte aus Lucca und zentrale Restaurants für ein entspanntes Abendessen innerhalb der Mauern.",
+        "Ein praktischer Guide für die Zeit in der Wohnung: Frühstück auf einem schönen Platz, nächster Supermarkt, typische Gerichte aus Lucca und zentrale Restaurants für ein entspanntes Abendessen innerhalb der Mauern.",
       sections: [
         {
           heading: "Nächster Supermarkt zur Wohnung",
           body:
             "Für Einkäufe, Wasser, Frühstück oder ein einfaches Abendessen in der Wohnung ist Conad City / Sapori & Dintorni Conad in der Via Vittorio Emanuele II, 48 eine praktische Option. Er liegt etwa 650 Meter von Via Pelleria 14 entfernt, ungefähr 8-10 Minuten zu Fuss durch die Altstadt. Öffnungszeiten können sich ändern, besonders sonntags und an Feiertagen.",
           links: [foodGuideLinks.conad],
+        },
+        {
+          heading: "Frühstück auf der Piazza San Michele",
+          body:
+            "Für ein ruhiges Frühstück ist die Piazza San Michele einer der schönsten Orte, um den Tag zu beginnen. Rund um den Platz können Sie in Lokalen wie Caffè Turandot mit Cappuccino und Gebäck sitzen und auf die Kirchenfassade, das Morgenlicht und das beginnende Leben in Lucca schauen. So wird das Frühstück schon Teil des Besuchs und nicht nur ein kurzer Stopp.",
+          links: [foodGuideLinks.turandot],
         },
         {
           heading: "Was man probieren sollte",
@@ -323,15 +349,21 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
       title: "Tipični restorani i lokalna hrana u Luci",
       metaTitle: "Tipični restorani i lokalna hrana u Luci | Note tra le Mura",
       metaDescription:
-        "Vodič za hranu u Luci: najbliži supermarket, tipični restorani, lokalna jela, rezervacije i saveti za goste u starom gradu.",
+        "Vodič za hranu u Luci: doručak, najbliži supermarket, tipični restorani, lokalna jela, rezervacije i saveti za goste u starom gradu.",
       intro:
-        "Praktičan vodič kada ste već u apartmanu: najbliži supermarket, tipična jela iz Luke i centralni restorani za opuštenu večeru unutar zidina.",
+        "Praktičan vodič kada ste već u apartmanu: doručak na lepom trgu, najbliži supermarket, tipična jela iz Luke i centralni restorani za opuštenu večeru unutar zidina.",
       sections: [
         {
           heading: "Najbliži supermarket apartmanu",
           body:
             "Za namirnice, vodu, doručak ili jednostavnu večeru u apartmanu, praktična opcija je Conad City / Sapori & Dintorni Conad u Via Vittorio Emanuele II, 48. Nalazi se oko 650 metara od Via Pelleria 14, otprilike 8-10 minuta peške kroz stari grad. Radno vreme može da se menja, posebno nedeljom i praznicima.",
           links: [foodGuideLinks.conad],
+        },
+        {
+          heading: "Doručak na Piazza San Michele",
+          body:
+            "Za sporiji doručak, Piazza San Michele je jedno od najlepših mesta za početak dana. Oko trga, lokali kao Caffè Turandot omogućavaju da sednete uz kapućino i pecivo, sa pogledom na fasadu crkve, jutarnje svetlo i život Luke koji počinje oko vas. Dobar je izbor kada doručak želite da bude deo obilaska, a ne samo kratka pauza.",
+          links: [foodGuideLinks.turandot],
         },
         {
           heading: "Šta probati",
