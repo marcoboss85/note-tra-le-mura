@@ -10,10 +10,16 @@ import { getOsmEmbedUrl, getOsmViewUrl } from "@/config/property-map";
 import { getPublicLegalDisplay } from "@/config/public-legal";
 import { getFacebookPageUrl, getInstagramUrl } from "@/config/social";
 import { PropertyMapMini } from "@/components/PropertyMapMini";
+import { InlineTextLinks } from "@/components/InlineTextLinks";
 import { buildOpenGraphAndTwitter } from "@/lib/social-metadata";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ locale: string }> };
+
+const palatucciMapLink = {
+  label: "Parcheggio Palatucci",
+  href: "https://www.google.com/maps/search/?api=1&query=Parcheggio%20Palatucci%20Via%20delle%20Tagliate%20di%20Sant%27Anna%20Lucca",
+};
 
 function faqJsonLd(items: { question: string; answer: string }[]) {
   return {
@@ -200,7 +206,14 @@ export default async function LuccaComicsPage({ params }: Props) {
                     </span>
                   </summary>
                   <p className="mt-3 pl-0 text-[15px] font-normal leading-relaxed text-[#2e2820] md:leading-7">
-                    {item.answer}
+                    <InlineTextLinks
+                      text={item.answer}
+                      links={
+                        item.answer.includes(palatucciMapLink.label)
+                          ? [palatucciMapLink]
+                          : undefined
+                      }
+                    />
                   </p>
                 </details>
               </li>

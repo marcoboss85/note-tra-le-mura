@@ -2,8 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /**
-   * Vercel / edge: `redirects` qui è gestito a livello di hosting (in più al middleware),
-   * così `https://…vercel.app/` non finisce in 404 se la root non passa da middleware.
+   * Vercel / edge: `redirects` qui è gestito a livello di hosting (in più al proxy),
+   * così `https://…vercel.app/` non finisce in 404 se la root non passa dal proxy.
    */
   async redirects() {
     return [

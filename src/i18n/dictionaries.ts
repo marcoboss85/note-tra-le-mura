@@ -542,23 +542,23 @@ export const dictionaries: Record<Locale, Messages> = {
   },
   en: {
     meta: {
-      title: `${brand} | Family apartment (up to 6 guests), Lucca old town`,
+      title: `${brand} | Family apartment inside Lucca walls`,
       description:
-        "Holiday apartment for up to 6 guests in historic Lucca, inside the walls at Via Pelleria 14. Walk the old town car-free. WhatsApp or email for availability.",
+        "Vacation rental for families and groups up to 6 guests in Lucca old town, inside the Renaissance walls at Via Pelleria 14. Walk to sights, restaurants, station and bus.",
     },
     hero: {
       imageAlt: "Lucca’s skyline with medieval towers",
       kicker: "Welcome to Lucca",
       brand,
       location:
-        "In Lucca’s historic centre, within the Renaissance city walls.",
+        "Family apartment in Lucca old town, inside the Renaissance walls.",
       subtitle:
-        "A calm retreat within the Renaissance walls for families and groups of up to six guests. The historic centre is best on foot, without daily driving stress: nature, thoughtful spaces, and a slow pace.",
+        "A calm vacation rental for families and groups of up to 6 guests, a few minutes on foot from Lucca’s city walls, Piazza San Michele, Piazza Napoleone and Via Fillungo. Stay central, park outside the walls, and enjoy the old town without daily driving stress.",
       whatsapp: "Contact us",
       whatsappAria: "Go to the Contact section",
       gallery: "Browse the gallery",
       transportNote:
-        "Lucca railway station: 20-minute walk. Central bus station: 5 minutes on foot.",
+        "Lucca railway station: 20-minute walk. Central bus station: 5 minutes on foot. Restaurants, cafes and the city walls are all close by.",
     },
     gallery: {
       heading: "Gallery",
@@ -595,7 +595,7 @@ export const dictionaries: Record<Locale, Messages> = {
     story: {
       heading: "Our story in Lucca",
       body:
-        "Note tra le Mura was created to share the unhurried elegance of Lucca. We restored each room with local craftsmanship, noble materials, and thoughtful touches that echo Tuscan tradition while embracing contemporary comfort. The apartment sits on the second floor of a typical historic building: there is no lift, but only two short flights of internal stairs. You will find a bright living area with a kitchen, two double bedrooms and two shower bathrooms, one of which is en suite. The city walls are about a minute away on foot, ideal for walks or cycling. It is an ideal base for families who park outside the walls and want the centre without daily driving. You are within easy reach of Piazza San Michele in Foro, Piazza San Martino and the cathedral, Piazza Napoleone, and Via Fillungo for shopping, yet still among Lucca’s quieter lanes.",
+        "Note tra le Mura was created for travellers who want a real Lucca stay: inside the walls, close to restaurants and monuments, yet quiet enough to come back and rest. The apartment sits on the second floor of a typical historic building: there is no lift, but only two short flights of internal stairs. You will find a bright living area with a kitchen, two double bedrooms and two shower bathrooms, one of which is en suite. The city walls are about a minute away on foot, ideal for walks or cycling. It is a practical base for international guests, families and small groups who prefer to park once, walk the old town, and enjoy Lucca slowly.",
     },
     services: {
       heading: "Amenities",

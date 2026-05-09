@@ -51,6 +51,89 @@ type PageProps = {
   params: Promise<{ locale: string }>;
 };
 
+const travelNotes: Record<
+  Locale,
+  {
+    heading: string;
+    intro: string;
+    cta: string;
+    cards: { title: string; body: string; href: string }[];
+  }
+> = {
+  en: {
+    heading: "Lucca travel notes",
+    intro:
+      "Practical guides for international guests planning a stay inside Lucca’s walls.",
+    cta: "Read guide",
+    cards: [
+      {
+        title: "Where to stay in Lucca inside the walls",
+        body: "Old town vs outside the walls, walking distances, parking and transport.",
+        href: "/where-to-stay-lucca-inside-walls",
+      },
+      {
+        title: "Typical restaurants and local food in Lucca",
+        body: "What to taste, where to book, and how to plan dinner from Via Pelleria.",
+        href: "/best-restaurants-lucca-local-food",
+      },
+    ],
+  },
+  it: {
+    heading: "Guide per il soggiorno",
+    intro:
+      "Consigli pratici per organizzare un soggiorno dentro le mura di Lucca.",
+    cta: "Leggi la guida",
+    cards: [
+      {
+        title: "Dove soggiornare a Lucca dentro le mura",
+        body: "Centro storico, distanze a piedi, parcheggi e arrivo senza stress.",
+        href: "/where-to-stay-lucca-inside-walls",
+      },
+      {
+        title: "Ristoranti tipici e cucina lucchese",
+        body: "Cosa assaggiare, dove prenotare e come organizzare la cena.",
+        href: "/best-restaurants-lucca-local-food",
+      },
+    ],
+  },
+  de: {
+    heading: "Lucca-Reisetipps",
+    intro:
+      "Praktische Hinweise für einen Aufenthalt innerhalb der Stadtmauern von Lucca.",
+    cta: "Guide lesen",
+    cards: [
+      {
+        title: "Wo in Lucca innerhalb der Stadtmauern übernachten",
+        body: "Altstadt, Wege zu Fuss, Parken und Anreise ohne täglichen Autostress.",
+        href: "/where-to-stay-lucca-inside-walls",
+      },
+      {
+        title: "Typische Restaurants und lokale Küche in Lucca",
+        body: "Was man probieren sollte und wie man ein Abendessen gut plant.",
+        href: "/best-restaurants-lucca-local-food",
+      },
+    ],
+  },
+  sr: {
+    heading: "Praktični vodiči za Luku",
+    intro:
+      "Kratki saveti za boravak unutar zidina Luke, posebno za goste iz inostranstva.",
+    cta: "Pročitaj vodič",
+    cards: [
+      {
+        title: "Gde odsesti u Luci unutar zidina",
+        body: "Stari grad, pešačke udaljenosti, parking i dolazak bez stresa.",
+        href: "/where-to-stay-lucca-inside-walls",
+      },
+      {
+        title: "Tipični restorani i lokalna hrana u Luci",
+        body: "Šta probati, gde rezervisati i kako isplanirati večeru.",
+        href: "/best-restaurants-lucca-local-food",
+      },
+    ],
+  },
+};
+
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
@@ -291,6 +374,37 @@ export default async function Home({ params }: PageProps) {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section
+        id="guide-lucca"
+        className="border-t border-[#e8e2da] px-6 pb-20 pt-20 md:px-12 md:pb-28 md:pt-24"
+      >
+        <div className="mx-auto max-w-4xl text-center">
+          <SectionHeading
+            title={travelNotes[locale].heading}
+            subtitle={travelNotes[locale].intro}
+          />
+          <div className="grid gap-4 text-left md:grid-cols-2 md:gap-5">
+            {travelNotes[locale].cards.map((card) => (
+              <Link
+                key={card.href}
+                href={`${base}${card.href}`}
+                className="group rounded-2xl border border-[#e3dcd4] bg-[#fcfbf9]/90 p-5 shadow-sm transition hover:border-[#cfc6bc] hover:shadow-md md:p-6"
+              >
+                <h3 className="font-[var(--font-serif)] text-xl font-normal tracking-tight text-[#2c241c] md:text-2xl">
+                  {card.title}
+                </h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-[#5c544c]">
+                  {card.body}
+                </p>
+                <span className="mt-5 inline-flex text-sm font-semibold text-[#243828] underline decoration-[#b8b0a8] underline-offset-4 transition group-hover:decoration-[#5c544c]">
+                  {travelNotes[locale].cta}
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

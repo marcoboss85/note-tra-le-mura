@@ -8,7 +8,7 @@ function pathnameIsAsset(pathname: string) {
   );
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (pathname.startsWith("/_next") || pathname.startsWith("/api")) {
@@ -31,8 +31,5 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Includere esplicitamente `/` così il redirect locale copre anche la root in tutti i hosting.
-  matcher: [
-    "/",
-    "/((?!_next/static|_next/image|favicon.ico).*)",
-  ],
+  matcher: ["/", "/((?!_next/static|_next/image|favicon.ico).*)"],
 };

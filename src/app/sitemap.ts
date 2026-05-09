@@ -17,7 +17,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     });
 
-    for (const path of ["/cookie", "/privacy", "/lucca-comics"] as const) {
+    for (const path of [
+      "/cookie",
+      "/privacy",
+      "/lucca-comics",
+      "/where-to-stay-lucca-inside-walls",
+      "/best-restaurants-lucca-local-food",
+    ] as const) {
       entries.push({
         url: `${base}${prefix}${path}`,
         lastModified: new Date(),

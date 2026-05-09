@@ -3,6 +3,7 @@ import { PROPERTY_GEO } from "@/config/property-map";
 import { getPublicLegalDisplay } from "@/config/public-legal";
 import { getFacebookPageUrl, getInstagramUrl } from "@/config/social";
 import { getMetadataBaseUrl, OPEN_GRAPH_IMAGE_PATH } from "@/lib/social-metadata";
+import { ambienti } from "@/app/gallery-data";
 
 /**
  * JSON-LD Schema.org per l’alloggio (home, per lingua).
@@ -17,7 +18,14 @@ export function buildLodgingJsonLd(input: {
   pageUrl: string;
 }) {
   const base = getMetadataBaseUrl().origin;
-  const imageUrl = `${base}${OPEN_GRAPH_IMAGE_PATH}`;
+  const imageUrls = [
+    OPEN_GRAPH_IMAGE_PATH,
+    ...ambienti.flatMap(({ cartella, immagini }) =>
+      immagini.map((nomeFile) => `/${cartella}/${nomeFile}`),
+    ),
+  ]
+    .slice(0, 8)
+    .map((path) => `${base}${encodeURI(path)}`);
   const { cin } = getPublicLegalDisplay();
   const sameAs = [
     getFacebookPageUrl(),
@@ -27,10 +35,11 @@ export function buildLodgingJsonLd(input: {
   return {
     "@context": "https://schema.org",
     "@type": "VacationRental",
+    additionalType: "Apartment",
     name: input.name,
     description: input.description,
     url: input.pageUrl,
-    image: [imageUrl],
+    image: imageUrls,
     telephone: `+${CONTACT_PHONE_E164}`,
     ...(sameAs.length > 0 ? { sameAs } : {}),
     address: {
@@ -46,14 +55,21 @@ export function buildLodgingJsonLd(input: {
       latitude: PROPERTY_GEO.lat,
       longitude: PROPERTY_GEO.lon,
     },
-    occupancy: {
-      "@type": "QuantitativeValue",
-      maxValue: 6,
+    containsPlace: {
+      "@type": "Accommodation",
+      additionalType: "EntirePlace",
+      occupancy: {
+        "@type": "QuantitativeValue",
+        value: 6,
+      },
+      amenityFeature: [
+        {
+          "@type": "LocationFeatureSpecification",
+          name: "licenseNum",
+          value: `CIN: ${cin}`,
+        },
+      ],
     },
-    identifier: {
-      "@type": "PropertyValue",
-      name: "CIN",
-      value: cin,
-    },
+    identifier: "note-tra-le-mura-lucca-via-pelleria-14",
   };
 }
