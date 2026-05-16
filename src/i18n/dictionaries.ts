@@ -193,9 +193,9 @@ const brand = "Note tra le Mura";
 export const dictionaries: Record<Locale, Messages> = {
   it: {
     meta: {
-      title: `${brand} | Appartamento famiglia (fino a 6 ospiti), centro Lucca`,
+      title: `${brand} | Appartamento vacanze Lucca, centro storico dentro le mura`,
       description:
-        "Appartamento fino a 6 ospiti nel centro storico di Lucca, dentro le mura, Via Pelleria 14. Ideale senza auto: tutto a piedi. WhatsApp o email per disponibilità.",
+        "Appartamento per famiglie e gruppi fino a 6 ospiti in Via Pelleria 14, dentro le mura di Lucca. Centro a piedi, guide su arrivo, ristoranti e dintorni. Disponibilità via WhatsApp o email.",
     },
     hero: {
       imageAlt: "Lucca, torri e tetti del centro storico",

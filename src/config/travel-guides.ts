@@ -163,7 +163,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "By plane",
           body:
-            "The most convenient airport is Pisa (Galilei): from the terminal, bus or People Mover to Pisa Centrale station, then a regional train to Lucca (about 20–30 minutes in total). Florence Peretola is also common: tram or taxi to Santa Maria Novella station, then a train to Lucca, often with a change in Pisa (about 1–1.5 hours). A taxi from the airport all the way to Lucca is possible but expensive — always check times and tickets on Trenitalia before you travel.",
+            "The most convenient airport is Pisa (Galilei): from the terminal, bus or People Mover to Pisa Centrale station, then a regional train to Lucca (about 20–30 minutes in total). Florence Peretola is also common: tram or taxi to Santa Maria Novella station, then a regional train to Lucca (about 1–1.5 hours). A taxi from the airport all the way to Lucca is possible but expensive — always check times and tickets on Trenitalia before you travel.",
           links: [
             { label: "Pisa airport", href: arrivalLinks.pisaAirport.href },
             { label: "Florence airport", href: arrivalLinks.florenceAirport.href },
@@ -199,7 +199,15 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Who this area suits",
           body:
-            "This part of Lucca is a good fit for families, couples and small groups who want restaurants, monuments and quiet streets close together. The apartment is on the second floor of a historic building with two short flights of stairs and no lift, so it is best for guests comfortable with stairs.",
+            "This part of Lucca is a good fit for families, couples and small groups who want restaurants, monuments and quiet streets close together. The apartment is on the second floor of a historic building with two short flights of stairs and no lift, so it is best for guests comfortable with stairs. For eating out, a day in town and day trips from Lucca, see our other guides.",
+          links: [
+            {
+              label: "restaurants and local food guide",
+              href: "/en/best-restaurants-lucca-local-food",
+            },
+            { label: "Lucca in one day", href: "/en/lucca-in-one-day" },
+            { label: "Lucca and surroundings", href: "/en/lucca-and-surroundings" },
+          ],
         },
       ],
       cta: "See the apartment",
@@ -216,7 +224,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "In aereo",
           body:
-            "L’aeroporto più comodo è Pisa (Galilei): dal terminal, bus o People Mover fino a Pisa Centrale, poi treno regionale per Lucca (circa 20–30 minuti in totale). In alternativa Firenze Peretola: tram o taxi fino a Santa Maria Novella, poi treno per Lucca, spesso con cambio a Pisa (circa 1–1,5 ore). Il taxi dall’aeroporto fino a Lucca è possibile ma costoso — controllate sempre orari e biglietti su Trenitalia prima di partire.",
+            "L’aeroporto più comodo è Pisa (Galilei): dal terminal, bus o People Mover fino a Pisa Centrale, poi treno regionale per Lucca (circa 20–30 minuti in totale). In alternativa Firenze Peretola: tram o taxi fino a Santa Maria Novella, poi treno regionale per Lucca (circa 1–1,5 ore). Il taxi dall’aeroporto fino a Lucca è possibile ma costoso — controllate sempre orari e biglietti su Trenitalia prima di partire.",
           links: [arrivalLinks.pisaAirport, arrivalLinks.florenceAirport],
         },
         {
@@ -249,7 +257,15 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Per chi è adatta questa zona",
           body:
-            "La zona è adatta a famiglie, coppie e piccoli gruppi che cercano ristoranti, monumenti e strade tranquille nello stesso raggio. L’appartamento è al secondo piano di un edificio storico, senza ascensore.",
+            "La zona è adatta a famiglie, coppie e piccoli gruppi che cercano ristoranti, monumenti e strade tranquille nello stesso raggio. L’appartamento è al secondo piano di un edificio storico, senza ascensore. Per mangiare, una giornata in città e gite fuori porta, vedete le altre guide.",
+          links: [
+            {
+              label: "guida su ristoranti tipici e cucina lucchese",
+              href: "/it/best-restaurants-lucca-local-food",
+            },
+            { label: "Lucca in un giorno", href: "/it/lucca-in-one-day" },
+            { label: "Lucca e dintorni", href: "/it/lucca-and-surroundings" },
+          ],
         },
       ],
       cta: "Vedi l’appartamento",
@@ -266,7 +282,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Mit dem Flugzeug",
           body:
-            "Der nächste Flughafen ist Pisa (Galilei): vom Terminal Bus oder People Mover zum Bahnhof Pisa Centrale, dann Regionalzug nach Lucca (etwa 20–30 Minuten gesamt). Alternativ Florenz Peretola: Tram oder Taxi bis Santa Maria Novella, dann Zug nach Lucca, oft mit Umstieg in Pisa (etwa 1–1,5 Stunden). Ein Taxi vom Flughafen direkt nach Lucca ist möglich, aber teuer — Fahrpläne und Tickets vorab bei Trenitalia prüfen.",
+            "Der nächste Flughafen ist Pisa (Galilei): vom Terminal Bus oder People Mover zum Bahnhof Pisa Centrale, dann Regionalzug nach Lucca (etwa 20–30 Minuten gesamt). Alternativ Florenz Peretola: Tram oder Taxi bis Santa Maria Novella, dann Regionalzug nach Lucca (etwa 1–1,5 Stunden). Ein Taxi vom Flughafen direkt nach Lucca ist möglich, aber teuer — Fahrpläne und Tickets vorab bei Trenitalia prüfen.",
           links: [
             { label: "Flughafen Pisa", href: arrivalLinks.pisaAirport.href },
             { label: "Flughafen Florenz", href: arrivalLinks.florenceAirport.href },
@@ -302,7 +318,12 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Für wen diese Lage passt",
           body:
-            "Die Lage passt zu Familien, Paaren und kleinen Gruppen. Die Wohnung liegt im zweiten Stock eines historischen Gebäudes ohne Aufzug.",
+            "Die Lage passt zu Familien, Paaren und kleinen Gruppen. Die Wohnung liegt im zweiten Stock eines historischen Gebäudes ohne Aufzug. Für Essen, einen Tag in der Stadt und Ausflüge ab Lucca siehe die anderen Guides.",
+          links: [
+            { label: "Food-Guide", href: "/de/best-restaurants-lucca-local-food" },
+            { label: "Lucca an einem Tag", href: "/de/lucca-in-one-day" },
+            { label: "Lucca und Umgebung", href: "/de/lucca-and-surroundings" },
+          ],
         },
       ],
       cta: "Apartment ansehen",
@@ -319,7 +340,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Avionom",
           body:
-            "Najbliži aerodrom je Pisa (Galilei): od terminala autobus ili People Mover do stanice Pisa Centrale, zatim regionalni voz do Luke (oko 20–30 minuta ukupno). Alternativa Firenca Peretola: tramvaj ili taksi do Santa Maria Novella, pa voz do Luke, često sa presedanjem u Pisi (oko 1–1,5 sata). Taksi od aerodroma do Luke je moguć, ali skup — uvek proverite vreme i karte na Trenitalia pre puta.",
+            "Najbliži aerodrom je Pisa (Galilei): od terminala autobus ili People Mover do stanice Pisa Centrale, zatim regionalni voz do Luke (oko 20–30 minuta ukupno). Alternativa Firenca Peretola: tramvaj ili taksi do Santa Maria Novella, zatim regionalni voz do Luke (oko 1–1,5 sata). Taksi od aerodroma do Luke je moguć, ali skup — uvek proverite vreme i karte na Trenitalia pre puta.",
           links: [
             { label: "Aerodrom Pisa", href: arrivalLinks.pisaAirport.href },
             { label: "Aerodrom Firenca", href: arrivalLinks.florenceAirport.href },
@@ -355,7 +376,15 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Za koga je ova lokacija",
           body:
-            "Lokacija odgovara porodicama, parovima i malim grupama. Apartman je na drugom spratu istorijske zgrade, bez lifta.",
+            "Lokacija odgovara porodicama, parovima i malim grupama. Apartman je na drugom spratu istorijske zgrade, bez lifta. Za restorane, jedan dan u gradu i izlete, pogledajte ostale vodiče.",
+          links: [
+            {
+              label: "vodič o hrani i restoranima",
+              href: "/sr/best-restaurants-lucca-local-food",
+            },
+            { label: "Luka za jedan dan", href: "/sr/lucca-in-one-day" },
+            { label: "Luka i okolina", href: "/sr/lucca-and-surroundings" },
+          ],
         },
       ],
       cta: "Pogledaj apartman",
@@ -403,7 +432,14 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Booking tips for international guests",
           body:
-            "Dinner is often later than in northern Europe, and small restaurants can fill quickly. If you have children, food allergies or a late arrival, book in advance and mention your needs clearly. During Lucca Comics and summer weekends, plan earlier than usual.",
+            "Dinner is often later than in northern Europe, and small restaurants can fill quickly. If you have children, food allergies or a late arrival, book in advance and mention your needs clearly. During Lucca Comics and summer weekends, plan earlier than usual. For how to reach Lucca and a walking day in the centre, see our dedicated guides.",
+          links: [
+            {
+              label: "how to get to Lucca and where to stay guide",
+              href: "/en/where-to-stay-lucca-inside-walls",
+            },
+            { label: "Lucca in one day", href: "/en/lucca-in-one-day" },
+          ],
         },
       ],
       cta: "Ask us for local tips",
@@ -448,7 +484,14 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Consigli di prenotazione",
           body:
-            "Nei ristoranti piccoli i posti finiscono rapidamente. Se avete bambini, allergie o arrivo tardi, conviene prenotare prima e spiegare bene le esigenze.",
+            "Nei ristoranti piccoli i posti finiscono rapidamente. Se avete bambini, allergie o arrivo tardi, conviene prenotare prima e spiegare bene le esigenze. Per arrivo e parcheggio, e per una giornata a piedi nel centro, vedete le guide dedicate.",
+          links: [
+            {
+              label: "guida su come arrivare e dove soggiornare",
+              href: "/it/where-to-stay-lucca-inside-walls",
+            },
+            { label: "Lucca in un giorno", href: "/it/lucca-in-one-day" },
+          ],
         },
       ],
       cta: "Chiedici consigli locali",
@@ -494,7 +537,14 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Reservierungstipps",
           body:
-            "Kleine Restaurants sind schnell voll. Bei Kindern, Allergien oder später Anreise lohnt es sich, früh zu reservieren und die Wünsche klar zu nennen.",
+            "Kleine Restaurants sind schnell voll. Bei Kindern, Allergien oder später Anreise lohnt es sich, früh zu reservieren und die Wünsche klar zu nennen. Für Anreise und Parken sowie einen Tag zu Fuss in der Altstadt siehe die entsprechenden Guides.",
+          links: [
+            {
+              label: "Anreise und Übernachtung",
+              href: "/de/where-to-stay-lucca-inside-walls",
+            },
+            { label: "Lucca an einem Tag", href: "/de/lucca-in-one-day" },
+          ],
         },
       ],
       cta: "Nach lokalen Tipps fragen",
@@ -539,7 +589,14 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Saveti za rezervaciju",
           body:
-            "Mali restorani se brzo popune. Ako imate decu, alergije ili kasni dolazak, rezervišite ranije i jasno navedite potrebe.",
+            "Mali restorani se brzo popune. Ako imate decu, alergije ili kasni dolazak, rezervišite ranije i jasno navedite potrebe. Za dolazak i parking i za jedan dan peške u centru, pogledajte odgovarajuće vodiče.",
+          links: [
+            {
+              label: "vodič o dolasku i boravku",
+              href: "/sr/where-to-stay-lucca-inside-walls",
+            },
+            { label: "Luka za jedan dan", href: "/sr/lucca-in-one-day" },
+          ],
         },
       ],
       cta: "Pitajte nas za lokalne savete",
@@ -613,7 +670,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Evening",
           body:
-            "Evening is when to slow down and enjoy dinner properly. Trattoria da Giulio in Pelleria is very close to the apartment: if you book, ask for a table on the terrace when available — in the evening it is beautifully lit and a memorable place to eat outside. Piazza dell'Anfiteatro is another classic choice at night: the oval square glows with lights, and the restaurants around it are ideal for a calm dinner with that view. Book ahead on weekends and in summer. More names and dishes are in our restaurants and local food guide.",
+            "Evening is when to slow down and enjoy dinner properly. Trattoria da Giulio in Pelleria is very close to the apartment: if you book, ask for a table on the terrace when available — in the evening it is beautifully lit and a memorable place to eat outside. Piazza dell'Anfiteatro is another classic choice at night: the oval square glows with lights, and the restaurants around it are ideal for a calm dinner with that view. Book ahead on weekends and in summer. More names and dishes are in our restaurants and local food guide. For a day trip outside town, see our Lucca and surroundings guide.",
           links: [
             foodGuideLinks.giulio,
             dayGuideLinks.anfiteatro,
@@ -621,6 +678,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
               label: "restaurants and local food guide",
               href: "/en/best-restaurants-lucca-local-food",
             },
+            { label: "Lucca and surroundings", href: "/en/lucca-and-surroundings" },
           ],
         },
       ],
@@ -693,7 +751,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Sera",
           body:
-            "La sera è il momento di prendersela comoda a tavola. La Trattoria da Giulio in Pelleria è vicinissima all’appartamento: se prenotate, chiedete un tavolo sul terrazzo quando c’è posto — la sera è tutto illuminato ed è un posto bellissimo per mangiare all’aperto. Un’altra scelta classica è Piazza dell'Anfiteatro: di notte l’ovale della piazza si accende e i ristoranti intorno sono perfetti per una cena tranquilla con quella atmosfera. Nei weekend e in estate conviene prenotare. Per altri nomi e piatti, usate la guida su ristoranti tipici e cucina lucchese.",
+            "La sera è il momento di prendersela comoda a tavola. La Trattoria da Giulio in Pelleria è vicinissima all’appartamento: se prenotate, chiedete un tavolo sul terrazzo quando c’è posto — la sera è tutto illuminato ed è un posto bellissimo per mangiare all’aperto. Un’altra scelta classica è Piazza dell'Anfiteatro: di notte l’ovale della piazza si accende e i ristoranti intorno sono perfetti per una cena tranquilla con quella atmosfera. Nei weekend e in estate conviene prenotare. Per altri nomi e piatti, usate la guida su ristoranti tipici e cucina lucchese. Per una gita fuori città, vedete la guida Lucca e dintorni.",
           links: [
             foodGuideLinks.giulio,
             dayGuideLinks.anfiteatro,
@@ -701,6 +759,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
               label: "guida su ristoranti tipici e cucina lucchese",
               href: "/it/best-restaurants-lucca-local-food",
             },
+            { label: "Lucca e dintorni", href: "/it/lucca-and-surroundings" },
           ],
         },
       ],

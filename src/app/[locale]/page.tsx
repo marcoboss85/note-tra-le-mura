@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
 import { WhatsAppLogo } from "@/components/WhatsAppLogo";
 import { ambienti } from "@/app/gallery-data";
-import { type Locale, isLocale } from "@/i18n/config";
+import { type Locale, isLocale, localeAlternateLanguages } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import type { RoomSlug } from "@/i18n/dictionaries";
 import {
@@ -184,6 +184,13 @@ export async function generateMetadata({
   const locale = raw as Locale;
   const dict = getDictionary(locale);
   return {
+    title: dict.meta.title,
+    description: dict.meta.description,
+    robots: { index: true, follow: true },
+    alternates: {
+      canonical: `/${locale}`,
+      languages: localeAlternateLanguages(""),
+    },
     ...buildOpenGraphAndTwitter({
       path: `/${locale}`,
       title: dict.meta.title,
