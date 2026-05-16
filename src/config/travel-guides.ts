@@ -73,6 +73,21 @@ const parkingLinks = {
   },
 };
 
+const arrivalLinks = {
+  pisaAirport: {
+    label: "Aeroporto di Pisa",
+    href: googleMapsSearch("Aeroporto Galileo Galilei Pisa"),
+  },
+  florenceAirport: {
+    label: "Aeroporto di Firenze",
+    href: googleMapsSearch("Aeroporto Firenze Amerigo Vespucci"),
+  },
+  luccaStation: {
+    label: "Stazione di Lucca",
+    href: googleMapsSearch("Stazione ferroviaria Lucca"),
+  },
+};
+
 const dayGuideLinks = {
   sanMichele: {
     label: "Piazza San Michele in Foro",
@@ -138,13 +153,33 @@ const surroundingsGuideLinks = {
 export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
   "where-to-stay-lucca-inside-walls": {
     en: {
-      title: "Where to stay in Lucca inside the walls",
-      metaTitle: "Where to stay in Lucca inside the walls | Note tra le Mura",
+      title: "How to get to Lucca and where to stay",
+      metaTitle: "How to get to Lucca and where to stay | Note tra le Mura",
       metaDescription:
-        "A practical guide for international travellers choosing where to stay in Lucca: old town, inside the walls, parking, station, bus and walking distances.",
+        "Reach Lucca from Pisa or Florence airport by train or taxi, by train to Lucca station, or by car on the A11 (Lucca Ovest exit) — plus where to stay inside the walls and where to park.",
       intro:
-        "For many visitors, the best Lucca stay is not about having a car at the door. It is about choosing a calm base inside the Renaissance walls, then walking to the city’s squares, restaurants, shops and evening life.",
+        "For many visitors, the best Lucca stay is not about having a car at the door. It is about choosing a calm base inside the Renaissance walls, then walking to the city’s squares, restaurants, shops and evening life. You can reach Lucca comfortably by plane, train or car, then live the old town on foot.",
       sections: [
+        {
+          heading: "By plane",
+          body:
+            "The most convenient airport is Pisa (Galilei): from the terminal, bus or People Mover to Pisa Centrale station, then a regional train to Lucca (about 20–30 minutes in total). Florence Peretola is also common: tram or taxi to Santa Maria Novella station, then a train to Lucca, often with a change in Pisa (about 1–1.5 hours). A taxi from the airport all the way to Lucca is possible but expensive — always check times and tickets on Trenitalia before you travel.",
+          links: [
+            { label: "Pisa airport", href: arrivalLinks.pisaAirport.href },
+            { label: "Florence airport", href: arrivalLinks.florenceAirport.href },
+          ],
+        },
+        {
+          heading: "By train",
+          body:
+            "You arrive at Lucca station on the Pisa–Florence line. From Note tra le Mura at Via Pelleria 14 it is about 20 minutes on foot with luggage; alternatively a few minutes by local bus or taxi to the apartment.",
+          links: [{ label: "Lucca station", href: arrivalLinks.luccaStation.href }],
+        },
+        {
+          heading: "By car",
+          body:
+            "Take the A11 motorway (Florence–coast) and exit at Lucca Ovest, then follow signs for the city centre. The old town has limited-traffic zones — do not drive into the ZTL without permission. Park as in the section below and continue on foot with your luggage.",
+        },
         {
           heading: "Why stay inside the walls",
           body:
@@ -156,9 +191,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
             "Accommodation outside the walls can work well for drivers, but international guests often prefer the old town because the experience is more immediate: breakfast nearby, evening walks, restaurants close by and less dependence on taxis or repeated car journeys.",
         },
         {
-          heading: "Parking and arrival",
+          heading: "Parking",
           body:
-            "Lucca’s centre has limited-traffic areas, so most guests park outside or near the walls and continue on foot with luggage. A convenient option is Parcheggio Palatucci, west of the walls on Via delle Tagliate di Sant’Anna; from the pedestrian access towards Porta San Donato or the Santa Croce bastion it is typically about 8 minutes on foot to the old town, then a few more minutes to Via Pelleria. For a free parking option, check Piazzale Maestri del Lavoro: it is outside the walls and usually around 15-20 minutes on foot from Via Pelleria 14, depending on the exact spot and pace. Parking rules can change, so always check the signs on arrival. From Note tra le Mura, the central bus station is about 5 minutes on foot and Lucca railway station is about 20 minutes on foot.",
+            "Lucca’s centre has limited-traffic areas, so most guests park outside or near the walls and continue on foot with luggage. A convenient option is Parcheggio Palatucci, west of the walls on Via delle Tagliate di Sant’Anna; from the pedestrian access towards Porta San Donato or the Santa Croce bastion it is typically about 8 minutes on foot to the old town, then a few more minutes to Via Pelleria. For a free parking option, check Piazzale Maestri del Lavoro: it is outside the walls and usually around 15-20 minutes on foot from Via Pelleria 14, depending on the exact spot and pace. Parking rules can change, so always check the signs on arrival.",
           links: [parkingLinks.palatucci, parkingLinks.maestri],
         },
         {
@@ -171,13 +206,30 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
       ctaHref: "/en",
     },
     it: {
-      title: "Dove soggiornare a Lucca dentro le mura",
-      metaTitle: "Dove soggiornare a Lucca dentro le mura | Note tra le Mura",
+      title: "Come arrivare a Lucca e dove soggiornare",
+      metaTitle: "Come arrivare a Lucca e dove soggiornare | Note tra le Mura",
       metaDescription:
-        "Guida pratica per scegliere dove dormire a Lucca: centro storico, mura, parcheggi, stazione, autobus e distanze a piedi.",
+        "Come arrivare a Lucca da aeroporto Pisa o Firenze, in treno o in auto (uscita A11 Lucca Ovest), dove dormire dentro le mura e dove parcheggiare.",
       intro:
-        "Per molti ospiti il soggiorno migliore a Lucca non dipende dall’auto sotto casa, ma da una base tranquilla dentro le mura, vicina a piazze, ristoranti e passeggiate.",
+        "Per molti ospiti il soggiorno migliore a Lucca non dipende dall’auto sotto casa, ma da una base tranquilla dentro le mura, vicina a piazze, ristoranti e passeggiate. Si arriva comodamente in aereo, in treno o in auto; da lì si vive la città a piedi.",
       sections: [
+        {
+          heading: "In aereo",
+          body:
+            "L’aeroporto più comodo è Pisa (Galilei): dal terminal, bus o People Mover fino a Pisa Centrale, poi treno regionale per Lucca (circa 20–30 minuti in totale). In alternativa Firenze Peretola: tram o taxi fino a Santa Maria Novella, poi treno per Lucca, spesso con cambio a Pisa (circa 1–1,5 ore). Il taxi dall’aeroporto fino a Lucca è possibile ma costoso — controllate sempre orari e biglietti su Trenitalia prima di partire.",
+          links: [arrivalLinks.pisaAirport, arrivalLinks.florenceAirport],
+        },
+        {
+          heading: "In treno",
+          body:
+            "Arrivate alla stazione di Lucca, sulla linea Pisa–Firenze. Da Note tra le Mura in Via Pelleria 14 sono circa 20 minuti a piedi con le valigie; in alternativa pochi minuti in bus urbano o in taxi fino all’appartamento.",
+          links: [arrivalLinks.luccaStation],
+        },
+        {
+          heading: "In auto",
+          body:
+            "Autostrada A11 (Firenze–Mare): uscita Lucca Ovest, poi cartelli per il centro. Il centro storico ha zone a traffico limitato — non entrate in ZTL senza permesso. Parcheggiate come nella sezione sotto e proseguite a piedi con i bagagli.",
+        },
         {
           heading: "Perché dormire dentro le mura",
           body:
@@ -189,9 +241,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
             "Dormire fuori dalle mura può essere comodo per chi usa spesso l’auto. Il centro storico, invece, è più adatto a chi vuole vivere Lucca con calma: colazione, cena, negozi e monumenti sono tutti vicini.",
         },
         {
-          heading: "Parcheggio e arrivo",
+          heading: "Parcheggio",
           body:
-            "Il centro di Lucca include zone a traffico limitato: spesso conviene parcheggiare fuori o vicino alle mura e proseguire a piedi. Un’opzione comoda è il Parcheggio Palatucci, a ovest delle mura in Via delle Tagliate di Sant’Anna; dall’accesso pedonale verso Porta San Donato o il baluardo Santa Croce sono in genere circa 8 minuti a piedi fino al centro storico, poi pochi minuti in più fino a Via Pelleria. Per un parcheggio gratuito, si può controllare Piazzale Maestri del Lavoro: è fuori dalle mura e in genere dista circa 15-20 minuti a piedi da Via Pelleria 14, secondo il punto esatto e il passo. Le regole di sosta possono cambiare, quindi è sempre meglio verificare i cartelli all’arrivo. Da Note tra le Mura la stazione bus è a circa 5 minuti a piedi; la stazione ferroviaria di Lucca a circa 20 minuti.",
+            "Il centro di Lucca include zone a traffico limitato: spesso conviene parcheggiare fuori o vicino alle mura e proseguire a piedi. Un’opzione comoda è il Parcheggio Palatucci, a ovest delle mura in Via delle Tagliate di Sant’Anna; dall’accesso pedonale verso Porta San Donato o il baluardo Santa Croce sono in genere circa 8 minuti a piedi fino al centro storico, poi pochi minuti in più fino a Via Pelleria. Per un parcheggio gratuito, si può controllare Piazzale Maestri del Lavoro: è fuori dalle mura e in genere dista circa 15-20 minuti a piedi da Via Pelleria 14, secondo il punto esatto e il passo. Le regole di sosta possono cambiare, quindi è sempre meglio verificare i cartelli all’arrivo.",
           links: [parkingLinks.palatucci, parkingLinks.maestri],
         },
         {
@@ -204,14 +256,33 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
       ctaHref: "/it",
     },
     de: {
-      title: "Wo in Lucca innerhalb der Stadtmauern übernachten",
-      metaTitle:
-        "Wo in Lucca innerhalb der Stadtmauern übernachten | Note tra le Mura",
+      title: "Anreise nach Lucca und Übernachtung",
+      metaTitle: "Anreise nach Lucca und Übernachtung | Note tra le Mura",
       metaDescription:
-        "Praktischer Guide für Lucca: Altstadt, Stadtmauern, Parken, Bahnhof, Bus und Wege zu Fuss.",
+        "Anreise nach Lucca ab Flughafen Pisa oder Florenz, mit Zug oder Auto (A11 Ausfahrt Lucca Ovest), Übernachtung innerhalb der Mauern und Parken.",
       intro:
-        "Für viele Gäste ist die beste Basis in Lucca nicht ein Parkplatz direkt vor der Tür, sondern eine ruhige Wohnung innerhalb der Stadtmauern.",
+        "Für viele Gäste ist die beste Basis in Lucca nicht ein Parkplatz direkt vor der Tür, sondern eine ruhige Wohnung innerhalb der Stadtmauern, nahe Plätzen, Restaurants und Spaziergängen. Sie erreichen Lucca bequem mit dem Flugzeug, Zug oder Auto und erleben die Altstadt zu Fuss.",
       sections: [
+        {
+          heading: "Mit dem Flugzeug",
+          body:
+            "Der nächste Flughafen ist Pisa (Galilei): vom Terminal Bus oder People Mover zum Bahnhof Pisa Centrale, dann Regionalzug nach Lucca (etwa 20–30 Minuten gesamt). Alternativ Florenz Peretola: Tram oder Taxi bis Santa Maria Novella, dann Zug nach Lucca, oft mit Umstieg in Pisa (etwa 1–1,5 Stunden). Ein Taxi vom Flughafen direkt nach Lucca ist möglich, aber teuer — Fahrpläne und Tickets vorab bei Trenitalia prüfen.",
+          links: [
+            { label: "Flughafen Pisa", href: arrivalLinks.pisaAirport.href },
+            { label: "Flughafen Florenz", href: arrivalLinks.florenceAirport.href },
+          ],
+        },
+        {
+          heading: "Mit dem Zug",
+          body:
+            "Sie kommen am Bahnhof Lucca an, auf der Linie Pisa–Florenz. Von Note tra le Mura in der Via Pelleria 14 sind es mit Gepäck etwa 20 Minuten zu Fuss; alternativ wenige Minuten mit Stadtbus oder Taxi bis zur Wohnung.",
+          links: [{ label: "Bahnhof Lucca", href: arrivalLinks.luccaStation.href }],
+        },
+        {
+          heading: "Mit dem Auto",
+          body:
+            "Autobahn A11 (Florenz–Küste), Ausfahrt Lucca Ovest, dann Beschilderung zum Zentrum. Die Altstadt hat verkehrsbeschränkte Zonen — ohne Genehmigung nicht in die ZTL fahren. Parken wie im Abschnitt unten und zu Fuss mit dem Gepäck weiter.",
+        },
         {
           heading: "Warum innerhalb der Mauern wohnen",
           body:
@@ -223,9 +294,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
             "Ausserhalb der Mauern kann für Autofahrer praktisch sein. In der Altstadt erleben Sie Lucca direkter: Cafes, Restaurants, Geschäfte und Spaziergänge liegen nahe beieinander.",
         },
         {
-          heading: "Parken und Anreise",
+          heading: "Parken",
           body:
-            "Das Zentrum hat verkehrsbeschränkte Zonen. Viele Gäste parken ausserhalb oder nahe der Mauern und gehen zu Fuss weiter. Eine praktische Option ist Parcheggio Palatucci westlich der Mauern an der Via delle Tagliate di Sant’Anna; vom Fussweg Richtung Porta San Donato oder Santa-Croce-Bastion sind es meist etwa 8 Minuten zu Fuss bis in die Altstadt, dann noch wenige Minuten bis Via Pelleria. Als kostenlose Parkmöglichkeit können Sie Piazzale Maestri del Lavoro prüfen: Der Platz liegt ausserhalb der Mauern und ist je nach genauem Standort und Tempo meist etwa 15-20 Minuten zu Fuss von Via Pelleria 14 entfernt. Parkregeln können sich ändern, prüfen Sie deshalb immer die Schilder vor Ort. Von Note tra le Mura ist der Busbahnhof etwa 5 Minuten entfernt, der Bahnhof Lucca etwa 20 Minuten.",
+            "Das Zentrum hat verkehrsbeschränkte Zonen. Viele Gäste parken ausserhalb oder nahe der Mauern und gehen zu Fuss weiter. Eine praktische Option ist Parcheggio Palatucci westlich der Mauern an der Via delle Tagliate di Sant’Anna; vom Fussweg Richtung Porta San Donato oder Santa-Croce-Bastion sind es meist etwa 8 Minuten zu Fuss bis in die Altstadt, dann noch wenige Minuten bis Via Pelleria. Als kostenlose Parkmöglichkeit können Sie Piazzale Maestri del Lavoro prüfen: Der Platz liegt ausserhalb der Mauern und ist je nach genauem Standort und Tempo meist etwa 15-20 Minuten zu Fuss von Via Pelleria 14 entfernt. Parkregeln können sich ändern, prüfen Sie deshalb immer die Schilder vor Ort.",
           links: [parkingLinks.palatucci, parkingLinks.maestri],
         },
         {
@@ -238,13 +309,33 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
       ctaHref: "/de",
     },
     sr: {
-      title: "Gde odsesti u Luci unutar zidina",
-      metaTitle: "Gde odsesti u Luci unutar zidina | Note tra le Mura",
+      title: "Kako stići u Luku i gde odsesti",
+      metaTitle: "Kako stići u Luku i gde odsesti | Note tra le Mura",
       metaDescription:
-        "Praktičan vodič za smeštaj u Luci: stari grad, zidine, parking, stanica, autobus i pešačke udaljenosti.",
+        "Dolazak u Luku sa aerodroma u Pisi ili Firenci, vozom ili autom (A11 izlaz Lucca Ovest), smeštaj unutar zidina i parking.",
       intro:
-        "Za mnoge goste najbolji boravak u Luci znači mirnu bazu unutar zidina, blizu trgova, restorana i šetnji.",
+        "Za mnoge goste najbolji boravak u Luci znači mirnu bazu unutar zidina, blizu trgova, restorana i šetnji. Do Luke stižete udobno avionom, vozom ili autom, a zatim grad živite peške.",
       sections: [
+        {
+          heading: "Avionom",
+          body:
+            "Najbliži aerodrom je Pisa (Galilei): od terminala autobus ili People Mover do stanice Pisa Centrale, zatim regionalni voz do Luke (oko 20–30 minuta ukupno). Alternativa Firenca Peretola: tramvaj ili taksi do Santa Maria Novella, pa voz do Luke, često sa presedanjem u Pisi (oko 1–1,5 sata). Taksi od aerodroma do Luke je moguć, ali skup — uvek proverite vreme i karte na Trenitalia pre puta.",
+          links: [
+            { label: "Aerodrom Pisa", href: arrivalLinks.pisaAirport.href },
+            { label: "Aerodrom Firenca", href: arrivalLinks.florenceAirport.href },
+          ],
+        },
+        {
+          heading: "Vozom",
+          body:
+            "Stižete na stanicu Lucca, na liniji Pisa–Firenca. Od Note tra le Mura u Via Pelleria 14 ima oko 20 minuta peške sa prtljagom; alternativno nekoliko minuta gradskim autobusom ili taksijem do apartmana.",
+          links: [{ label: "Stanica Lucca", href: arrivalLinks.luccaStation.href }],
+        },
+        {
+          heading: "Autom",
+          body:
+            "Autoput A11 (Firenca–more), izlaz Lucca Ovest, zatim putokazi ka centru. Stari grad ima zone ograničenog saobraćaja — ne ulazite u ZTL bez dozvole. Parkirajte kao u odeljku ispod i nastavite peške sa prtljagom.",
+        },
         {
           heading: "Zašto unutar zidina",
           body:
@@ -256,9 +347,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
             "Smeštaj izvan zidina može biti praktičan za vozače. Unutar starog grada doživljaj Luke je neposredniji: doručak, večera i večernje šetnje su blizu.",
         },
         {
-          heading: "Parking i dolazak",
+          heading: "Parking",
           body:
-            "Centar ima zone ograničenog saobraćaja. Gosti obično parkiraju izvan ili blizu zidina i nastavljaju peške. Praktična opcija je Parcheggio Palatucci, zapadno od zidina u Via delle Tagliate di Sant’Anna; od pešačkog ulaza prema Porta San Donato ili bastionu Santa Croce obično ima oko 8 minuta peške do starog grada, a zatim još nekoliko minuta do Via Pelleria. Za besplatno parkiranje možete proveriti Piazzale Maestri del Lavoro: nalazi se izvan zidina i obično je oko 15-20 minuta peške od Via Pelleria 14, u zavisnosti od tačnog mesta i tempa. Pravila parkiranja mogu da se menjaju, zato uvek proverite znakove po dolasku. Od Note tra le Mura autobuska stanica je oko 5 minuta peške, a železnička stanica u Luci oko 20 minuta.",
+            "Centar ima zone ograničenog saobraćaja. Gosti obično parkiraju izvan ili blizu zidina i nastavljaju peške. Praktična opcija je Parcheggio Palatucci, zapadno od zidina u Via delle Tagliate di Sant’Anna; od pešačkog ulaza prema Porta San Donato ili bastionu Santa Croce obično ima oko 8 minuta peške do starog grada, a zatim još nekoliko minuta do Via Pelleria. Za besplatno parkiranje možete proveriti Piazzale Maestri del Lavoro: nalazi se izvan zidina i obično je oko 15-20 minuta peške od Via Pelleria 14, u zavisnosti od tačnog mesta i tempa. Pravila parkiranja mogu da se menjaju, zato uvek proverite znakove po dolasku.",
           links: [parkingLinks.palatucci, parkingLinks.maestri],
         },
         {
@@ -813,7 +904,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Planning your days",
           body:
-            "One outing per day keeps the holiday gentle: sea one day, Pisa another, mountains or Cinque Terre when you are ready. Return to Lucca for dinner while the streets light up — see our Lucca in one day guide for the old town, and our food guide for restaurants. For parking and arrival tips, see where to stay inside the walls.",
+            "One outing per day keeps the holiday gentle: sea one day, Pisa another, mountains or Cinque Terre when you are ready. Return to Lucca for dinner while the streets light up — see our Lucca in one day guide for the old town, and our food guide for restaurants. For how to arrive and where to park, see our how to get to Lucca and where to stay guide.",
           links: [
             {
               label: "Lucca in one day",
@@ -824,7 +915,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
               href: "/en/best-restaurants-lucca-local-food",
             },
             {
-              label: "where to stay guide",
+              label: "how to get to Lucca and where to stay guide",
               href: "/en/where-to-stay-lucca-inside-walls",
             },
           ],
@@ -868,7 +959,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Come organizzare le giornate",
           body:
-            "Una gita al giorno mantiene la vacanza leggera: un giorno il mare, un altro Pisa, montagna o Cinque Terre quando siete pronti. Rientrate a Lucca per cena mentre si accendono le strade — per il centro storico vedete la guida Lucca in un giorno, per i ristoranti la guida sulla cucina lucchese. Per parcheggio e arrivo, la guida su dove soggiornare dentro le mura.",
+            "Una gita al giorno mantiene la vacanza leggera: un giorno il mare, un altro Pisa, montagna o Cinque Terre quando siete pronti. Rientrate a Lucca per cena mentre si accendono le strade — per il centro storico vedete la guida Lucca in un giorno, per i ristoranti la guida sulla cucina lucchese. Per arrivo e parcheggio, la guida su come arrivare e dove soggiornare.",
           links: [
             {
               label: "Lucca in un giorno",
@@ -879,7 +970,7 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
               href: "/it/best-restaurants-lucca-local-food",
             },
             {
-              label: "guida su dove soggiornare a Lucca dentro le mura",
+              label: "guida su come arrivare e dove soggiornare",
               href: "/it/where-to-stay-lucca-inside-walls",
             },
           ],

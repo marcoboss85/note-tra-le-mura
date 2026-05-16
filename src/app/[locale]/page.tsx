@@ -67,8 +67,8 @@ const travelNotes: Record<
     cta: "Read guide",
     cards: [
       {
-        title: "Where to stay in Lucca inside the walls",
-        body: "Old town vs outside the walls, walking distances, parking and transport.",
+        title: "How to get to Lucca and where to stay",
+        body: "By plane, train or car, parking and staying inside the walls.",
         href: "/where-to-stay-lucca-inside-walls",
       },
       {
@@ -95,8 +95,8 @@ const travelNotes: Record<
     cta: "Leggi la guida",
     cards: [
       {
-        title: "Dove soggiornare a Lucca dentro le mura",
-        body: "Centro storico, distanze a piedi, parcheggi e arrivo senza stress.",
+        title: "Come arrivare a Lucca e dove soggiornare",
+        body: "Aereo, treno, auto, parcheggi e soggiorno dentro le mura.",
         href: "/where-to-stay-lucca-inside-walls",
       },
       {
@@ -123,8 +123,8 @@ const travelNotes: Record<
     cta: "Guide lesen",
     cards: [
       {
-        title: "Wo in Lucca innerhalb der Stadtmauern übernachten",
-        body: "Altstadt, Wege zu Fuss, Parken und Anreise ohne täglichen Autostress.",
+        title: "Anreise nach Lucca und Übernachtung",
+        body: "Flugzeug, Zug, Auto, Parken und Wohnen innerhalb der Mauern.",
         href: "/where-to-stay-lucca-inside-walls",
       },
       {
@@ -151,8 +151,8 @@ const travelNotes: Record<
     cta: "Pročitaj vodič",
     cards: [
       {
-        title: "Gde odsesti u Luci unutar zidina",
-        body: "Stari grad, pešačke udaljenosti, parking i dolazak bez stresa.",
+        title: "Kako stići u Luku i gde odsesti",
+        body: "Avion, voz, auto, parking i boravak unutar zidina.",
         href: "/where-to-stay-lucca-inside-walls",
       },
       {
