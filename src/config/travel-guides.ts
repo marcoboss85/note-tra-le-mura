@@ -17,7 +17,8 @@ export type TravelGuide = {
 type GuideSlug =
   | "where-to-stay-lucca-inside-walls"
   | "best-restaurants-lucca-local-food"
-  | "lucca-in-one-day";
+  | "lucca-in-one-day"
+  | "lucca-and-surroundings";
 
 const googleMapsSearch = (query: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
@@ -108,6 +109,29 @@ const dayGuideLinks = {
   puccini: {
     label: "Casa natale di Giacomo Puccini",
     href: googleMapsSearch("Casa natale Giacomo Puccini Lucca"),
+  },
+};
+
+const surroundingsGuideLinks = {
+  pisa: {
+    label: "Pisa",
+    href: googleMapsSearch("Piazza dei Miracoli Pisa"),
+  },
+  viareggio: {
+    label: "Viareggio",
+    href: googleMapsSearch("Viareggio spiaggia"),
+  },
+  cinqueTerre: {
+    label: "Cinque Terre",
+    href: googleMapsSearch("Cinque Terre La Spezia"),
+  },
+  bargaGarfagnana: {
+    label: "Barga e Garfagnana",
+    href: googleMapsSearch("Barga LU centro storico"),
+  },
+  montePisano: {
+    label: "Monte Pisano",
+    href: googleMapsSearch("Monte Pisano sentieri trekking"),
   },
 };
 
@@ -745,6 +769,228 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
             {
               label: "vodič o hrani i restoranima",
               href: "/sr/best-restaurants-lucca-local-food",
+            },
+          ],
+        },
+      ],
+      cta: "Pogledaj apartman",
+      ctaHref: "/sr",
+    },
+  },
+  "lucca-and-surroundings": {
+    en: {
+      title: "Lucca and surroundings",
+      metaTitle: "Lucca and surroundings | Day trips by train and car | Note tra le Mura",
+      metaDescription:
+        "Day trips from Lucca: Pisa and the Versilia coast by train, Cinque Terre and Barga by car, trekking on Monte Pisano — sea, mountains, art and villages for every kind of traveller.",
+      intro:
+        "Choosing Lucca as your base does not mean giving the rest of Tuscany away. It means keeping a quiet home behind the walls and, each morning, deciding what you feel like feeling: salt on your skin and the sound of the waves in Versilia; wonder in front of Piazza dei Miracoli; the sharp colours of the Ligurian coast; the cool air of the Apennines, where time moves more slowly. There really is something for every mood — couples who need silence, travellers who cannot go home without having touched the sea, anyone who measures a holiday in steps on a path. Your bags stay in Via Pelleria: you go out, live a full day, and in the evening you return to the same streets where you left your shoes, with one more story to tell.",
+      sections: [
+        {
+          heading: "Without a car: Pisa and the Versilia coast",
+          body:
+            "From Lucca railway station, about 20 minutes on foot from Note tra le Mura, regional trains reach Pisa in roughly 30 minutes — perfect for Piazza dei Miracoli, the cathedral and a slow walk along the Arno. For the sea, continue towards Viareggio: in about 30–40 minutes by train you are on the Versilia coast, with long beaches and a lively promenade in summer. These are easy day trips with no parking stress; check Trenitalia for times on your date.",
+          links: [surroundingsGuideLinks.pisa, surroundingsGuideLinks.viareggio],
+        },
+        {
+          heading: "With a car: the Cinque Terre",
+          body:
+            "Many of our guests who drive make at least one full day for the Cinque Terre — and we understand why. The coastline between those famous villages is one of the most moving sights in Italy. Plan a whole day, leave early, and use car parks near the villages or La Spezia, then the local train that links the borghi. In high season it is busy; midweek and early starts are calmer. From Lucca, allow about 1–1.5 hours by road depending on where you start.",
+          links: [surroundingsGuideLinks.cinqueTerre],
+        },
+        {
+          heading: "With a car: Barga and the Garfagnana",
+          body:
+            "By car, a full day in the Garfagnana — with Barga as its heart — shows a Tuscany many guests do not expect: greener, quieter, more authentic. Climb to Barga, a medieval village above the Serchio valley, then let the valley lead you: forests, old bridges, tiny hamlets, trattorias where cooking smells rise from the hearth. It is the right trip if, after busy Lucca, you want mountain air and streets where you can walk without rushing. Allow the whole day: the bends ask for calm, and the pleasure is in arriving slowly.",
+          links: [surroundingsGuideLinks.bargaGarfagnana],
+        },
+        {
+          heading: "Trekking on Monte Pisano",
+          body:
+            "For walkers, Monte Pisano between Lucca and Pisa is a rewarding half-day or day out: marked paths, olive groves, stone villages and wide views towards the coast on clear days. Choose a route that matches your level, bring water and good shoes, and check the weather. It is a different rhythm from the centre of Lucca — peaceful, physical, memorable.",
+          links: [surroundingsGuideLinks.montePisano],
+        },
+        {
+          heading: "Planning your days",
+          body:
+            "One outing per day keeps the holiday gentle: sea one day, Pisa another, mountains or Cinque Terre when you are ready. Return to Lucca for dinner while the streets light up — see our Lucca in one day guide for the old town, and our food guide for restaurants. For parking and arrival tips, see where to stay inside the walls.",
+          links: [
+            {
+              label: "Lucca in one day",
+              href: "/en/lucca-in-one-day",
+            },
+            {
+              label: "restaurants and local food guide",
+              href: "/en/best-restaurants-lucca-local-food",
+            },
+            {
+              label: "where to stay guide",
+              href: "/en/where-to-stay-lucca-inside-walls",
+            },
+          ],
+        },
+      ],
+      cta: "See the apartment",
+      ctaHref: "/en",
+    },
+    it: {
+      title: "Lucca e dintorni",
+      metaTitle: "Lucca e dintorni | Gite in treno e in auto | Note tra le Mura",
+      metaDescription:
+        "Gite da Lucca: Pisa e Versilia in treno, Cinque Terre e Barga in auto, trekking sul Monte Pisano — mare, montagna, arte e borghi per ogni tipo di viaggio.",
+      intro:
+        "Scegliere Lucca come base non vuol dire rinunciare a tutto il resto: vuol dire avere un rifugio dentro le mura e, ogni mattina, decidere quale emozione cercare. Magari il sale sulla pelle e il rumore delle onde in Versilia; magari la meraviglia davanti a Piazza dei Miracoli; magari i colori accecanti della costa ligure; magari il fresco degli Appennini, dove il tempo scorre più piano. Ce n’è davvero per tutti i gusti — per chi viaggia in coppia e ha bisogno di silenzio, per chi non vuole tornare a casa senza aver visto il mare, per chi le vacanze le misura coi passi su un sentiero. Le valigie restano in Via Pelleria: voi uscite, vivete una giornata piena, e la sera rientrate negli stessi vicoli dove avete lasciato le scarpe, con un’altra storia da raccontare.",
+      sections: [
+        {
+          heading: "Senza auto: Pisa e la Versilia",
+          body:
+            "Dalla stazione di Lucca, a circa 20 minuti a piedi da Note tra le Mura, i treni regionali arrivano a Pisa in circa 30 minuti — ideale per Piazza dei Miracoli, il Duomo e una passeggiata lungo l’Arno. Per il mare, proseguite verso Viareggio: in circa 30–40 minuti di treno siete sulla costa della Versilia, con spiagge lunghe e passeggiata vivace in estate. Sono gite semplici, senza stress da parcheggio; controllate gli orari Trenitalia per la vostra data.",
+          links: [surroundingsGuideLinks.pisa, surroundingsGuideLinks.viareggio],
+        },
+        {
+          heading: "Con auto: le Cinque Terre",
+          body:
+            "Molti ospiti che viaggiano in macchina dedicano almeno una giornata intera alle Cinque Terre — e si capisce perché. Quella costa tra i borghi famosi è una delle emozioni più forti d’Italia. Prevedete una giornata piena, partenza presto, parcheggi vicino ai paesi o a La Spezia, poi il treno locale che collega i borghi. In alta stagione c’è affluenza; giorni feriali e mattino presto aiutano. Da Lucca, calcolate circa 1–1,5 ore di strada a seconda di dove iniziate.",
+          links: [surroundingsGuideLinks.cinqueTerre],
+        },
+        {
+          heading: "Con auto: Barga e la Garfagnana",
+          body:
+            "Con l’auto, una giornata in Garfagnana — Barga come cuore del viaggio — regala la Toscana che molti non si aspettano: meno affolla, più verde, più autentica. Salite verso Barga, borgo medievale arroccato sulla valle del Serchio, poi lasciatevi guidare dalla valle: boschi, ponti antichi, paesi minuscoli, trattorie dove il profumo della cucina sale dal camino. È la gita giusta se, dopo il centro di Lucca, desiderate aria di montagna e strade dove potete camminare senza fretta. Prevedete l’intera giornata: le curve chiedono calma, e il piacere sta proprio nell’arrivare piano.",
+          links: [surroundingsGuideLinks.bargaGarfagnana],
+        },
+        {
+          heading: "Trekking sul Monte Pisano",
+          body:
+            "Per chi ama camminare, il Monte Pisano tra Lucca e Pisa è una mezza giornata o una giornata appagante: sentieri segnalati, olivi, borghi di pietra e panorami verso il mare nelle giornate limpide. Scegliete un percorso adatto al vostro livello, portate acqua e scarpe buone, controllate il meteo. È un ritmo diverso dal centro di Lucca — fisico, quieto, da ricordare.",
+          links: [surroundingsGuideLinks.montePisano],
+        },
+        {
+          heading: "Come organizzare le giornate",
+          body:
+            "Una gita al giorno mantiene la vacanza leggera: un giorno il mare, un altro Pisa, montagna o Cinque Terre quando siete pronti. Rientrate a Lucca per cena mentre si accendono le strade — per il centro storico vedete la guida Lucca in un giorno, per i ristoranti la guida sulla cucina lucchese. Per parcheggio e arrivo, la guida su dove soggiornare dentro le mura.",
+          links: [
+            {
+              label: "Lucca in un giorno",
+              href: "/it/lucca-in-one-day",
+            },
+            {
+              label: "guida su ristoranti tipici e cucina lucchese",
+              href: "/it/best-restaurants-lucca-local-food",
+            },
+            {
+              label: "guida su dove soggiornare a Lucca dentro le mura",
+              href: "/it/where-to-stay-lucca-inside-walls",
+            },
+          ],
+        },
+      ],
+      cta: "Vedi l'appartamento",
+      ctaHref: "/it",
+    },
+    de: {
+      title: "Lucca und Umgebung",
+      metaTitle: "Lucca und Umgebung | Tagesausflüge mit Zug und Auto | Note tra le Mura",
+      metaDescription:
+        "Tagesausflüge ab Lucca: Pisa und Versilia mit dem Zug, Cinque Terre und Barga mit dem Auto, Trekking am Monte Pisano — Meer, Berge, Kunst und Dörfer.",
+      intro:
+        "Lucca als Basis zu wählen heisst nicht, auf den Rest der Toskana zu verzichten. Es heisst, ein ruhiges Zuhause innerhalb der Mauern zu haben und jeden Morgen zu entscheiden, welche Emotion Sie suchen: Salz auf der Haut und Wellenrauschen in der Versilia; Staunen vor der Piazza dei Miracoli; die grellen Farben der ligurischen Küste; die kühle Luft der Apenninen, wo die Zeit langsamer geht. Für jeden Geschmack ist etwas da — Paare, die Stille brauchen, Reisende, die ohne Meer nicht nach Hause wollen, alle, die Ferien in Schritten auf einem Weg messen. Die Koffer bleiben in der Via Pelleria: Sie gehen hinaus, erleben einen vollen Tag und kehren abends in dieselben Gassen zurück, in denen Ihre Schuhe warteten — mit einer Geschichte mehr.",
+      sections: [
+        {
+          heading: "Ohne Auto: Pisa und die Versilia",
+          body:
+            "Vom Bahnhof Lucca, etwa 20 Gehminuten von Note tra le Mura, erreichen Regionalzüge Pisa in rund 30 Minuten — ideal für die Piazza dei Miracoli und einen Spaziergang am Arno. Fürs Meer geht es weiter nach Viareggio: in etwa 30–40 Minuten mit dem Zug sind Sie an der Versilia mit langen Stränden und lebendiger Promenade im Sommer. Einfache Tagesausflüge ohne Parkstress; Fahrpläne bei Trenitalia prüfen.",
+          links: [surroundingsGuideLinks.pisa, surroundingsGuideLinks.viareggio],
+        },
+        {
+          heading: "Mit Auto: die Cinque Terre",
+          body:
+            "Viele Gäste mit Auto nehmen sich mindestens einen ganzen Tag für die Cinque Terre — zu Recht. Diese Küste zwischen den bekannten Dörfern gehört zu den bewegendsten Bildern Italiens. Planen Sie einen vollen Tag, frühe Abfahrt, Parkplätze bei den Orten oder in La Spezia, dann den lokalen Zug zwischen den Dörfern. In der Hochsaison ist es voll; unter der Woche und früh morgens ist es ruhiger. Ab Lucca rechnen Sie je nach Start etwa 1–1,5 Stunden Fahrt.",
+          links: [surroundingsGuideLinks.cinqueTerre],
+        },
+        {
+          heading: "Mit Auto: Barga und die Garfagnana",
+          body:
+            "Mit dem Auto zeigt ein ganzer Tag in der Garfagnana — Barga als Herz der Reise — eine Toskana, die viele Gäste nicht erwarten: grüner, ruhiger, echter. Fahren Sie nach Barga, einem mittelalterlichen Dorf über dem Serchio-Tal, und lassen Sie sich vom Tal führen: Wälder, alte Brücken, winzige Orte, Trattorien, aus denen Kochdüfte steigen. Ideal, wenn Sie nach dem Trubel in Lucca Bergluft und Gassen ohne Eile wollen. Rechnen Sie den ganzen Tag: Die Kurven verlangen Ruhe — und das Vergnügen liegt im langsamen Ankommen.",
+          links: [surroundingsGuideLinks.bargaGarfagnana],
+        },
+        {
+          heading: "Trekking am Monte Pisano",
+          body:
+            "Für Wanderer ist der Monte Pisano zwischen Lucca und Pisa ein lohnender Halb- oder Ganztag: markierte Wege, Olivenhaine, Steindörfer und bei klarem Wetter Blick zum Meer. Wählen Sie eine Route passend zu Ihrem Niveau, nehmen Sie Wasser und gutes Schuhwerk mit. Ein anderes Tempo als die Altstadt — ruhig, körperlich, bleibend.",
+          links: [surroundingsGuideLinks.montePisano],
+        },
+        {
+          heading: "Tage planen",
+          body:
+            "Ein Ausflug pro Tag hält den Urlaub sanft: einmal Meer, einmal Pisa, Berge oder Cinque Terre, wenn Sie bereit sind. Abends zurück nach Lucca — für die Altstadt siehe Lucca an einem Tag, für Restaurants den Food-Guide. Parken und Anreise: Übernachtungs-Guide.",
+          links: [
+            {
+              label: "Lucca an einem Tag",
+              href: "/de/lucca-in-one-day",
+            },
+            {
+              label: "Food-Guide",
+              href: "/de/best-restaurants-lucca-local-food",
+            },
+            {
+              label: "Übernachtungs-Guide",
+              href: "/de/where-to-stay-lucca-inside-walls",
+            },
+          ],
+        },
+      ],
+      cta: "Wohnung ansehen",
+      ctaHref: "/de",
+    },
+    sr: {
+      title: "Luka i okolina",
+      metaTitle: "Luka i okolina | Izleti vozom i autom | Note tra le Mura",
+      metaDescription:
+        "Izleti iz Luke: Pisa i Versilija vozom, Cinque Terre i Barga autom, trekking na Monte Pisano — more, planine, umetnost i sela.",
+      intro:
+        "Izabrati Luku kao bazu ne znači odustati od ostatka Toskane. Znači imati miran dom unutar zidina i svako jutro odlučiti koju emociju tražite: so na koži i šum talasa u Versiliji; čudo pred Piazza dei Miracoli; jarke boje ligurske obale; hladan vazduh Apenina, gde vreme teče sporije. Zaista ima za svaki ukus — parove kojima treba tišina, putnike koji ne mogu kući bez mora, one koji odmor mere koracima na stazi. Koferi ostaju u Via Pelleria: vi izlazite, proživite pun dan, a uveče se vraćate u iste uličice gde su vas čekale cipele — sa još jednom pričom.",
+      sections: [
+        {
+          heading: "Bez auta: Pisa i Versilija",
+          body:
+            "Od železničke stanice u Luci, oko 20 minuta peške od Note tra le Mura, regionalni vozovi stižu do Pise za otprilike 30 minuta — idealno za Piazza dei Miracoli i šetnju uz Arno. Za more, nastavite do Viareggia: za oko 30–40 minuta vozom ste na obali Versilije, sa dugim plažama i živom šetalištem leti. Jednostavni izleti bez stresa oko parkinga; proverite Trenitalia za vaš datum.",
+          links: [surroundingsGuideLinks.pisa, surroundingsGuideLinks.viareggio],
+        },
+        {
+          heading: "Autom: Cinque Terre",
+          body:
+            "Mnogi gosti sa autom obiđu bar jedan pun dan Cinque Terrea — i razumljivo je. Ta obala između čuvenih sela jedna je od najjačih slika Italije. Planirajte ceo dan, rani polazak, parking blizu sela ili La Spezie, zatim lokalni voz koji povezuje sela. U visokoj sezoni gužva je veća; radni dani i rano jutro su mirniji. Od Luke, računajte oko 1–1,5 sati vožnje, zavisno od polazne tačke.",
+          links: [surroundingsGuideLinks.cinqueTerre],
+        },
+        {
+          heading: "Autom: Barga i Garfagnana",
+          body:
+            "Automom, ceo dan u Garfagnani — sa Bargom u centru puta — pokazuje Toskanu koju mnogi gosti ne očekuju: zeleniju, tišinu, autentičnost. Popnite do Barge, srednjovekovnog sela iznad doline Serchio, pa pustite da vas dolina vodi: šume, stari mostovi, mala sela, trattorie odakle miriše kuhinja. Pravi izlet ako, posle gužve u Luci, želite planinski vazduh i ulice bez žurbe. Predvidite ceo dan: krivine traže mir — a uživanje je u sporom dolasku.",
+          links: [surroundingsGuideLinks.bargaGarfagnana],
+        },
+        {
+          heading: "Trekking na Monte Pisano",
+          body:
+            "Za šetače, Monte Pisano između Luke i Pise je poludan ili dan vredan truda: obeležene staze, masline, kamena sela i pri vedrim danima pogled ka moru. Izaberite rutu prema nivou, ponesite vodu i dobru obuću, proverite vreme. Drugi ritam od centra Luke — miran, fizički, za pamćenje.",
+          links: [surroundingsGuideLinks.montePisano],
+        },
+        {
+          heading: "Kako planirati dane",
+          body:
+            "Jedan izlet dnevno čuva odmor laganim: jednom more, jednom Pisa, planine ili Cinque Terre kada ste spremni. Vratite se u Luku na večeru — za stari grad pogledajte Luku za jedan dan, za restorane vodič o hrani. Za parking i dolazak, vodič o boravku unutar zidina.",
+          links: [
+            {
+              label: "Luka za jedan dan",
+              href: "/sr/lucca-in-one-day",
+            },
+            {
+              label: "vodič o hrani i restoranima",
+              href: "/sr/best-restaurants-lucca-local-food",
+            },
+            {
+              label: "vodič o boravku unutar zidina",
+              href: "/sr/where-to-stay-lucca-inside-walls",
             },
           ],
         },

@@ -81,6 +81,11 @@ const travelNotes: Record<
         body: "A calm walking plan: morning squares, walls or towers, lunch and evening.",
         href: "/lucca-in-one-day",
       },
+      {
+        title: "Lucca and surroundings",
+        body: "Sea, mountains, art and trekking — day trips by train or car from your base in town.",
+        href: "/lucca-and-surroundings",
+      },
     ],
   },
   it: {
@@ -103,6 +108,11 @@ const travelNotes: Record<
         title: "Lucca in un giorno",
         body: "Itinerario a piedi: mattina tra le piazze, mura o torri, pranzo e sera.",
         href: "/lucca-in-one-day",
+      },
+      {
+        title: "Lucca e dintorni",
+        body: "Mare, montagna, arte e trekking — gite in treno o in auto con base in città.",
+        href: "/lucca-and-surroundings",
       },
     ],
   },
@@ -127,6 +137,11 @@ const travelNotes: Record<
         body: "Ruhiger Tagesplan zu Fuss: Plätze, Mauer oder Türme, Mittag- und Abendessen.",
         href: "/lucca-in-one-day",
       },
+      {
+        title: "Lucca und Umgebung",
+        body: "Meer, Berge, Kunst und Trekking — Tagesausflüge mit Zug oder Auto.",
+        href: "/lucca-and-surroundings",
+      },
     ],
   },
   sr: {
@@ -149,6 +164,11 @@ const travelNotes: Record<
         title: "Luka za jedan dan",
         body: "Plan peške: jutarnji trgovi, zidine ili tornjevi, ručak i veče.",
         href: "/lucca-in-one-day",
+      },
+      {
+        title: "Luka i okolina",
+        body: "More, planine, umetnost i trekking — izleti vozom ili autom iz centra.",
+        href: "/lucca-and-surroundings",
       },
     ],
   },

@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "/where-to-stay-lucca-inside-walls",
       "/best-restaurants-lucca-local-food",
       "/lucca-in-one-day",
+      "/lucca-and-surroundings",
     ] as const) {
       entries.push({
         url: `${base}${prefix}${path}`,
