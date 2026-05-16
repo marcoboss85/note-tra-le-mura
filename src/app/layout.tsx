@@ -15,8 +15,8 @@ import "./globals.css";
 /** Corpo: come palazzodipinto.com (`body` in stile.css). */
 const raleway = Raleway({
   variable: "--font-body",
-  subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
-  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   display: "swap",
   adjustFontFallback: true,
@@ -34,7 +34,7 @@ const ovo = Ovo({
 /** Titoli sezione tipo fascia / display: Yanone Kaffeesatz. */
 const yanoneSection = Yanone_Kaffeesatz({
   variable: "--font-section",
-  subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
+  subsets: ["latin", "latin-ext"],
   weight: ["300", "400", "500", "600"],
   display: "swap",
   adjustFontFallback: true,
@@ -52,7 +52,7 @@ const heroBrandScore = Pinyon_Script({
 /** UI secondaria / didascalie: come su palazzodipinto.com (Roboto + Manjari). */
 const roboto = Roboto({
   variable: "--font-ui",
-  subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
+  subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "700", "800"],
   display: "swap",
   adjustFontFallback: true,

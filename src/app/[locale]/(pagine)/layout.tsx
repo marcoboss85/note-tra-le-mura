@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { PageTopBar } from "@/components/PageTopBar";
+import { PageTopBarFromPath } from "@/components/PageTopBarFromPath";
 import { getFacebookPageUrl, getInstagramUrl } from "@/config/social";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -21,7 +21,8 @@ export default async function PagineLayout({ children, params }: Props) {
   const dict = getDictionary(raw as Locale);
   return (
     <>
-      <PageTopBar
+      <PageTopBarFromPath
+        locale={raw as Locale}
         facebookUrl={getFacebookPageUrl()}
         instagramUrl={getInstagramUrl()}
         facebookAria={dict.contacts.facebookAria}

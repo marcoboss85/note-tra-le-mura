@@ -1,9 +1,9 @@
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { IconMail } from "@/components/ContactIcons";
 import { SectionHeading } from "@/components/SectionHeading";
 import { HeroSlideshow } from "@/components/HeroSlideshow";
+import { HomeAvailabilitySection } from "@/components/HomeAvailabilitySection";
 import { WhatsAppLogo } from "@/components/WhatsAppLogo";
 import { ambienti } from "@/app/gallery-data";
 import { type Locale, isLocale, localeAlternateLanguages } from "@/i18n/config";
@@ -15,8 +15,6 @@ import {
   getContactPhoneForLocale,
 } from "@/config/contact";
 import { buildWhatsappLink } from "@/lib/whatsapp";
-import { fetchAirbnbBlockedDates } from "@/lib/ical-blocked-dates";
-import { getAirbnbIcalUrl } from "@/config/calendar";
 import { isHomeComicsBannerVisible } from "@/config/home-comics-banner";
 import { getAirbnbListingUrl } from "@/config/airbnb-listing";
 import { getOsmEmbedUrl, getOsmViewUrl } from "@/config/property-map";
@@ -29,21 +27,6 @@ import { buildLodgingJsonLd } from "@/lib/lodging-jsonld";
 import { buildOpenGraphAndTwitter, getMetadataBaseUrl } from "@/lib/social-metadata";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-
-const AvailabilityCalendar = dynamic(
-  () =>
-    import("@/components/AvailabilityCalendar").then(
-      (m) => m.AvailabilityCalendar,
-    ),
-  {
-    loading: () => (
-      <div
-        className="mx-auto min-h-[min(24rem,70vh)] max-w-4xl rounded-lg border border-[#e3dcd4] bg-[#f0ebe3]/50"
-        aria-hidden
-      />
-    ),
-  },
-);
 
 export const revalidate = 1800;
 
@@ -220,19 +203,7 @@ export default async function Home({ params }: PageProps) {
   const base = `/${locale}`;
 
   const showComicsHomeBanner = isHomeComicsBannerVisible();
-  const icalUrl = getAirbnbIcalUrl();
   const airbnbListingUrl = getAirbnbListingUrl();
-  let availabilityStatus: "ok" | "missing_url" | "error" = "missing_url";
-  let blockedYmd: string[] = [];
-  if (icalUrl) {
-    const res = await fetchAirbnbBlockedDates(icalUrl);
-    if (res.ok) {
-      availabilityStatus = "ok";
-      blockedYmd = Array.from(res.blocked);
-    } else {
-      availabilityStatus = "error";
-    }
-  }
 
   const siteBase = getMetadataBaseUrl().origin;
   const lodgingJsonLd = buildLodgingJsonLd({
@@ -260,6 +231,8 @@ export default async function Home({ params }: PageProps) {
           <HeroSlideshow imageAlt={dict.hero.imageAlt} />
         </div>
         <PageTopBar
+          locale={locale}
+          pathAfterLocale=""
           variant="overHero"
           facebookUrl={facebookUrl}
           instagramUrl={instagramUrl}
@@ -320,21 +293,7 @@ export default async function Home({ params }: PageProps) {
         </div>
       ) : null}
 
-      <section
-        id="disponibilita"
-        className="border-t border-[#e0d9cf] px-6 pb-20 pt-20 md:px-12 md:pb-28 md:pt-24"
-        aria-label={dict.availability.widgetAria}
-      >
-        <div className="mx-auto max-w-5xl">
-          <SectionHeading title={dict.availability.heading} />
-          <AvailabilityCalendar
-            locale={locale}
-            copy={dict.availability}
-            blocked={blockedYmd}
-            status={availabilityStatus}
-          />
-        </div>
-      </section>
+      <HomeAvailabilitySection locale={locale} />
 
       <section
         id="gallery"

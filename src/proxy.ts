@@ -21,7 +21,11 @@ export function proxy(request: NextRequest) {
 
   const first = pathname.split("/")[1];
   if (first && isLocale(first)) {
-    return NextResponse.next();
+    const requestHeaders = new Headers(request.headers);
+    requestHeaders.set("x-pathname", pathname);
+    return NextResponse.next({
+      request: { headers: requestHeaders },
+    });
   }
 
   const url = request.nextUrl.clone();

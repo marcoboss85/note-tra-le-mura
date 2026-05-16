@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "eslint",
     "optimize:hero": "node scripts/optimize-hero-images.cjs",
+    "optimize:comics": "node scripts/optimize-comics-images.cjs",
     "vercel:login": "vercel login",
     "vercel:link": "vercel link",
     "vercel:sync-env": "node scripts/vercel-sync-env.cjs",
