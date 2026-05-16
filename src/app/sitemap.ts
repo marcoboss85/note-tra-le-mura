@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    for (const path of ["/cookie", "/privacy", "/lucca-comics"] as const) {
+    for (const path of ["/lucca-comics"] as const) {
       entries.push({
         url: `${base}${prefix}${path}`,
         lastModified: new Date(),

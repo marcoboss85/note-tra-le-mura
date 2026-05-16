@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: fullTitle,
     description,
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: true },
     alternates: {
       canonical: `/${raw}/privacy`,
       languages: localeAlternateLanguages("/privacy"),
