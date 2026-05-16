@@ -466,9 +466,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Lunch",
           body:
-            "Plan lunch around 12:30–14:00. From Via Pelleria you are close to several central trattorias; Trattoria da Giulio in Pelleria is among the nearest. For breakfast ideas, supermarket shopping and a wider list of restaurants, see our restaurants and local food guide.",
+            "At midday, keep lunch light and fairly quick: you still have the afternoon ahead. A simple option is a trattoria around Piazza San Michele in Foro; another is to wander into the characteristic lanes of the old town and stop where it looks inviting. Save the long, relaxed meal for the evening. For breakfast, shopping and more restaurant names, see our restaurants and local food guide.",
           links: [
-            foodGuideLinks.giulio,
+            dayGuideLinks.sanMichele,
             {
               label: "restaurants and local food guide",
               href: "/en/best-restaurants-lucca-local-food",
@@ -498,8 +498,10 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Evening",
           body:
-            "Lucca is pleasant at dusk: an aperitivo in Piazza San Michele or near Piazza dell'Anfiteatro, then dinner in a trattoria. Book ahead on weekends and in summer. For names, booking tips and typical dishes, use our restaurants and local food guide.",
+            "Evening is when to slow down and enjoy dinner properly. Trattoria da Giulio in Pelleria is very close to the apartment: if you book, ask for a table on the terrace when available — in the evening it is beautifully lit and a memorable place to eat outside. Piazza dell'Anfiteatro is another classic choice at night: the oval square glows with lights, and the restaurants around it are ideal for a calm dinner with that view. Book ahead on weekends and in summer. More names and dishes are in our restaurants and local food guide.",
           links: [
+            foodGuideLinks.giulio,
+            dayGuideLinks.anfiteatro,
             {
               label: "restaurants and local food guide",
               href: "/en/best-restaurants-lucca-local-food",
@@ -544,9 +546,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Pranzo",
           body:
-            "Il pranzo conviene tra le 12:30 e le 14:00. Da Via Pelleria siete vicini a diverse trattorie centrali; la Trattoria da Giulio in Pelleria è tra le più vicine. Per colazione, spesa al supermercato e un elenco più ampio di ristoranti, vedete la guida su ristoranti tipici e cucina lucchese.",
+            "A mezzogiorno meglio un pranzo semplice e piuttosto veloce: avete ancora tutto il pomeriggio davanti. Potete fermarvi in un ristorante intorno a Piazza San Michele in Foro, oppure perdetevi nei vicoli caratteristici del centro e scegliere un locale che vi ispira. La cena lunga e tranquilla lasciatela alla sera. Per colazione, spesa e altri nomi, vedete la guida su ristoranti tipici e cucina lucchese.",
           links: [
-            foodGuideLinks.giulio,
+            dayGuideLinks.sanMichele,
             {
               label: "guida su ristoranti tipici e cucina lucchese",
               href: "/it/best-restaurants-lucca-local-food",
@@ -576,8 +578,10 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Sera",
           body:
-            "Lucca al tramonto è piacevole: aperitivo in Piazza San Michele o vicino a Piazza dell'Anfiteatro, poi cena in trattoria. Nei weekend e in estate conviene prenotare. Per nomi, consigli e piatti tipici, usate la guida su ristoranti tipici e cucina lucchese.",
+            "La sera è il momento di prendersela comoda a tavola. La Trattoria da Giulio in Pelleria è vicinissima all’appartamento: se prenotate, chiedete un tavolo sul terrazzo quando c’è posto — la sera è tutto illuminato ed è un posto bellissimo per mangiare all’aperto. Un’altra scelta classica è Piazza dell'Anfiteatro: di notte l’ovale della piazza si accende e i ristoranti intorno sono perfetti per una cena tranquilla con quella atmosfera. Nei weekend e in estate conviene prenotare. Per altri nomi e piatti, usate la guida su ristoranti tipici e cucina lucchese.",
           links: [
+            foodGuideLinks.giulio,
+            dayGuideLinks.anfiteatro,
             {
               label: "guida su ristoranti tipici e cucina lucchese",
               href: "/it/best-restaurants-lucca-local-food",
@@ -622,9 +626,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Mittagessen",
           body:
-            "Planen Sie das Mittagessen gegen 12:30–14:00 Uhr. Von der Via Pelleria aus sind mehrere Trattorien in der Nähe; Trattoria da Giulio in Pelleria ist eine der nächsten. Frühstück, Einkauf und weitere Restauranttipps stehen im Food-Guide.",
+            "Mittags reicht ein einfaches, eher schnelles Essen — der Nachmittag steht noch bevor. Eine Möglichkeit ist eine Trattoria rund um die Piazza San Michele in Foro, eine andere, in den charakteristischen Gassen der Altstadt einladend zu wirken und dort einzukehren. Das lange, ruhige Essen gehört in den Abend. Frühstück, Einkauf und weitere Namen stehen im Food-Guide.",
           links: [
-            foodGuideLinks.giulio,
+            dayGuideLinks.sanMichele,
             {
               label: "Food-Guide",
               href: "/de/best-restaurants-lucca-local-food",
@@ -654,8 +658,10 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Abend",
           body:
-            "Lucca ist bei Dämmerung angenehm: Aperitif an der Piazza San Michele oder nahe Piazza dell'Anfiteatro, danach Abendessen in einer Trattoria. Am Wochenende und im Sommer reservieren. Namen und Gerichte finden Sie im Food-Guide.",
+            "Am Abend kann man es ruhiger angehen lassen. Die Trattoria da Giulio in Pelleria liegt sehr nah an der Wohnung: bei der Reservierung nach einem Tisch auf der Terrasse fragen, wenn möglich — abends ist sie schön beleuchtet und ein besonderer Platz im Freien. Die Piazza dell'Anfiteatro ist nachts ein Klassiker: der ovale Platz leuchtet, und die Restaurants ringsum eignen sich für ein entspanntes Abendessen mit dieser Atmosphäre. Am Wochenende und im Sommer reservieren. Weitere Namen finden Sie im Food-Guide.",
           links: [
+            foodGuideLinks.giulio,
+            dayGuideLinks.anfiteatro,
             {
               label: "Food-Guide",
               href: "/de/best-restaurants-lucca-local-food",
@@ -700,9 +706,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Ručak",
           body:
-            "Ručak planirajte oko 12:30–14:00. Od Via Pelleria ste blizu nekoliko centralnih trattorija; Trattoria da Giulio in Pelleria je među najbližim. Za doručak, nabavku i više restorana pogledajte vodič o hrani i restoranima.",
+            "U podne bolje je jednostavan i prilično brz ručak — popodne je još pred vama. Možete stati u trattoriju oko Piazza San Michele in Foro, ili se izgubiti u karakterističnim uličicama centra i sesti gde vam se svidi. Dugačak, miran obrok ostavite za veče. Za doručak, nabavku i više imena pogledajte vodič o hrani i restoranima.",
           links: [
-            foodGuideLinks.giulio,
+            dayGuideLinks.sanMichele,
             {
               label: "vodič o hrani i restoranima",
               href: "/sr/best-restaurants-lucca-local-food",
@@ -732,8 +738,10 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Veče",
           body:
-            "Luka je lepa u sumrak: aperitiv na Piazza San Michele ili kod Piazza dell'Anfiteatro, zatim večera u trattoriji. Vikendom i leti rezervišite. Imena i jela su u vodiču o hrani i restoranima.",
+            "Veče je vreme da se za stolom uspori. Trattoria da Giulio in Pelleria je vrlo blizu apartmana: pri rezervaciji pitajte za sto na terasi ako ima mesta — uveče je lepo osvetljena i posebno mesto za jelo na otvorenom. Piazza dell'Anfiteatro je noću klasičan izbor: ovalni trg se osvetli, a restorani oko njega pogodni su za mirnu večeru uz tu atmosferu. Vikendom i leti rezervišite. Više imena je u vodiču o hrani i restoranima.",
           links: [
+            foodGuideLinks.giulio,
+            dayGuideLinks.anfiteatro,
             {
               label: "vodič o hrani i restoranima",
               href: "/sr/best-restaurants-lucca-local-food",
