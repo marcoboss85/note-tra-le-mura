@@ -154,9 +154,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
   "where-to-stay-lucca-inside-walls": {
     en: {
       title: "How to get to Lucca and where to stay",
-      metaTitle: "How to get to Lucca and where to stay | Note tra le Mura",
+      metaTitle: "How to get to Lucca from Pisa airport | Note tra le Mura",
       metaDescription:
-        "Reach Lucca from Pisa or Florence airport by train or taxi, by train to Lucca station, or by car on the A11 (Lucca Ovest exit) — plus where to stay inside the walls and where to park.",
+        "Train from Pisa or Florence airport, A11 Lucca Ovest exit and parking tips. Where to stay inside Lucca walls. Practical guide from Note tra le Mura.",
       intro:
         "For many visitors, the best Lucca stay is not about having a car at the door. It is about choosing a calm base inside the Renaissance walls, then walking to the city’s squares, restaurants, shops and evening life. You can reach Lucca comfortably by plane, train or car, then live the old town on foot.",
       sections: [
@@ -215,9 +215,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
     },
     it: {
       title: "Come arrivare a Lucca e dove soggiornare",
-      metaTitle: "Come arrivare a Lucca e dove soggiornare | Note tra le Mura",
+      metaTitle: "Come arrivare a Lucca da Pisa e Firenze | Note tra le Mura",
       metaDescription:
-        "Come arrivare a Lucca da aeroporto Pisa o Firenze, in treno o in auto (uscita A11 Lucca Ovest), dove dormire dentro le mura e dove parcheggiare.",
+        "Da aeroporto Pisa o Firenze: treno, auto (A11 uscita Lucca Ovest) e parcheggi nel centro storico. Dove soggiornare dentro le mura a Lucca.",
       intro:
         "Per molti ospiti il soggiorno migliore a Lucca non dipende dall’auto sotto casa, ma da una base tranquilla dentro le mura, vicina a piazze, ristoranti e passeggiate. Si arriva comodamente in aereo, in treno o in auto; da lì si vive la città a piedi.",
       sections: [
@@ -394,10 +394,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
   "best-restaurants-lucca-local-food": {
     en: {
       title: "Typical restaurants and local food in Lucca",
-      metaTitle:
-        "Typical restaurants and local food in Lucca | Note tra le Mura",
+      metaTitle: "Best restaurants in Lucca | Local food guide | Note tra le Mura",
       metaDescription:
-        "A practical food guide for guests staying in Lucca old town: breakfast, nearest supermarket, typical restaurants, local dishes, booking tips and what to try near the city walls.",
+        "Where to eat in Lucca: breakfast, typical dishes and trattorias near the centre. Practical tips for guests staying inside the walls.",
       intro:
         "A practical guide for when you are already in the apartment: breakfast in a beautiful square, the nearest supermarket, typical Lucca dishes, and central restaurants to consider for a relaxed dinner inside the walls.",
       sections: [
@@ -447,9 +446,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
     },
     it: {
       title: "Ristoranti tipici e cucina lucchese",
-      metaTitle: "Ristoranti tipici e cucina lucchese | Note tra le Mura",
+      metaTitle: "Ristoranti tipici a Lucca | Cucina lucchese | Note tra le Mura",
       metaDescription:
-        "Guida pratica per mangiare a Lucca: colazione, supermercato più vicino, ristoranti tipici, piatti locali, prenotazioni e consigli per chi soggiorna dentro le mura.",
+        "Dove mangiare a Lucca: colazione, piatti tipici e trattorie in centro. Guida pratica per chi soggiorna dentro le mura.",
       intro:
         "Una guida pratica per quando siete già in appartamento: colazione in una bella piazza, supermercato più vicino, piatti tipici lucchesi e ristoranti centrali da valutare per una cena dentro le mura.",
       sections: [
@@ -606,9 +605,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
   "lucca-in-one-day": {
     en: {
       title: "Lucca in one day",
-      metaTitle: "Lucca in one day | Walking itinerary from the old town | Note tra le Mura",
+      metaTitle: "Lucca in one day | What to see on foot | Note tra le Mura",
       metaDescription:
-        "A calm one-day walking plan for Lucca from Via Pelleria: morning squares, lunch, city walls or towers, optional museums and evening dinner tips inside the walls.",
+        "What to see in Lucca in one day: squares, walls, towers, lunch and evening dinner. Walking itinerary from Via Pelleria inside the walls.",
       intro:
         "One day in Lucca works best on foot. From Note tra le Mura in Via Pelleria 14 you are already inside the walls: no car needed, short walks to the main squares, and time for a slow lunch and an afternoon on the ramparts or towers.",
       sections: [
@@ -687,9 +686,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
     },
     it: {
       title: "Lucca in un giorno",
-      metaTitle: "Lucca in un giorno | Itinerario a piedi dal centro | Note tra le Mura",
+      metaTitle: "Lucca in un giorno | Cosa vedere a piedi | Note tra le Mura",
       metaDescription:
-        "Piano di visita per un giorno a Lucca da Via Pelleria: mattina tra le piazze, pranzo, mura o torri, musei facoltativi e sera tra le mura.",
+        "Cosa vedere a Lucca in un giorno: piazze, mura, torri, pranzo e cena in Anfiteatro. Itinerario a piedi da Via Pelleria, dentro le mura.",
       intro:
         "Un giorno a Lucca si vive meglio a piedi. Da Note tra le Mura in Via Pelleria 14 siete già dentro le mura: niente auto, pochi minuti fino alle piazze principali, tempo per un pranzo tranquillo e un pomeriggio sulle mura o sulle torri.",
       sections: [
@@ -930,9 +929,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
   "lucca-and-surroundings": {
     en: {
       title: "Lucca and surroundings",
-      metaTitle: "Lucca and surroundings | Day trips by train and car | Note tra le Mura",
+      metaTitle: "Day trips from Lucca | Pisa, coast, Cinque Terre | Note tra le Mura",
       metaDescription:
-        "Day trips from Lucca: Pisa and the Versilia coast by train, Cinque Terre and Barga by car, trekking on Monte Pisano — sea, mountains, art and villages for every kind of traveller.",
+        "Day trips from Lucca: Pisa and Versilia by train, Cinque Terre and Garfagnana by car, trekking on Monte Pisano. Sea, hills and villages.",
       intro:
         "Choosing Lucca as your base does not mean giving the rest of Tuscany away. It means keeping a quiet home behind the walls and, each morning, deciding what you feel like feeling: salt on your skin and the sound of the waves in Versilia; wonder in front of Piazza dei Miracoli; the sharp colours of the Ligurian coast; the cool air of the Apennines, where time moves more slowly. There really is something for every mood — couples who need silence, travellers who cannot go home without having touched the sea, anyone who measures a holiday in steps on a path. Your bags stay in Via Pelleria: you go out, live a full day, and in the evening you return to the same streets where you left your shoes, with one more story to tell.",
       sections: [
@@ -985,9 +984,9 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
     },
     it: {
       title: "Lucca e dintorni",
-      metaTitle: "Lucca e dintorni | Gite in treno e in auto | Note tra le Mura",
+      metaTitle: "Gite da Lucca | Mare, Pisa, Cinque Terre | Note tra le Mura",
       metaDescription:
-        "Gite da Lucca: Pisa e Versilia in treno, Cinque Terre e Barga in auto, trekking sul Monte Pisano — mare, montagna, arte e borghi per ogni tipo di viaggio.",
+        "Gite da Lucca: Pisa e Versilia in treno, Cinque Terre e Garfagnana in auto, trekking sul Monte Pisano. Mare, montagna e borghi.",
       intro:
         "Scegliere Lucca come base non vuol dire rinunciare a tutto il resto: vuol dire avere un rifugio dentro le mura e, ogni mattina, decidere quale emozione cercare. Magari il sale sulla pelle e il rumore delle onde in Versilia; magari la meraviglia davanti a Piazza dei Miracoli; magari i colori accecanti della costa ligure; magari il fresco degli Appennini, dove il tempo scorre più piano. Ce n’è davvero per tutti i gusti — per chi viaggia in coppia e ha bisogno di silenzio, per chi non vuole tornare a casa senza aver visto il mare, per chi le vacanze le misura coi passi su un sentiero. Le valigie restano in Via Pelleria: voi uscite, vivete una giornata piena, e la sera rientrate negli stessi vicoli dove avete lasciato le scarpe, con un’altra storia da raccontare.",
       sections: [

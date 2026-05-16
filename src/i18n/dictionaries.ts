@@ -193,9 +193,9 @@ const brand = "Note tra le Mura";
 export const dictionaries: Record<Locale, Messages> = {
   it: {
     meta: {
-      title: `${brand} | Appartamento vacanze Lucca, centro storico dentro le mura`,
+      title: `${brand} | Appartamento vacanze Lucca centro storico`,
       description:
-        "Appartamento per famiglie e gruppi fino a 6 ospiti in Via Pelleria 14, dentro le mura di Lucca. Centro a piedi, guide su arrivo, ristoranti e dintorni. Disponibilità via WhatsApp o email.",
+        "Appartamento fino a 6 ospiti in Via Pelleria 14, dentro le mura di Lucca. Centro storico a piedi, guide pratiche, calendario disponibilità. Contatto WhatsApp o email.",
     },
     hero: {
       imageAlt: "Lucca, torri e tetti del centro storico",
@@ -542,9 +542,9 @@ export const dictionaries: Record<Locale, Messages> = {
   },
   en: {
     meta: {
-      title: `${brand} | Family apartment inside Lucca walls`,
+      title: `${brand} | Vacation rental Lucca old town`,
       description:
-        "Vacation rental for families and groups up to 6 guests in Lucca old town, inside the Renaissance walls at Via Pelleria 14. Walk to sights, restaurants, station and bus.",
+        "Apartment for up to 6 guests inside Lucca walls at Via Pelleria 14. Walk to sights and restaurants. Practical guides and availability. WhatsApp or email.",
     },
     hero: {
       imageAlt: "Lucca’s skyline with medieval towers",
