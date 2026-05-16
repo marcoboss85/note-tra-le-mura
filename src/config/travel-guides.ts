@@ -558,11 +558,11 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Start from Via Pelleria",
           body:
-            "Leave the apartment after breakfast and walk towards the heart of the old town. Piazza San Michele in Foro is about 6 minutes on foot, Via Fillungo and Piazza dell'Anfiteatro about 8–10 minutes, depending on your pace. If you arrived by car, see our where to stay guide for parking near the walls and walking times to Via Pelleria 14.",
+            "Leave the apartment after breakfast and walk towards the heart of the old town. Piazza San Michele in Foro is about 6 minutes on foot, Via Fillungo and Piazza dell'Anfiteatro about 8–10 minutes, depending on your pace. If you arrived by car, see our how to get to Lucca and where to stay guide for parking near the walls and walking times to Via Pelleria 14.",
           links: [
             dayGuideLinks.sanMichele,
             {
-              label: "where to stay guide",
+              label: "how to get to Lucca and where to stay guide",
               href: "/en/where-to-stay-lucca-inside-walls",
             },
           ],
@@ -638,11 +638,11 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
         {
           heading: "Partire da Via Pelleria",
           body:
-            "Dopo colazione uscite verso il cuore del centro. Piazza San Michele in Foro dista circa 6 minuti a piedi, Via Fillungo e Piazza dell'Anfiteatro circa 8–10 minuti, secondo il passo. Se siete arrivati in auto, nella guida su dove soggiornare a Lucca dentro le mura trovate parcheggi e tempi a piedi fino a Via Pelleria 14.",
+            "Dopo colazione uscite verso il cuore del centro. Piazza San Michele in Foro dista circa 6 minuti a piedi, Via Fillungo e Piazza dell'Anfiteatro circa 8–10 minuti, secondo il passo. Se siete arrivati in auto, nella guida su come arrivare e dove soggiornare trovate parcheggi e tempi a piedi fino a Via Pelleria 14.",
           links: [
             dayGuideLinks.sanMichele,
             {
-              label: "guida su dove soggiornare a Lucca dentro le mura",
+              label: "guida su come arrivare e dove soggiornare",
               href: "/it/where-to-stay-lucca-inside-walls",
             },
           ],
