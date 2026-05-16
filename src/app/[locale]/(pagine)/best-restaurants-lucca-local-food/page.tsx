@@ -1,8 +1,14 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { type Locale, isLocale, localeAlternateLanguages } from "@/i18n/config";
+import {
+  type Locale,
+  isLocale,
+  localeAlternateLanguages,
+  localeToHrefLang,
+} from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { buildOpenGraphAndTwitter } from "@/lib/social-metadata";
+import { buildOpenGraphAndTwitter, getMetadataBaseUrl } from "@/lib/social-metadata";
+import { buildTravelGuideArticleJsonLd } from "@/lib/travel-guide-jsonld";
 import { travelGuides } from "@/config/travel-guides";
 import { InlineTextLinks } from "@/components/InlineTextLinks";
 import type { Metadata } from "next";
@@ -63,9 +69,20 @@ export default async function RestaurantsGuidePage({ params }: Props) {
   const locale = raw as Locale;
   const dict = getDictionary(locale);
   const guide = travelGuides["best-restaurants-lucca-local-food"][locale];
+  const pageUrl = `${getMetadataBaseUrl().origin}/${locale}${path}`;
+  const articleJsonLd = buildTravelGuideArticleJsonLd({
+    headline: guide.title,
+    description: guide.metaDescription,
+    pageUrl,
+    inLanguage: localeToHrefLang(locale),
+  });
 
   return (
     <div className="min-h-screen px-6 py-16 pb-12 font-[var(--font-ui)] md:px-12 md:py-24 md:pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <article className="mx-auto max-w-3xl">
         <Link
           href={`/${locale}`}

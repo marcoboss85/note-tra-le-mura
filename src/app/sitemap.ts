@@ -18,12 +18,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
 
     for (const path of [
-      "/cookie",
-      "/privacy",
-      "/lucca-comics",
       "/where-to-stay-lucca-inside-walls",
       "/best-restaurants-lucca-local-food",
     ] as const) {
+      entries.push({
+        url: `${base}${prefix}${path}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.75,
+      });
+    }
+
+    for (const path of ["/cookie", "/privacy", "/lucca-comics"] as const) {
       entries.push({
         url: `${base}${prefix}${path}`,
         lastModified: new Date(),
