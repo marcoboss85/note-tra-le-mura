@@ -76,6 +76,11 @@ const travelNotes: Record<
         body: "What to taste, where to book, and how to plan dinner from Via Pelleria.",
         href: "/best-restaurants-lucca-local-food",
       },
+      {
+        title: "Lucca in one day",
+        body: "A calm walking plan: morning squares, walls or towers, lunch and evening.",
+        href: "/lucca-in-one-day",
+      },
     ],
   },
   it: {
@@ -93,6 +98,11 @@ const travelNotes: Record<
         title: "Ristoranti tipici e cucina lucchese",
         body: "Cosa assaggiare, dove prenotare e come organizzare la cena.",
         href: "/best-restaurants-lucca-local-food",
+      },
+      {
+        title: "Lucca in un giorno",
+        body: "Itinerario a piedi: mattina tra le piazze, mura o torri, pranzo e sera.",
+        href: "/lucca-in-one-day",
       },
     ],
   },
@@ -112,6 +122,11 @@ const travelNotes: Record<
         body: "Was man probieren sollte und wie man ein Abendessen gut plant.",
         href: "/best-restaurants-lucca-local-food",
       },
+      {
+        title: "Lucca an einem Tag",
+        body: "Ruhiger Tagesplan zu Fuss: Plätze, Mauer oder Türme, Mittag- und Abendessen.",
+        href: "/lucca-in-one-day",
+      },
     ],
   },
   sr: {
@@ -129,6 +144,11 @@ const travelNotes: Record<
         title: "Tipični restorani i lokalna hrana u Luci",
         body: "Šta probati, gde rezervisati i kako isplanirati večeru.",
         href: "/best-restaurants-lucca-local-food",
+      },
+      {
+        title: "Luka za jedan dan",
+        body: "Plan peške: jutarnji trgovi, zidine ili tornjevi, ručak i veče.",
+        href: "/lucca-in-one-day",
       },
     ],
   },

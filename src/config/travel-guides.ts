@@ -16,7 +16,8 @@ export type TravelGuide = {
 
 type GuideSlug =
   | "where-to-stay-lucca-inside-walls"
-  | "best-restaurants-lucca-local-food";
+  | "best-restaurants-lucca-local-food"
+  | "lucca-in-one-day";
 
 const googleMapsSearch = (query: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
@@ -68,6 +69,45 @@ const parkingLinks = {
   maestri: {
     label: "Piazzale Maestri del Lavoro",
     href: googleMapsSearch("Piazzale Maestri del Lavoro Lucca"),
+  },
+};
+
+const dayGuideLinks = {
+  sanMichele: {
+    label: "Piazza San Michele in Foro",
+    href: googleMapsSearch("Piazza San Michele in Foro Lucca"),
+  },
+  fillungo: {
+    label: "Via Fillungo",
+    href: googleMapsSearch("Via Fillungo Lucca"),
+  },
+  anfiteatro: {
+    label: "Piazza dell'Anfiteatro",
+    href: googleMapsSearch("Piazza dell'Anfiteatro Lucca"),
+  },
+  duomo: {
+    label: "Duomo di San Martino",
+    href: googleMapsSearch("Duomo di San Martino Lucca"),
+  },
+  guinigi: {
+    label: "Torre Guinigi",
+    href: googleMapsSearch("Torre Guinigi Lucca"),
+  },
+  torreOre: {
+    label: "Torre delle Ore",
+    href: googleMapsSearch("Torre delle Ore Lucca"),
+  },
+  mura: {
+    label: "Mura di Lucca",
+    href: googleMapsSearch("Passeggiata Mura di Lucca"),
+  },
+  pfanner: {
+    label: "Palazzo Pfanner",
+    href: googleMapsSearch("Palazzo Pfanner Lucca"),
+  },
+  puccini: {
+    label: "Casa natale di Giacomo Puccini",
+    href: googleMapsSearch("Casa natale Giacomo Puccini Lucca"),
   },
 };
 
@@ -389,6 +429,320 @@ export const travelGuides: Record<GuideSlug, Record<Locale, TravelGuide>> = {
       ],
       cta: "Pitajte nas za lokalne savete",
       ctaHref: "/sr#contatti",
+    },
+  },
+  "lucca-in-one-day": {
+    en: {
+      title: "Lucca in one day",
+      metaTitle: "Lucca in one day | Walking itinerary from the old town | Note tra le Mura",
+      metaDescription:
+        "A calm one-day walking plan for Lucca from Via Pelleria: morning squares, lunch, city walls or towers, optional museums and evening dinner tips inside the walls.",
+      intro:
+        "One day in Lucca works best on foot. From Note tra le Mura in Via Pelleria 14 you are already inside the walls: no car needed, short walks to the main squares, and time for a slow lunch and an afternoon on the ramparts or towers.",
+      sections: [
+        {
+          heading: "Start from Via Pelleria",
+          body:
+            "Leave the apartment after breakfast and walk towards the heart of the old town. Piazza San Michele in Foro is about 6 minutes on foot, Via Fillungo and Piazza dell'Anfiteatro about 8–10 minutes, depending on your pace. If you arrived by car, see our where to stay guide for parking near the walls and walking times to Via Pelleria 14.",
+          links: [
+            dayGuideLinks.sanMichele,
+            {
+              label: "where to stay guide",
+              href: "/en/where-to-stay-lucca-inside-walls",
+            },
+          ],
+        },
+        {
+          heading: "Morning: squares and the centre",
+          body:
+            "A relaxed morning can cover Piazza San Michele in Foro and the church facade, a stroll along Via Fillungo for shops and cafés, then Piazza dell'Anfiteatro with its oval shape and small bars. If you want one church visit, the Duomo di San Martino is a short walk away. You do not need to rush: choose two or three stops and enjoy the pace of the centre.",
+          links: [
+            dayGuideLinks.sanMichele,
+            dayGuideLinks.fillungo,
+            dayGuideLinks.anfiteatro,
+            dayGuideLinks.duomo,
+          ],
+        },
+        {
+          heading: "Lunch",
+          body:
+            "Plan lunch around 12:30–14:00. From Via Pelleria you are close to several central trattorias; Trattoria da Giulio in Pelleria is among the nearest. For breakfast ideas, supermarket shopping and a wider list of restaurants, see our restaurants and local food guide.",
+          links: [
+            foodGuideLinks.giulio,
+            {
+              label: "restaurants and local food guide",
+              href: "/en/best-restaurants-lucca-local-food",
+            },
+          ],
+        },
+        {
+          heading: "Afternoon: walls or towers",
+          body:
+            "After lunch, choose one main activity. Many guests walk part of the Mura di Lucca: the tree-lined path on top of the Renaissance walls is flat and wide, ideal for a slow loop or a bike ride (bike rental in the centre). Alternatively, climb Torre Guinigi with its holm oaks on the roof, or Torre delle Ore for views over the rooftops. One tower plus a short walk on the walls is enough for most visitors.",
+          links: [
+            dayGuideLinks.mura,
+            dayGuideLinks.guinigi,
+            dayGuideLinks.torreOre,
+            {
+              label: "bike rental",
+              href: googleMapsSearch("bike rental Lucca historic centre"),
+            },
+          ],
+        },
+        {
+          heading: "If you still have time",
+          body:
+            "With energy left, add one extra stop rather than many: Palazzo Pfanner and its garden, or the Casa natale di Giacomo Puccini museum for music lovers. Skip the rest and save a slower evening in a square instead.",
+          links: [dayGuideLinks.pfanner, dayGuideLinks.puccini],
+        },
+        {
+          heading: "Evening",
+          body:
+            "Lucca is pleasant at dusk: an aperitivo in Piazza San Michele or near Piazza dell'Anfiteatro, then dinner in a trattoria. Book ahead on weekends and in summer. For names, booking tips and typical dishes, use our restaurants and local food guide.",
+          links: [
+            {
+              label: "restaurants and local food guide",
+              href: "/en/best-restaurants-lucca-local-food",
+            },
+          ],
+        },
+      ],
+      cta: "See the apartment",
+      ctaHref: "/en",
+    },
+    it: {
+      title: "Lucca in un giorno",
+      metaTitle: "Lucca in un giorno | Itinerario a piedi dal centro | Note tra le Mura",
+      metaDescription:
+        "Piano di visita per un giorno a Lucca da Via Pelleria: mattina tra le piazze, pranzo, mura o torri, musei facoltativi e sera tra le mura.",
+      intro:
+        "Un giorno a Lucca si vive meglio a piedi. Da Note tra le Mura in Via Pelleria 14 siete già dentro le mura: niente auto, pochi minuti fino alle piazze principali, tempo per un pranzo tranquillo e un pomeriggio sulle mura o sulle torri.",
+      sections: [
+        {
+          heading: "Partire da Via Pelleria",
+          body:
+            "Dopo colazione uscite verso il cuore del centro. Piazza San Michele in Foro dista circa 6 minuti a piedi, Via Fillungo e Piazza dell'Anfiteatro circa 8–10 minuti, secondo il passo. Se siete arrivati in auto, nella guida su dove soggiornare a Lucca dentro le mura trovate parcheggi e tempi a piedi fino a Via Pelleria 14.",
+          links: [
+            dayGuideLinks.sanMichele,
+            {
+              label: "guida su dove soggiornare a Lucca dentro le mura",
+              href: "/it/where-to-stay-lucca-inside-walls",
+            },
+          ],
+        },
+        {
+          heading: "Mattina: piazze e centro",
+          body:
+            "Una mattina tranquilla può includere Piazza San Michele in Foro e la facciata della chiesa, una passeggiata su Via Fillungo tra negozi e caffè, poi Piazza dell'Anfiteatro con la sua forma ovale. Per una chiesa, il Duomo di San Martino è a pochi minuti. Non serve correre: scegliete due o tre tappe e godetevi il ritmo del centro.",
+          links: [
+            dayGuideLinks.sanMichele,
+            dayGuideLinks.fillungo,
+            dayGuideLinks.anfiteatro,
+            dayGuideLinks.duomo,
+          ],
+        },
+        {
+          heading: "Pranzo",
+          body:
+            "Il pranzo conviene tra le 12:30 e le 14:00. Da Via Pelleria siete vicini a diverse trattorie centrali; la Trattoria da Giulio in Pelleria è tra le più vicine. Per colazione, spesa al supermercato e un elenco più ampio di ristoranti, vedete la guida su ristoranti tipici e cucina lucchese.",
+          links: [
+            foodGuideLinks.giulio,
+            {
+              label: "guida su ristoranti tipici e cucina lucchese",
+              href: "/it/best-restaurants-lucca-local-food",
+            },
+          ],
+        },
+        {
+          heading: "Pomeriggio: mura o torri",
+          body:
+            "Dopo pranzo, scegliete un’attività principale. Molti ospiti percorrono un tratto delle Mura di Lucca: il cammino sopra le mura rinascimentali è pianeggiante e largo, adatto a una passeggiata lenta o in bici (noleggio bici in centro). In alternativa, salite alla Torre Guinigi con i lecci sul tetto, o alla Torre delle Ore per il panorama sui tetti. Per molti visitatori bastano una torre e un breve tratto sulle mura.",
+          links: [
+            dayGuideLinks.mura,
+            dayGuideLinks.guinigi,
+            dayGuideLinks.torreOre,
+            {
+              label: "noleggio bici",
+              href: googleMapsSearch("noleggio bici Lucca centro storico"),
+            },
+          ],
+        },
+        {
+          heading: "Se avete ancora tempo",
+          body:
+            "Con energia in più, aggiungete una sola tappa: Palazzo Pfanner con il giardino, oppure la Casa natale di Giacomo Puccini per chi ama la musica. Meglio saltare il resto e lasciare una serata lenta in piazza.",
+          links: [dayGuideLinks.pfanner, dayGuideLinks.puccini],
+        },
+        {
+          heading: "Sera",
+          body:
+            "Lucca al tramonto è piacevole: aperitivo in Piazza San Michele o vicino a Piazza dell'Anfiteatro, poi cena in trattoria. Nei weekend e in estate conviene prenotare. Per nomi, consigli e piatti tipici, usate la guida su ristoranti tipici e cucina lucchese.",
+          links: [
+            {
+              label: "guida su ristoranti tipici e cucina lucchese",
+              href: "/it/best-restaurants-lucca-local-food",
+            },
+          ],
+        },
+      ],
+      cta: "Vedi l'appartamento",
+      ctaHref: "/it",
+    },
+    de: {
+      title: "Lucca an einem Tag",
+      metaTitle: "Lucca an einem Tag | Fussweg-Route ab der Altstadt | Note tra le Mura",
+      metaDescription:
+        "Ein ruhiger Tagesplan für Lucca ab Via Pelleria: Plätze am Morgen, Mittagessen, Stadtmauer oder Türme, optional Museen und Abendessen innerhalb der Mauern.",
+      intro:
+        "Ein Tag in Lucca funktioniert am besten zu Fuss. Von Note tra le Mura in der Via Pelleria 14 sind Sie bereits innerhalb der Mauern: kein Auto nötig, kurze Wege zu den Hauptplätzen, Zeit für ein ruhiges Mittagessen und einen Nachmittag auf der Mauer oder auf einem Turm.",
+      sections: [
+        {
+          heading: "Start in der Via Pelleria",
+          body:
+            "Nach dem Frühstück gehen Sie Richtung Zentrum. Die Piazza San Michele in Foro ist etwa 6 Minuten zu Fuss entfernt, Via Fillungo und Piazza dell'Anfiteatro etwa 8–10 Minuten. Wer mit dem Auto anreist, findet im Übernachtungs-Guide Parken nahe der Mauern und Wege zur Via Pelleria 14.",
+          links: [
+            dayGuideLinks.sanMichele,
+            {
+              label: "Übernachtungs-Guide",
+              href: "/de/where-to-stay-lucca-inside-walls",
+            },
+          ],
+        },
+        {
+          heading: "Vormittag: Plätze und Zentrum",
+          body:
+            "Ein entspannter Vormittag kann Piazza San Michele in Foro, einen Spaziergang über die Via Fillungo und die Piazza dell'Anfiteatro umfassen. Wer eine Kirche besuchen möchte, ist beim Duomo di San Martino schnell. Wählen Sie zwei oder drei Stopps – das Tempo zählt mehr als die Anzahl.",
+          links: [
+            dayGuideLinks.sanMichele,
+            dayGuideLinks.fillungo,
+            dayGuideLinks.anfiteatro,
+            dayGuideLinks.duomo,
+          ],
+        },
+        {
+          heading: "Mittagessen",
+          body:
+            "Planen Sie das Mittagessen gegen 12:30–14:00 Uhr. Von der Via Pelleria aus sind mehrere Trattorien in der Nähe; Trattoria da Giulio in Pelleria ist eine der nächsten. Frühstück, Einkauf und weitere Restauranttipps stehen im Food-Guide.",
+          links: [
+            foodGuideLinks.giulio,
+            {
+              label: "Food-Guide",
+              href: "/de/best-restaurants-lucca-local-food",
+            },
+          ],
+        },
+        {
+          heading: "Nachmittag: Mauer oder Türme",
+          body:
+            "Nach dem Essen eine Hauptaktivität wählen: ein Stück Mura di Lucca (ebener Weg, gut für Spazieren oder Fahrrad, Fahrradverleih im Zentrum), oder Torre Guinigi mit Steineichen auf dem Dach, oder Torre delle Ore für die Aussicht. Für die meisten Gäste reichen ein Turm und ein kurzer Mauerweg.",
+          links: [
+            dayGuideLinks.mura,
+            dayGuideLinks.guinigi,
+            dayGuideLinks.torreOre,
+            {
+              label: "Fahrradverleih",
+              href: googleMapsSearch("Fahrradverleih Lucca Altstadt"),
+            },
+          ],
+        },
+        {
+          heading: "Wenn noch Zeit bleibt",
+          body:
+            "Mit Restenergie einen zusätzlichen Stopp: Palazzo Pfanner mit Garten oder Casa natale di Giacomo Puccini für Musikfreunde. Lieber einen ruhigen Abend auf einem Platz als zu viele Museen.",
+          links: [dayGuideLinks.pfanner, dayGuideLinks.puccini],
+        },
+        {
+          heading: "Abend",
+          body:
+            "Lucca ist bei Dämmerung angenehm: Aperitif an der Piazza San Michele oder nahe Piazza dell'Anfiteatro, danach Abendessen in einer Trattoria. Am Wochenende und im Sommer reservieren. Namen und Gerichte finden Sie im Food-Guide.",
+          links: [
+            {
+              label: "Food-Guide",
+              href: "/de/best-restaurants-lucca-local-food",
+            },
+          ],
+        },
+      ],
+      cta: "Wohnung ansehen",
+      ctaHref: "/de",
+    },
+    sr: {
+      title: "Luka za jedan dan",
+      metaTitle: "Luka za jedan dan | Pešačka ruta iz centra | Note tra le Mura",
+      metaDescription:
+        "Plan za jedan dan u Luci od Via Pelleria: jutarnji trgovi, ručak, zidine ili tornjevi, opcioni muzeji i večera unutar zidina.",
+      intro:
+        "Jedan dan u Luci najbolje je peške. Od Note tra le Mura u Via Pelleria 14 već ste unutar zidina: bez auta, kratke šetnje do glavnih trgova, vremena za miran ručak i popodne na bedemima ili tornjevima.",
+      sections: [
+        {
+          heading: "Polazak od Via Pelleria",
+          body:
+            "Posle doručka krenite ka centru. Piazza San Michele in Foro je oko 6 minuta peške, Via Fillungo i Piazza dell'Anfiteatro oko 8–10 minuta. Ako ste došli autom, u vodiču o boravku unutar zidina nalaze se parking i vreme peške do Via Pelleria 14.",
+          links: [
+            dayGuideLinks.sanMichele,
+            {
+              label: "vodič o boravku unutar zidina",
+              href: "/sr/where-to-stay-lucca-inside-walls",
+            },
+          ],
+        },
+        {
+          heading: "Jutro: trgovi i centar",
+          body:
+            "Mirno jutro može uključiti Piazza San Michele in Foro, šetnju Via Fillungo i Piazza dell'Anfiteatro. Za jednu crkvu, Duomo di San Martino je blizu. Izaberite dve ili tri stanke – tempo je važniji od broja.",
+          links: [
+            dayGuideLinks.sanMichele,
+            dayGuideLinks.fillungo,
+            dayGuideLinks.anfiteatro,
+            dayGuideLinks.duomo,
+          ],
+        },
+        {
+          heading: "Ručak",
+          body:
+            "Ručak planirajte oko 12:30–14:00. Od Via Pelleria ste blizu nekoliko centralnih trattorija; Trattoria da Giulio in Pelleria je među najbližim. Za doručak, nabavku i više restorana pogledajte vodič o hrani i restoranima.",
+          links: [
+            foodGuideLinks.giulio,
+            {
+              label: "vodič o hrani i restoranima",
+              href: "/sr/best-restaurants-lucca-local-food",
+            },
+          ],
+        },
+        {
+          heading: "Popodne: zidine ili tornjevi",
+          body:
+            "Posle ručka izaberite jednu glavnu aktivnost: deo Mura di Lucca (ravan put, dobar za šetnju ili bicikl, iznajmljivanje bicikala u centru), ili Torre Guinigi, ili Torre delle Ore. Većini gostiju dovoljni su jedan toranj i kratak deo zidina.",
+          links: [
+            dayGuideLinks.mura,
+            dayGuideLinks.guinigi,
+            dayGuideLinks.torreOre,
+            {
+              label: "iznajmljivanje bicikala",
+              href: googleMapsSearch("iznajmljivanje bicikala Lucca"),
+            },
+          ],
+        },
+        {
+          heading: "Ako ostane vremena",
+          body:
+            "Sa viškom energije dodajte jednu stanicu: Palazzo Pfanner sa baštom ili Casa natale di Giacomo Puccini. Bolje mirna večer na trgu nego previše muzeja.",
+          links: [dayGuideLinks.pfanner, dayGuideLinks.puccini],
+        },
+        {
+          heading: "Veče",
+          body:
+            "Luka je lepa u sumrak: aperitiv na Piazza San Michele ili kod Piazza dell'Anfiteatro, zatim večera u trattoriji. Vikendom i leti rezervišite. Imena i jela su u vodiču o hrani i restoranima.",
+          links: [
+            {
+              label: "vodič o hrani i restoranima",
+              href: "/sr/best-restaurants-lucca-local-food",
+            },
+          ],
+        },
+      ],
+      cta: "Pogledaj apartman",
+      ctaHref: "/sr",
     },
   },
 };

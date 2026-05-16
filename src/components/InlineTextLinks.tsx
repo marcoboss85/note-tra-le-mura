@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export type InlineTextLink = {
   label: string;
   href: string;
@@ -31,13 +33,22 @@ export function InlineTextLinks({
         if (!link) {
           return part;
         }
+        const className =
+          "font-medium text-[#243828] underline decoration-[#9ab09a] underline-offset-4 transition hover:decoration-[#243828]";
+        if (link.href.startsWith("/")) {
+          return (
+            <Link key={`${part}-${index}`} href={link.href} className={className}>
+              {part}
+            </Link>
+          );
+        }
         return (
           <a
             key={`${part}-${index}`}
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-[#243828] underline decoration-[#9ab09a] underline-offset-4 transition hover:decoration-[#243828]"
+            className={className}
           >
             {part}
           </a>
